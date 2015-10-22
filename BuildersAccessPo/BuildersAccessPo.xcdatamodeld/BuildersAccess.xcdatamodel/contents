@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12A269" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DatCias" representedClassName="DatCias" syncable="YES">
+        <attribute name="ciaid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cianame" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DatFavorite" syncable="YES">
+        <attribute name="idcia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idnumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="planname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DatPhone" representedClassName="DatPhone" syncable="YES">
+        <attribute name="ciaid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mobile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="telhome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DatProject" representedClassName="DatProject" syncable="YES">
+        <attribute name="idcia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idnumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isactive" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="planname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DatReason" syncable="YES">
+        <attribute name="idcia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idnumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DatSync" syncable="YES">
+        <attribute name="ciaid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastsync" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="mtype" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DatVendor" syncable="YES">
+        <attribute name="idcia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Xpin" representedClassName="Xpin" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pincode" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DatVendor" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="DatCias" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="DatFavorite" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="DatPhone" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="DatProject" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="DatReason" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="DatSync" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Xpin" positionX="160" positionY="192" width="128" height="75"/>
+    </elements>
+</model>

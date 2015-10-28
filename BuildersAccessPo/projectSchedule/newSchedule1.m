@@ -51,11 +51,11 @@
     UITabBarItem *firstItem0 ;
     firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Project" image:[UIImage imageNamed:@"home.png"] tag:1];
     UITabBarItem *fi;
-    if (isshowTaskDue) {
-        fi =[[UITabBarItem alloc]initWithTitle:@"Task Due" image:[UIImage imageNamed:@"schedule.png"] tag:2];
-    }else{
+//    if (isshowTaskDue) {
+//        fi =[[UITabBarItem alloc]initWithTitle:@"Task Due" image:[UIImage imageNamed:@"schedule.png"] tag:2];
+//    }else{
         fi =[[UITabBarItem alloc]init];
-    }
+//    }
     
     UITabBarItem *f2 =[[UITabBarItem alloc]init];
     UITabBarItem *firstItem2 = [[UITabBarItem alloc]initWithTitle:@"Refresh" image:[UIImage imageNamed:@"refresh3.png"] tag:3];
@@ -67,7 +67,7 @@
     if (isshowTaskDue) {
         //         [[ntabbar.items objectAtIndex:1]setAction:@selector(goTaskDue)];
     }else{
-        [[ntabbar.items objectAtIndex:1]setEnabled:NO ];
+        [[ntabbar.items objectAtIndex:1] setEnabled:NO ];
     }
     
     [[ntabbar.items objectAtIndex:2]setEnabled:NO ];

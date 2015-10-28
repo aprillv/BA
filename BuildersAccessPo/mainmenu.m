@@ -267,9 +267,9 @@ NSString *atitle;
     }
     
     //    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, 5, 300, tbheight*6)];
-    
+    [UITableView appearance].separatorColor = [UIColor grayColor];
     ciatbview.rowHeight = tbheight;
-    
+//    ciatbview.separatorColor = [UIColor grayColor];
 //    ciatbview.layer.cornerRadius = 10;
     
     [uv addSubview:ciatbview];
@@ -277,6 +277,29 @@ NSString *atitle;
     ciatbview.dataSource = self;
     
 }
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
+-(void)viewDidLayoutSubviews
+{
+    if ([ciatbview respondsToSelector:@selector(setSeparatorInset:)]) {
+        [ciatbview setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([ciatbview respondsToSelector:@selector(setLayoutMargins:)]) {
+        [ciatbview setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     if ([item.title isEqualToString:@"Phone List"]) {
@@ -366,11 +389,27 @@ NSString *atitle;
 //    cell.detailTextLabel.font=[UIFont systemFontOfSize:16.0];
     cell.detailTextLabel.text = [detailstrarr objectAtIndex:indexPath.row];
     [cell.detailTextLabel sizeToFit];
-    [cell .imageView setImage:[UIImage imageNamed:kv.Value]];
+    UIImage *img = [UIImage imageNamed:kv.Value];
+    [cell .imageView setImage:[self scaleImage:img toScale:.7]];
     return cell;
 }
 
+- (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize
 
+{
+    
+    UIGraphicsBeginImageContext(
+                                CGSizeMake(image.size.width * scaleSize,
+                                           image.size.height * scaleSize));
+                                
+                                [image drawInRect:CGRectMake(0, 0, image.size.width * scaleSize, image.size.height * scaleSize)];
+                                UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+                                UIGraphicsEndImageContext();
+                                
+                                return scaledImage;
+                                
+                                }
+                                
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     donext=1;
     [self checkupd];

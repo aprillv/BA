@@ -34,6 +34,7 @@
 //#import "ZSYPopoverListView.h"
 #import "projectPhotoFolder.h"
 #import "ProjectPhotoName.h"
+#import "newSchedule2.h"
 
 @interface project ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate,MBProgressHUDDelegate, UITabBarDelegate>{
     MBProgressHUD *HUD;
@@ -581,7 +582,12 @@
         
         int tmph =rowheight*4;
         if(result.Stage !=nil){
-            tmph=tmph+10;
+            
+            if ([result.Status isEqualToString:@"Sold"]|| [result.Status isEqualToString:@"Closed"]) {
+                tmph=tmph+10;
+            }else{
+                tmph=tmph+52;
+            }
         }
         if ([result.Status isEqualToString:@"Sold"]|| [result.Status isEqualToString:@"Closed"]) {
             tmph=tmph+10;
@@ -620,6 +626,19 @@
             ciatbview.delegate = self;
             ciatbview.dataSource = self;
               y=y+42;
+            if (![result.Status isEqualToString:@"Sold"] && ![result.Status isEqualToString:@"Closed"]) {
+                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y+3, 300, 41)];
+                ciatbview.tag=57;
+                ciatbview.separatorColor=[UIColor clearColor];
+                [ciatbview setRowHeight:41];
+                ciatbview.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight;
+                [sv addSubview:ciatbview];
+                ciatbview.delegate = self;
+                ciatbview.dataSource = self;
+                y=y+42;
+            }
+            
+            
         }
         
        
@@ -1102,7 +1121,7 @@
             cell.textLabel.font=[UIFont systemFontOfSize:16.0];
             [cell .imageView setImage:nil];
         }else{
-        if (tableView.tag!=7 && tableView.tag!=10 && tableView.tag!=8 && tableView.tag!=11 && tableView.tag!=15 && tableView.tag!=16 && tableView.tag!=17 && tableView.tag!=18) {
+        if (tableView.tag!=7 && tableView.tag!=10 && tableView.tag!=8 && tableView.tag!=11 && tableView.tag!=15 && tableView.tag!=16 && tableView.tag!=17 && tableView.tag!=18 && tableView.tag!=57) {
             cell=[[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, 300, 32)];
             CGRect rect = CGRectMake(10, 0, 295, 32);
             UILabel * label= [[UILabel alloc]initWithFrame:rect];
@@ -1272,6 +1291,14 @@
             cell.textLabel.font=[UIFont systemFontOfSize:16.0];
             [cell.imageView setImage:nil];
              cell.textLabel.text=@"Suggest New Price";
+         }else if(tableView.tag==57){
+             if (cell == nil){
+                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                 cell.selectionStyle = UITableViewCellSelectionStyleBlue;            }
+             cell.textLabel.font=[UIFont systemFontOfSize:16.0];
+             [cell.imageView setImage:nil];
+             cell.textLabel.text=@"Task Due";
          }else if(tableView.tag==18){
              if (cell == nil){
                  cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
@@ -1305,6 +1332,7 @@
         case 16:
         case 18:
         case 17:
+        case 57:
             rtn=1;
             break;
         case 8:
@@ -1553,7 +1581,13 @@
                         ns.isshowTaskDue=!result.ArchiveYN;
                         [self.navigationController pushViewController:ns animated:YES];
 //                    }
-                   
+                }else if (tbview.tag==57) {
+                    newSchedule2 *ns =[self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"newSchedule2"];
+                    ns.managedObjectContext=self.managedObjectContext;
+                    ns.xidproject=self.idproject;
+                    ns.xidstep=@"-1";
+                    ns.title=@"Task Due List";
+                    [self.navigationController pushViewController:ns animated:YES];
                 }else if (tbview.tag==18) {
                     if (result.IdContract==nil) {
                         UIAlertView *alert=[self getErrorAlert:@"There is no Contract with this project."];

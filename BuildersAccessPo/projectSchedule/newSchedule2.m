@@ -37,6 +37,7 @@
     NSIndexPath *selIndex;
     UIActionSheet *actionSheet;
     NSDateFormatter *formatter;
+    BOOL hasUpdateButton;
     
     int donext;
 //    UIButton*  scanQRCodeButton;
@@ -65,7 +66,7 @@
     [pdate setHidden:YES];
     [self.navigationItem setHidesBackButton:YES];
     [self.navigationItem setLeftBarButtonItem:[self getbackButton]];
-    
+    hasUpdateButton = YES;
     
     UITabBarItem *firstItem0 ;
     firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Project" image:[UIImage imageNamed:@"home.png"] tag:1];
@@ -165,6 +166,7 @@
   
     xheight=0;
     BOOL canupdate=NO;
+    hasUpdateButton = NO;
     for (wcfProjectSchedule *event in wi) {
         if (event.Notes!=nil) {
             xheight+=64;
@@ -173,6 +175,7 @@
         }
         if (!event.DcompleteYN) {
             canupdate=YES;
+            hasUpdateButton = YES;
         }
     }
     [tbview reloadData];
@@ -205,6 +208,9 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return YES if you want the specified item to be editable.
+    if (indexPath.row == [wi count]) {
+        return NO;
+    }
      wcfProjectSchedule *event =[wi objectAtIndex:(indexPath.row)];
     
     if (!event.DcompleteYN) {
@@ -216,6 +222,9 @@
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == [wi count] ) {
+        return;
+    }
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         selIndex=indexPath;
         donext=2;
@@ -238,13 +247,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 //    NSLog(@"%d", [wi count]);
-    return [wi count];
+    if (hasUpdateButton) {
+        return [wi count] + 1;
+    }else{
+        return [wi count];
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    if (indexPath.row >= [wi count] ) {
+        return [[UITableViewCell alloc] init];
+    }
     wcfProjectSchedule *event =[wi objectAtIndex:(indexPath.row)];
     
     static NSString *CellIdentifier = @"CellwcfProjectSchedule";
@@ -469,6 +485,9 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == [wi count]) {
+        return 80;
+    }
     wcfProjectSchedule *event =[wi objectAtIndex:(indexPath.row)];
     if (event.Notes!=nil) {
        return 64;

@@ -19,6 +19,7 @@
 #import "MBProgressHUD.h"
 #import "aCell.h"
 #import "reschedule.h"
+#import "taskDueSelProViewController.h"
 
 //#import "CustomCell.h"
 
@@ -38,10 +39,11 @@
     UIActionSheet *actionSheet;
     NSDateFormatter *formatter;
     BOOL hasUpdateButton;
-    
+    UIButton* loginButton;
     int donext;
 //    UIButton*  scanQRCodeButton;
 }
+- (IBAction)gotoSelectProject:(UIBarButtonItem *)sender;
 
 @end
 
@@ -78,7 +80,7 @@
     
     [ntabbar setItems:itemsArray animated:YES];
     ntabbar.delegate = self;
-//    [[ntabbar.items objectAtIndex:0]setAction:@selector(goBack1) ];
+//    [[ntabbar.items objectAtIndex: 0] setAction: @selector(goBack1) ];
     [[ntabbar.items objectAtIndex:1]setEnabled:NO ];
     [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
 //    [[ntabbar.items objectAtIndex:3]setAction:@selector(dorefresh)];
@@ -108,6 +110,15 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    if (wi) {
+        [wi removeAllObjects];
+        [self.tbview reloadData];
+        if (loginButton) {
+            [loginButton removeFromSuperview];
+            loginButton = nil;
+        }
+        tbview.separatorColor = [UIColor clearColor];
+    }
     [self getMilestoneItem];
 }
 -(void)getMilestoneItem{
@@ -120,7 +131,7 @@
     }else{
         wcfService *service =[wcfService service];
         if ([xidstep isEqualToString:@"-1"]) {
-            [service xGetTaskDue:self action:@selector(xisupdate_iphoneHandler5:) xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] xidcia:[[NSNumber numberWithInt:[userInfo getCiaId]]stringValue] xidproject:xidproject EquipmentType:@"3"];
+            [service xGetTaskDue:self action: @selector(xisupdate_iphoneHandler5:) xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] xidcia:[[NSNumber numberWithInt:[userInfo getCiaId]]stringValue] xidproject:xidproject EquipmentType:@"3"];
         }else{
             [service xGetNewSchedule2:self action:@selector(xisupdate_iphoneHandler5:) xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] xidcia:[[NSNumber numberWithInt:[userInfo getCiaId]]stringValue] xidproject:xidproject xstep:xidstep EquipmentType:@"3"];
         }
@@ -178,30 +189,36 @@
             hasUpdateButton = YES;
         }
     }
-    [tbview reloadData];
-    
-    
-    if (canupdate) {
-        CGFloat xh = 0;
-        for (wcfProjectSchedule *event in wi) {
-            if (event.Notes!=nil) {
-                xh += 64;
-            }else{
-                xh += 54;
+    if (wi.count >0 ) {
+        [tbview reloadData];
+        tbview.separatorColor = [UIColor grayColor];
+        
+        if (canupdate) {
+            CGFloat xh = 0;
+            for (wcfProjectSchedule *event in wi) {
+                if (event.Notes!=nil) {
+                    xh += 64;
+                }else{
+                    xh += 54;
+                }
             }
+            if (loginButton) {
+                [loginButton removeFromSuperview];
+                loginButton = nil;
+            }
+            loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [loginButton setFrame:CGRectMake(10, xh+20, self.view.frame.size.width-20, 44)];
+            [loginButton setTitle:@"Update Schedule" forState:UIControlStateNormal];
+            [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
+            [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
+            [loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [loginButton addTarget:self action:@selector(doapprove1) forControlEvents:UIControlEventTouchUpInside];
+            [tbview addSubview:loginButton];
+            //        xheight=xheight+74;
+            
         }
-        
-        UIButton* loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton setFrame:CGRectMake(10, xh+20, self.view.frame.size.width-20, 44)];
-        [loginButton setTitle:@"Update Schedule" forState:UIControlStateNormal];
-        [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
-        [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
-        [loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [loginButton addTarget:self action:@selector(doapprove1) forControlEvents:UIControlEventTouchUpInside];
-        [tbview addSubview:loginButton];
-//        xheight=xheight+74;
-        
     }
+   
     
     [ntabbar setSelectedItem:nil];
 }
@@ -247,7 +264,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 //    NSLog(@"%d", [wi count]);
-    if (hasUpdateButton) {
+    if (hasUpdateButton && [wi count]>0) {
         return [wi count] + 1;
     }else{
         return [wi count];
@@ -827,7 +844,8 @@
         HUD.progress=1.0;
         self.view.userInteractionEnabled=YES;
         [HUD hide];
-        [self goBack1];
+        [self viewWillAppear:YES];
+//        [self goBack1];
     }
 }
 - (void) doxCompleteScheduleHandler: (id) value {
@@ -919,11 +937,18 @@
     return alertView;
 }
 
+
+- (IBAction)gotoSelectProject:(UIBarButtonItem *)sender{
+    taskDueSelProViewController *ta = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"taskDueSelProViewController"];
+    ta.delegate = self;
+    [self.navigationController presentViewController:ta animated:YES completion:^{
+//        [self viewWillAppear:YES];
+    }];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 @end

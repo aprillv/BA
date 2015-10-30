@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110D4D6F1BE304FA00542FEA /* taskDueSelProViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110D4D6E1BE304FA00542FEA /* taskDueSelProViewController.m */; settings = {ASSET_TAGS = (); }; };
 		11199EDF1BD48D0500056FAD /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 11199EDE1BD48D0500056FAD /* back.png */; };
 		9E0C7792179FBF7B00FB9A17 /* requestpoemail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C7791179FBF7B00FB9A17 /* requestpoemail.m */; };
 		9E14BEFC16E0AE5A00490EA5 /* projectls.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E14BEFA16E0AE5A00490EA5 /* projectls.m */; };
@@ -295,6 +296,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		110D4D6D1BE304FA00542FEA /* taskDueSelProViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskDueSelProViewController.h; sourceTree = "<group>"; };
+		110D4D6E1BE304FA00542FEA /* taskDueSelProViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taskDueSelProViewController.m; sourceTree = "<group>"; };
 		11199EDE1BD48D0500056FAD /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		9E0C7790179FBF7B00FB9A17 /* requestpoemail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = requestpoemail.h; sourceTree = "<group>"; };
 		9E0C7791179FBF7B00FB9A17 /* requestpoemail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = requestpoemail.m; sourceTree = "<group>"; };
@@ -1004,6 +1007,8 @@
 				9E1B15ED1755F71C006870F4 /* bustoutupg.m */,
 				9E1C81E216E06F5B0011998B /* Products */,
 				9E1C81E316E06F5B0011998B /* Frameworks */,
+				110D4D6D1BE304FA00542FEA /* taskDueSelProViewController.h */,
+				110D4D6E1BE304FA00542FEA /* taskDueSelProViewController.m */,
 			);
 			name = BuildersAccess;
 			path = BuildersAccessPo;
@@ -1760,6 +1765,7 @@
 				9E18A499170C2ABC0010B2EA /* coforapproveupd1.m in Sources */,
 				9EC8A582170D65FC0094AC53 /* contractforapproveupd.m in Sources */,
 				9E1ABB2D170E937A001959BA /* contractforapproveupd1.m in Sources */,
+				110D4D6F1BE304FA00542FEA /* taskDueSelProViewController.m in Sources */,
 				9E1A61801716916E00E32F2A /* InsetsLabel.m in Sources */,
 				9E2543971721144200589124 /* forapprovepocials.m in Sources */,
 				9E25443A172128C600589124 /* forapprovepols.m in Sources */,

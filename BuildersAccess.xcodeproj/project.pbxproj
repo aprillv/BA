@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		110D4D6F1BE304FA00542FEA /* taskDueSelProViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110D4D6E1BE304FA00542FEA /* taskDueSelProViewController.m */; settings = {ASSET_TAGS = (); }; };
 		11199EDF1BD48D0500056FAD /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 11199EDE1BD48D0500056FAD /* back.png */; };
+		11A861ED1BE48A72008E3292 /* NaviSearchTabBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861EC1BE48A72008E3292 /* NaviSearchTabBaseViewController.m */; settings = {ASSET_TAGS = (); }; };
+		11A861F01BE48BCE008E3292 /* ProjectLsFromTaskDue.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861EF1BE48BCE008E3292 /* ProjectLsFromTaskDue.m */; settings = {ASSET_TAGS = (); }; };
+		11A861F31BE49313008E3292 /* wcfArrayOfProjectTaskDue.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861F21BE49313008E3292 /* wcfArrayOfProjectTaskDue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		11A861F61BE49460008E3292 /* wcfProjectTaskDue.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861F51BE49460008E3292 /* wcfProjectTaskDue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9E0C7792179FBF7B00FB9A17 /* requestpoemail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C7791179FBF7B00FB9A17 /* requestpoemail.m */; };
 		9E14BEFC16E0AE5A00490EA5 /* projectls.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E14BEFA16E0AE5A00490EA5 /* projectls.m */; };
 		9E15BAA4175C676700FF6648 /* kirbytitledetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E15BAA3175C676600FF6648 /* kirbytitledetail.m */; };
@@ -299,6 +303,14 @@
 		110D4D6D1BE304FA00542FEA /* taskDueSelProViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskDueSelProViewController.h; sourceTree = "<group>"; };
 		110D4D6E1BE304FA00542FEA /* taskDueSelProViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taskDueSelProViewController.m; sourceTree = "<group>"; };
 		11199EDE1BD48D0500056FAD /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		11A861EB1BE48A72008E3292 /* NaviSearchTabBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviSearchTabBaseViewController.h; sourceTree = "<group>"; };
+		11A861EC1BE48A72008E3292 /* NaviSearchTabBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviSearchTabBaseViewController.m; sourceTree = "<group>"; };
+		11A861EE1BE48BCE008E3292 /* ProjectLsFromTaskDue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectLsFromTaskDue.h; sourceTree = "<group>"; };
+		11A861EF1BE48BCE008E3292 /* ProjectLsFromTaskDue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectLsFromTaskDue.m; sourceTree = "<group>"; };
+		11A861F11BE49313008E3292 /* wcfArrayOfProjectTaskDue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wcfArrayOfProjectTaskDue.h; sourceTree = "<group>"; };
+		11A861F21BE49313008E3292 /* wcfArrayOfProjectTaskDue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wcfArrayOfProjectTaskDue.m; sourceTree = "<group>"; };
+		11A861F41BE49460008E3292 /* wcfProjectTaskDue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wcfProjectTaskDue.h; sourceTree = "<group>"; };
+		11A861F51BE49460008E3292 /* wcfProjectTaskDue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wcfProjectTaskDue.m; sourceTree = "<group>"; };
 		9E0C7790179FBF7B00FB9A17 /* requestpoemail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = requestpoemail.h; sourceTree = "<group>"; };
 		9E0C7791179FBF7B00FB9A17 /* requestpoemail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = requestpoemail.m; sourceTree = "<group>"; };
 		9E14BEFA16E0AE5A00490EA5 /* projectls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = projectls.m; sourceTree = "<group>"; };
@@ -1009,6 +1021,10 @@
 				9E1C81E316E06F5B0011998B /* Frameworks */,
 				110D4D6D1BE304FA00542FEA /* taskDueSelProViewController.h */,
 				110D4D6E1BE304FA00542FEA /* taskDueSelProViewController.m */,
+				11A861EB1BE48A72008E3292 /* NaviSearchTabBaseViewController.h */,
+				11A861EC1BE48A72008E3292 /* NaviSearchTabBaseViewController.m */,
+				11A861EE1BE48BCE008E3292 /* ProjectLsFromTaskDue.h */,
+				11A861EF1BE48BCE008E3292 /* ProjectLsFromTaskDue.m */,
 			);
 			name = BuildersAccess;
 			path = BuildersAccessPo;
@@ -1372,6 +1388,10 @@
 		B18A860518612BCE0014B51B /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				11A861F41BE49460008E3292 /* wcfProjectTaskDue.h */,
+				11A861F51BE49460008E3292 /* wcfProjectTaskDue.m */,
+				11A861F11BE49313008E3292 /* wcfArrayOfProjectTaskDue.h */,
+				11A861F21BE49313008E3292 /* wcfArrayOfProjectTaskDue.m */,
 				B11F543A18D8231C000DB9AF /* wcfSuggestedPriceItem.h */,
 				B11F543B18D8231C000DB9AF /* wcfSuggestedPriceItem.m */,
 				B11F543718D81EA4000DB9AF /* wcfSuggestedPriceListItem.h */,
@@ -1815,6 +1835,7 @@
 				9E21B2421758755B00DE2D44 /* CKCalendarHeaderView.m in Sources */,
 				9E21B2441758755B00DE2D44 /* MBPolygonView.m in Sources */,
 				9E21B24A1758851100DE2D44 /* kirbytitle.m in Sources */,
+				11A861F61BE49460008E3292 /* wcfProjectTaskDue.m in Sources */,
 				9E1938CB175974D9003A4856 /* CKCalendarView.m in Sources */,
 				9E15BAA4175C676700FF6648 /* kirbytitledetail.m in Sources */,
 				9E1ED59B175D8865006B7641 /* MRZoomScrollView.m in Sources */,
@@ -1825,6 +1846,7 @@
 				9E800E2D178BE1DB00FAEFED /* selectitem.m in Sources */,
 				9E800E30178BF0D900FAEFED /* addItem.m in Sources */,
 				9EBD6E3C178CF9D4005CD88A /* updItem.m in Sources */,
+				11A861ED1BE48A72008E3292 /* NaviSearchTabBaseViewController.m in Sources */,
 				9EBD6E46178D2651005CD88A /* viewImage.m in Sources */,
 				9EE58D0117914A2B001FF470 /* requestedvpols.m in Sources */,
 				9ECDA6AF1793C555000EA245 /* requestvpo.m in Sources */,
@@ -1884,6 +1906,7 @@
 				B18A86E418612BCF0014B51B /* wcfCalendarQAb.m in Sources */,
 				B18A86E518612BCF0014B51B /* wcfCalendarQAbItem.m in Sources */,
 				B18A86E618612BCF0014B51B /* wcfCalendarQAbItemDetail.m in Sources */,
+				11A861F31BE49313008E3292 /* wcfArrayOfProjectTaskDue.m in Sources */,
 				B18A86E718612BCF0014B51B /* wcfCODetail.m in Sources */,
 				B18A86E818612BCF0014B51B /* wcfCOListItem.m in Sources */,
 				B18A86E918612BCF0014B51B /* wcfContractDepositItem.m in Sources */,
@@ -1930,6 +1953,7 @@
 				B18A871418612BCF0014B51B /* SoapObject.m in Sources */,
 				B18A871518612BCF0014B51B /* SoapParameter.m in Sources */,
 				B18A871618612BCF0014B51B /* SoapReachability.m in Sources */,
+				11A861F01BE48BCE008E3292 /* ProjectLsFromTaskDue.m in Sources */,
 				B18A871718612BCF0014B51B /* SoapRequest.m in Sources */,
 				B18A871818612BCF0014B51B /* SoapService.m in Sources */,
 				B18A871918612BCF0014B51B /* CXMLDocument.m in Sources */,

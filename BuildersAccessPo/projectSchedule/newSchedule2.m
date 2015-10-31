@@ -85,7 +85,7 @@
     [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
 //    [[ntabbar.items objectAtIndex:3]setAction:@selector(dorefresh)];
     self.view.backgroundColor=[UIColor whiteColor];
-
+tbview.separatorColor = [UIColor clearColor];
     
 	// Do any additional setup after loading the view.
 }

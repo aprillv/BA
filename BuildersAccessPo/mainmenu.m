@@ -96,6 +96,14 @@ NSString *atitle;
     [detailstrarr addObject:details];
     kv.Value=@"menu_forapprove1.png";
     [menulist addObject:kv];
+    
+    kv =[[wcfKeyValueItem alloc]init];
+    kv.Key=@"Task Due";
+    details = @"Schedule Task Due";
+    [detailstrarr addObject:details];
+    kv.Value=@"kirbytitle.png";
+    [menulist addObject:kv];
+    
 //    NSLog(@"%@", xget);
     NSArray *firstSplit = [xget componentsSeparatedByString:@";"];
     

@@ -623,6 +623,8 @@
 	- (SoapRequest*) xisupdate_tablet: (id <SoapDelegate>) handler version: (NSString*) version;
 	- (SoapRequest*) xisupdate_tablet: (id) target action: (SEL) action version: (NSString*) version;
 
+- (SoapRequest*) xGetProjectTaskDue: (id <SoapDelegate>) handler xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia EquipmentType: (NSString*) EquipmentType;
+- (SoapRequest*) xGetProjectTaskDue: (id) _target action: (SEL) _action xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia EquipmentType: (NSString*) EquipmentType;
 		
 	+ (wcfService*) service;
 	+ (wcfService*) serviceWithUsername: (NSString*) username andPassword: (NSString*) password;

@@ -23,6 +23,7 @@
 #import "phonelist.h"
 #import "cl_phone.h"
 #import "dowloadproject.h"
+#import "ProjectLsFromTaskDue.h"
 
 @interface ciaList ()<MBProgressHUDDelegate, dowloadprojectDelegate, UITabBarDelegate>{
     MBProgressHUD *HUD;
@@ -260,7 +261,17 @@ int currentpage, pageno;
     NSLog(@"%@", [cia valueForKey:@"ciaid"]);
    [userInfo initCiaInfo:[[cia valueForKey:@"ciaid"]integerValue] andNm:[cia valueForKey:@"cianame"]];
 
-    if ([self.title isEqualToString:@"Phone List"]) {
+    if ([self.title isEqualToString:@"Task Due"]) {
+//        ProjectLsFromTaskDue *pt = [self.storyboard instantiateViewControllerWithIdentifier:@"NaviSearchTabBaseViewController"];;
+//        [self.navigationController pushViewController: pt animated: YES];
+        projectls *LoginS=[self.storyboard instantiateViewControllerWithIdentifier:@"projectls"];
+        LoginS.managedObjectContext=self.managedObjectContext;
+        
+        LoginS.title=self.title;
+        
+        self.islocked=0;
+        [self.navigationController pushViewController:LoginS animated:YES];
+    }else if ([self.title isEqualToString:@"Phone List"]) {
         cl_phone *mp =[[cl_phone alloc]init];
         mp.managedObjectContext=self.managedObjectContext;
         if ([mp IsFirstTimeToSyncPhone]) {

@@ -50,6 +50,7 @@
 #import "wcfCODetail.h"
 #import "wcfCOOrderDetail.h"
 #import "wcfQACalendarItem.h"
+#import "wcfArrayOfProjectTaskDue.h"
 #import "wcfKirbytileItem.h"
 #import "wcfVendorAssemblyItem.h"
 #import "wcfPODetail.h"
@@ -394,6 +395,26 @@
 		[_request send];
 		return _request;
 	}
+
+/* Returns NSMutableArray*.  */
+- (SoapRequest*) xGetProjectTaskDue: (id <SoapDelegate>) handler xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia EquipmentType: (NSString*) EquipmentType
+{
+    return [self xGetProjectTaskDue: handler action: nil xemail: xemail xpassword: xpassword xidcia: xidcia EquipmentType: EquipmentType];
+}
+
+- (SoapRequest*) xGetProjectTaskDue: (id) _target action: (SEL) _action xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia EquipmentType: (NSString*) EquipmentType
+{
+    NSMutableArray* _params = [NSMutableArray array];
+    
+    [_params addObject: [[[SoapParameter alloc] initWithValue: xemail forName: @"xemail"] autorelease]];
+    [_params addObject: [[[SoapParameter alloc] initWithValue: xpassword forName: @"xpassword"] autorelease]];
+    [_params addObject: [[[SoapParameter alloc] initWithValue: xidcia forName: @"xidcia"] autorelease]];
+    [_params addObject: [[[SoapParameter alloc] initWithValue: EquipmentType forName: @"EquipmentType"] autorelease]];
+    NSString* _envelope = [Soap createEnvelope: @"xGetProjectTaskDue" forNamespace: self.namespace withParameters: _params withHeaders: self.headers];
+    SoapRequest* _request = [SoapRequest create: _target action: _action service: self soapAction: @"http://tempuri.org/IService/xGetProjectTaskDue" postData: _envelope deserializeTo: [[wcfArrayOfProjectTaskDue alloc] autorelease]];
+    [_request send];
+    return _request;
+}
 
 	/* Returns NSMutableArray*.  */
 	- (SoapRequest*) xGetQAInspection2bAdd: (id <SoapDelegate>) handler xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia xidnum: (NSString*) xidnum EquipmentType: (NSString*) EquipmentType

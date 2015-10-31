@@ -2664,6 +2664,82 @@
             </objects>
             <point key="canvasLocation" x="-1420" y="6347"/>
         </scene>
+        <!--Navi Search Tab Base View Controller-->
+        <scene sceneID="jCp-tE-YfN">
+            <objects>
+                <viewController storyboardIdentifier="NaviSearchTabBaseViewController" id="Pd5-Yl-IDu" customClass="NaviSearchTabBaseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b0v-eI-5Rb"/>
+                        <viewControllerLayoutGuide type="bottom" id="7SP-nP-uCW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GjV-jb-SbW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="GYs-aK-VJm">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="mp1-Gl-KN3"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Pd5-Yl-IDu" id="xuk-DO-Llg"/>
+                                </connections>
+                            </searchBar>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g44-w4-WdV">
+                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="PJx-dR-G9C"/>
+                                </constraints>
+                                <items/>
+                                <connections>
+                                    <outlet property="delegate" destination="Pd5-Yl-IDu" id="eVn-lp-BvZ"/>
+                                </connections>
+                            </tabBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rps-9u-r7f">
+                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Pd5-Yl-IDu" id="bdJ-Pu-PXG"/>
+                                    <outlet property="delegate" destination="Pd5-Yl-IDu" id="8ab-i4-xe5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Rps-9u-r7f" firstAttribute="top" secondItem="GYs-aK-VJm" secondAttribute="bottom" id="En3-Dq-b8Z"/>
+                            <constraint firstItem="GYs-aK-VJm" firstAttribute="top" secondItem="b0v-eI-5Rb" secondAttribute="bottom" id="Fws-6A-r30"/>
+                            <constraint firstItem="GYs-aK-VJm" firstAttribute="leading" secondItem="GjV-jb-SbW" secondAttribute="leadingMargin" constant="-16" id="Pt7-BC-BYh"/>
+                            <constraint firstItem="Rps-9u-r7f" firstAttribute="leading" secondItem="GjV-jb-SbW" secondAttribute="leadingMargin" constant="-16" id="aYt-eS-OtQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rps-9u-r7f" secondAttribute="trailing" constant="-16" id="aoE-jS-FOc"/>
+                            <constraint firstItem="g44-w4-WdV" firstAttribute="leading" secondItem="GjV-jb-SbW" secondAttribute="leadingMargin" constant="-16" id="eeN-Bs-6i6"/>
+                            <constraint firstItem="7SP-nP-uCW" firstAttribute="top" secondItem="g44-w4-WdV" secondAttribute="bottom" id="fLi-bW-LlC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GYs-aK-VJm" secondAttribute="trailing" constant="-16" id="fcp-Be-SKW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g44-w4-WdV" secondAttribute="trailing" constant="-16" id="fyy-Sg-LH0"/>
+                            <constraint firstItem="g44-w4-WdV" firstAttribute="top" secondItem="Rps-9u-r7f" secondAttribute="bottom" id="lAk-wK-fVP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="weD-eh-CtR"/>
+                    <connections>
+                        <outlet property="ntabbar" destination="g44-w4-WdV" id="Q7y-vn-Aty"/>
+                        <outlet property="searchBar" destination="GYs-aK-VJm" id="jG5-AD-VyD"/>
+                        <outlet property="searchDisplayController" destination="9Vm-so-B31" id="Fcd-rU-YGb"/>
+                        <outlet property="tbview" destination="Rps-9u-r7f" id="ehk-eM-5sy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fUe-iL-JU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="9Vm-so-B31">
+                    <connections>
+                        <outlet property="delegate" destination="Pd5-Yl-IDu" id="lnH-Yq-mus"/>
+                        <outlet property="searchContentsController" destination="Pd5-Yl-IDu" id="p5b-Xe-W5W"/>
+                        <outlet property="searchResultsDataSource" destination="Pd5-Yl-IDu" id="ead-mS-2CE"/>
+                        <outlet property="searchResultsDelegate" destination="Pd5-Yl-IDu" id="I5i-Np-hhN"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-303" y="6708"/>
+        </scene>
         <!--Upd Item-->
         <scene sceneID="Dsl-N1-NhJ">
             <objects>
@@ -3639,6 +3715,13 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rZO-9h-ZHq">
                                 <rect key="frame" x="0.0" y="108" width="320" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <label key="tableFooterView" hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Error or No Project found." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wdL-xU-7VW">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="1" green="0.2108838422" blue="0.26862089620000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <connections>
                                     <outlet property="dataSource" destination="W7p-Y4-og2" id="eaW-EQ-KYk"/>
                                     <outlet property="delegate" destination="W7p-Y4-og2" id="1jZ-Nm-INQ"/>
@@ -3674,6 +3757,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblError" destination="wdL-xU-7VW" id="nX7-qt-RUS"/>
                         <outlet property="ntabbar" destination="10m-vd-q4n" id="bJi-pt-mxY"/>
                         <outlet property="searchtxt" destination="agm-hM-WQG" id="EhF-Vt-n0T"/>
                         <outlet property="tbview" destination="rZO-9h-ZHq" id="uaP-ip-eil"/>
@@ -3751,6 +3835,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ha-gJ-x4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-491" y="1251"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Rhf-Gf-rz3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O14-y0-uXY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cif-aS-bSX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Pd5-Yl-IDu" kind="relationship" relationship="rootViewController" id="bZ7-Wb-Ht9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lbs-i8-jSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-926" y="6702"/>
         </scene>
     </scenes>
 </document>

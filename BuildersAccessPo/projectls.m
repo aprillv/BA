@@ -20,8 +20,14 @@
 #import "cl_sync.h"
 #import "MBProgressHUD.h"
 #import "dowloadproject.h"
+#import "wcfArrayOfProjectTaskDue.h"
+#import "wcfProjectTaskDue.h"
+#import "newSchedule2.h"
 
 @interface projectls ()<MBProgressHUDDelegate, dowloadprojectDelegate, UITabBarDelegate>
+@property (nonatomic, retain) NSArray *rtnlist;
+@property (nonatomic, retain) NSArray *rtnlist1;
+@property (weak, nonatomic) IBOutlet UILabel *lblError;
 
 @end
 
@@ -31,13 +37,12 @@
     int currentPage;
     int xatype;
     MBProgressHUD *HUD;
-    NSMutableArray *rtnlist;
-    NSMutableArray *rtnlist1;
     int iii;
     NSMutableArray *tn;
     int pageno;
     NSString *scheduleyn;
 }
+
 
 @synthesize searchtxt, ntabbar, islocked, tbview;
 
@@ -50,8 +55,33 @@
     return self;
 }
 
+-(void)setRtnlist: (NSArray *)rtnlist{
+    _rtnlist = rtnlist;
+    [self.tbview reloadData];
+    if (_rtnlist.count > 0) {
+        self.tbview.separatorColor = [UIColor grayColor];
+    }else{
+        self.tbview.separatorColor = [UIColor clearColor];
+    }
+}
+
+-(void)setRtnlist1: (NSArray *)rtnlist{
+    _rtnlist1 = rtnlist;
+//    [self.tbview reloadData];
+//    if (_rtnlist1.count > 0) {
+//        self.tbview.separatorColor = [UIColor grayColor];
+//    }else{
+//        self.tbview.separatorColor = [UIColor clearColor];
+//    }
+}
+
 -(void)viewWillAppear:(BOOL)animated{
-  [self getPojectls];  
+    if ([self.title isEqualToString:@"Task Due"]) {
+        [self getProjectLsFromTaskDue];
+    }else{
+        [self getPojectls];
+    }
+   
 }
 
 - (void)viewDidLoad
@@ -59,7 +89,7 @@
     [super viewDidLoad];
    
 
-    
+    tbview.separatorColor = [UIColor clearColor];
     [self.navigationItem setHidesBackButton:YES];
     [self.navigationItem setLeftBarButtonItem:[self getbackButton]];
 
@@ -118,6 +148,67 @@
     [searchtxt resignFirstResponder];
 }
 
+-(void)getProjectLsFromTaskDue{
+    wcfService *service =[wcfService service];
+    [service xGetProjectTaskDue:self action:@selector(xGetProjectTaskDueHandler:)  xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] xidcia:[NSString stringWithFormat:@"%d", [userInfo getCiaId]] EquipmentType:@"3"];
+}
+
+- (void) xGetProjectTaskDueHandler: (id) value {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    // Handle errors
+    if([value isKindOfClass:[NSError class]]) {
+        NSError *error = value;
+        NSLog(@"%@", [error localizedDescription]);
+        UIAlertView *alert=[self getErrorAlert:@"We are temporarily unable to connect to BuildersAccess, please check your internet connection and try again. Thanks for your patience."];
+        [alert show];
+        return;
+    }
+    
+    // Handle faults
+    if([value isKindOfClass:[SoapFault class]]) {
+        SoapFault *sf =value;
+        NSLog(@"%@", [sf description]);
+        UIAlertView *alert = [self getErrorAlert: value];
+        [alert show];
+         self.lblError.text = @"    Network Error.";
+        self.lblError.hidden = NO;
+        return;
+    }else{
+        NSMutableArray *natemp = [[NSMutableArray alloc]init];
+        NSMutableDictionary *dictmp;
+        for (wcfProjectTaskDue *project in (wcfArrayOfProjectTaskDue *)value) {
+//            NSLog(@"%@", project.ProjectName);
+//            NSString* _IDNumber;
+//            NSString* _Idcia;
+//            NSString* _Ncia;
+//            NSString* _ProjectName;
+//            NSString* _StageName;
+//            NSString* _Status;
+//            str=[NSString stringWithFormat:@"name like [c]'*%@*' or planname like [c]'*%@*' or idnumber like [c]'%@*' or status like [c]'*%@*'", searchText, searchText, searchText,searchText];
+//            project.wcfProjectTaskDue;
+//            
+            dictmp = [[NSMutableDictionary alloc] init];
+            [dictmp setObject:project.IDNumber forKey: @"idnumber"];
+            [dictmp setObject:project.StageName forKey: @"planname"];
+            [dictmp setObject:project.ProjectName forKey: @"name"];
+            [dictmp setObject:project.Status forKey: @"status"];
+//            [dictmp setObject:@"name" forKey:project.ProjectName];
+            
+            [natemp addObject:dictmp];
+        }
+        if (self.rtnlist.count == 0){
+            self.lblError.text = @"    No Project Found.";
+            self.lblError.hidden = NO;
+        }
+        self.rtnlist = natemp;
+        self.rtnlist1 = self.rtnlist;
+//        rtnlist = (wcfArrayOfProjectTaskDue *)value;
+//        
+//        rtnlist1=rtnlist;
+    }
+//    NSLog(@"%@", value);
+}
+
 
 - (void)getPojectls
 {
@@ -149,9 +240,9 @@
             break;
     }
     
-   rtnlist = [mp getProjectList:str];
+   self.rtnlist = [mp getProjectList:str];
     
-    rtnlist1=rtnlist;
+    self.rtnlist1=self.rtnlist;
     
     
     
@@ -338,9 +429,9 @@
             lbl.text=[NSString stringWithFormat:@"Last Sync\n%@", [Mysql stringFromDate:[[NSDate alloc]init]]];
             
             
-            rtnlist=[mp getProjectList:str];
-            rtnlist1=rtnlist;
-            [tbview reloadData];
+            self.rtnlist=[mp getProjectList:str];
+            self.rtnlist1=self.rtnlist;
+//            [tbview reloadData];
             
 //            if (self.islocked==2) {
 //                if (![[self unlockPasscode] isEqualToString:@"0"] && ![[self unlockPasscode] isEqualToString:@"1"]) {
@@ -399,15 +490,15 @@
                         
                         [self enterPasscode:nil];
                     }else{
-                        rtnlist=[mp getProjectList:str];
-                        rtnlist1=rtnlist;
-                        [tbview reloadData];
+                        self.rtnlist=[mp getProjectList:str];
+                        self.rtnlist1=self.rtnlist;
+//                        [tbview reloadData];
                     }
                     
                 }else{
-                    rtnlist=[mp getProjectList:str];
-                    rtnlist1=rtnlist;
-                    [tbview reloadData];
+                    self.rtnlist=[mp getProjectList:str];
+                    self.rtnlist1=self.rtnlist;
+//                    [tbview reloadData];
                 }
 
                 HUD.progress=1;
@@ -491,15 +582,15 @@
                     
                     [self enterPasscode:nil];
                 }else{
-                    rtnlist=[mp getProjectList:str];
-                    rtnlist1=rtnlist;
-                    [tbview reloadData];
+                    self.rtnlist=[mp getProjectList:str];
+                    self.rtnlist1=self.rtnlist;
+//                    [tbview reloadData];
                 }
                 
             }else{
-                rtnlist=[mp getProjectList:str];
-                rtnlist1=rtnlist;
-                [tbview reloadData];
+                self.rtnlist=[mp getProjectList:str];
+                self.rtnlist1=self.rtnlist;
+//                [tbview reloadData];
             }
         }else{
             wcfProjectListItem *kv;
@@ -565,17 +656,17 @@
                         
                         [self enterPasscode:nil];
                     }else{
-                        rtnlist=[mp getProjectList:str];
-                        rtnlist1=rtnlist;
-                        [tbview reloadData];
+                        self.rtnlist=[mp getProjectList:str];
+                        self.rtnlist1=self.rtnlist;
+//                        [tbview reloadData];
                     }
                     
                 }else{
-                    rtnlist=[mp getProjectList:str];
-                    rtnlist1=rtnlist;
+                    self.rtnlist=[mp getProjectList:str];
+                    self.rtnlist1=self.rtnlist;
 //                     NSEntityDescription *kv =[rtnlist objectAtIndex:(indexPath.row)];
                                        
-                    [tbview reloadData];
+//                    [tbview reloadData];
                 }
             }
         }
@@ -622,8 +713,8 @@
     str=[NSString stringWithFormat:@"name like [c]'*%@*' or planname like [c]'*%@*' or idnumber like [c]'%@*' or status like [c]'*%@*'", searchText, searchText, searchText,searchText];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat: str];
-    rtnlist=[[rtnlist1 filteredArrayUsingPredicate:predicate] mutableCopy];
-    [tbview reloadData];
+    self.rtnlist=[[self.rtnlist1 filteredArrayUsingPredicate:predicate] mutableCopy];
+//    [tbview reloadData];
     
 }
 
@@ -640,7 +731,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return [rtnlist count];
+    return [self.rtnlist count];
 }
 
 
@@ -663,7 +754,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     }
     
-     NSEntityDescription *kv =[rtnlist objectAtIndex:(indexPath.row)];
+     NSEntityDescription *kv =[self.rtnlist objectAtIndex:(indexPath.row)];
     
 //    NSLog(@"%@ %@", [kv valueForKey:@"idnumber"], [kv valueForKey:@"status"]);
      cell.textLabel.text = [kv valueForKey:@"name"];
@@ -760,19 +851,29 @@
     NSIndexPath *indexPath = [tbview indexPathForSelectedRow];
     
     [tbview deselectRowAtIndexPath:indexPath animated:YES];
-    NSEntityDescription *kv =[rtnlist objectAtIndex:(indexPath.row)];
+    NSEntityDescription *kv =[self.rtnlist objectAtIndex:(indexPath.row)];
     
-    if (xatype==1) {
-        development *LoginS=[self.storyboard instantiateViewControllerWithIdentifier:@"development"];
-        LoginS.managedObjectContext=self.managedObjectContext;
-         LoginS.idproject=[kv valueForKey:@"idnumber"];
-        [self.navigationController pushViewController:LoginS animated:YES];
+    if ([self.title isEqualToString:@"Task Due"]) {
+        newSchedule2 *ns =[self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"newSchedule2"];
+        ns.managedObjectContext=self.managedObjectContext;
+        ns.xidproject=[kv valueForKey:@"idnumber"];
+        ns.xidstep=@"-1";
+        ns.title=@"Task Due List";
+        [self.navigationController pushViewController:ns animated:YES];
     }else{
-        project *LoginS=[self.storyboard instantiateViewControllerWithIdentifier:@"project"];
-        LoginS.idproject=[kv valueForKey:@"idnumber"];
-        LoginS.managedObjectContext=self.managedObjectContext;
-        [self.navigationController pushViewController:LoginS animated:YES];
+        if (xatype==1) {
+            development *LoginS=[self.storyboard instantiateViewControllerWithIdentifier:@"development"];
+            LoginS.managedObjectContext=self.managedObjectContext;
+            LoginS.idproject=[kv valueForKey:@"idnumber"];
+            [self.navigationController pushViewController:LoginS animated:YES];
+        }else{
+            project *LoginS=[self.storyboard instantiateViewControllerWithIdentifier:@"project"];
+            LoginS.idproject=[kv valueForKey:@"idnumber"];
+            LoginS.managedObjectContext=self.managedObjectContext;
+            [self.navigationController pushViewController:LoginS animated:YES];
+        }
     }
+    
 }
 
 

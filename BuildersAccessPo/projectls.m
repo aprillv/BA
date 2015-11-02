@@ -28,6 +28,7 @@
 @property (nonatomic, retain) NSArray *rtnlist;
 @property (nonatomic, retain) NSArray *rtnlist1;
 @property (weak, nonatomic) IBOutlet UILabel *lblError;
+@property (nonatomic, retain) UIActivityIndicatorView *refresher;
 
 @end
 
@@ -46,6 +47,18 @@
 
 @synthesize searchtxt, ntabbar, islocked, tbview;
 
+
+-(UIActivityIndicatorView *)refresher{
+    if (!_refresher) {
+        _refresher  = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0, 50, 50, 50)];
+        _refresher.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+        [self.view addSubview: _refresher];
+        _refresher.hidesWhenStopped = YES;
+        _refresher.center = self.view.center;
+        
+    }
+    return _refresher;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -77,6 +90,10 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     if ([self.title isEqualToString:@"Task Due"]) {
+        self.rtnlist = self.rtnlist1 = nil;
+        [self.tbview reloadData];
+        self.lblError.hidden = YES;
+        [self.refresher startAnimating];
         [self getProjectLsFromTaskDue];
     }else{
         [self getPojectls];
@@ -127,8 +144,14 @@
     [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
     
 //    [[ntabbar.items objectAtIndex:3] setAction:@selector(refreshPrject:)];
-    [[ntabbar.items objectAtIndex:3]setImage:[UIImage imageNamed:@"refresh1.png"] ];
-     [[ntabbar.items objectAtIndex:3]setTitle:@"Sync" ];
+    if ([self.title isEqualToString:@"Task Due"]) {
+        [[ntabbar.items objectAtIndex:3]setImage:[UIImage imageNamed:@"refresh3.png"] ];
+        [[ntabbar.items objectAtIndex:3]setTitle:@"Refresh" ];
+    }else{
+        [[ntabbar.items objectAtIndex:3]setImage:[UIImage imageNamed:@"refresh1.png"] ];
+        [[ntabbar.items objectAtIndex:3]setTitle:@"Sync" ];
+    }
+    
     
     keyboard=[[CustomKeyboard alloc]init];
     keyboard.delegate=self;
@@ -141,6 +164,9 @@
         [self gohome:item];
     }else if([item.title isEqualToString:@"Sync"]){
         [self refreshPrject:item];
+       
+    }else if([item.title isEqualToString:@"Refresh"]){
+        [self viewWillAppear:YES];
     }
 }
 
@@ -155,6 +181,7 @@
 
 - (void) xGetProjectTaskDueHandler: (id) value {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self.refresher stopAnimating];
     // Handle errors
     if([value isKindOfClass:[NSError class]]) {
         NSError *error = value;
@@ -375,8 +402,12 @@
     operation.delegate=self;
     [_queue addOperation:operation];
 }
-
--(void)finishone:(NSMutableArray *)result{
+-(void)doexception{
+    [HUD hide:YES];
+    UIAlertView *alert=[self getErrorAlert:@"Synchronize error, please try again later. Thanks for your patience."];
+    [alert show];
+}
+-(void)finishone:(NSMutableArray *)result andPageNo:(int)pagen{
     
     if (iii==0) {
         tn =[[NSMutableArray alloc]init];

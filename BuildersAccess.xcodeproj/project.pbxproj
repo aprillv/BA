@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		110D4D6F1BE304FA00542FEA /* taskDueSelProViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110D4D6E1BE304FA00542FEA /* taskDueSelProViewController.m */; settings = {ASSET_TAGS = (); }; };
+		110D4D6F1BE304FA00542FEA /* taskDueSelProViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110D4D6E1BE304FA00542FEA /* taskDueSelProViewController.m */; };
 		11199EDF1BD48D0500056FAD /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 11199EDE1BD48D0500056FAD /* back.png */; };
-		11A861ED1BE48A72008E3292 /* NaviSearchTabBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861EC1BE48A72008E3292 /* NaviSearchTabBaseViewController.m */; settings = {ASSET_TAGS = (); }; };
-		11A861F01BE48BCE008E3292 /* ProjectLsFromTaskDue.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861EF1BE48BCE008E3292 /* ProjectLsFromTaskDue.m */; settings = {ASSET_TAGS = (); }; };
+		1158DA7B1C44E9600022B2D5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1158DA7A1C44E9600022B2D5 /* Images.xcassets */; };
+		11A861ED1BE48A72008E3292 /* NaviSearchTabBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861EC1BE48A72008E3292 /* NaviSearchTabBaseViewController.m */; };
+		11A861F01BE48BCE008E3292 /* ProjectLsFromTaskDue.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861EF1BE48BCE008E3292 /* ProjectLsFromTaskDue.m */; };
 		11A861F31BE49313008E3292 /* wcfArrayOfProjectTaskDue.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861F21BE49313008E3292 /* wcfArrayOfProjectTaskDue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		11A861F61BE49460008E3292 /* wcfProjectTaskDue.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861F51BE49460008E3292 /* wcfProjectTaskDue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9E0C7792179FBF7B00FB9A17 /* requestpoemail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C7791179FBF7B00FB9A17 /* requestpoemail.m */; };
@@ -290,9 +291,6 @@
 		B1A5D8EF17F1848000206AC3 /* approvesuggest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A5D8EE17F1847F00206AC3 /* approvesuggest.m */; };
 		B1B18A4B17C6DF78003C175F /* grayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B18A4A17C6DF78003C175F /* grayButton.png */; };
 		B1DF0D1118DD1F5000979B62 /* dowloadproject.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DF0D1018DD1F5000979B62 /* dowloadproject.m */; };
-		B1E1C1BF18BB2960008AA3EF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E1C1BE18BB2960008AA3EF /* Default.png */; };
-		B1E1C1C118BB2964008AA3EF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E1C1C018BB2964008AA3EF /* Default@2x.png */; };
-		B1E1C1C418BB297B008AA3EF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E1C1C218BB296E008AA3EF /* Default-568h@2x.png */; };
 		B1FBAFB817EFE92E004D2B42 /* zoom.png in Resources */ = {isa = PBXBuildFile; fileRef = B1FBAFB717EFE92E004D2B42 /* zoom.png */; };
 		B1FBAFBE17F0076E004D2B42 /* phonelist1.png in Resources */ = {isa = PBXBuildFile; fileRef = B1FBAFBB17F0076A004D2B42 /* phonelist1.png */; };
 		B1FBAFC417F029DB004D2B42 /* multiSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FBAFC317F029DB004D2B42 /* multiSearch.m */; };
@@ -303,6 +301,7 @@
 		110D4D6D1BE304FA00542FEA /* taskDueSelProViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskDueSelProViewController.h; sourceTree = "<group>"; };
 		110D4D6E1BE304FA00542FEA /* taskDueSelProViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taskDueSelProViewController.m; sourceTree = "<group>"; };
 		11199EDE1BD48D0500056FAD /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		1158DA7A1C44E9600022B2D5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BuildersAccess/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		11A861EB1BE48A72008E3292 /* NaviSearchTabBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviSearchTabBaseViewController.h; sourceTree = "<group>"; };
 		11A861EC1BE48A72008E3292 /* NaviSearchTabBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviSearchTabBaseViewController.m; sourceTree = "<group>"; };
 		11A861EE1BE48BCE008E3292 /* ProjectLsFromTaskDue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectLsFromTaskDue.h; sourceTree = "<group>"; };
@@ -815,9 +814,6 @@
 		B1B18A4A17C6DF78003C175F /* grayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayButton.png; sourceTree = "<group>"; };
 		B1DF0D0F18DD1F5000979B62 /* dowloadproject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dowloadproject.h; sourceTree = "<group>"; };
 		B1DF0D1018DD1F5000979B62 /* dowloadproject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dowloadproject.m; sourceTree = "<group>"; };
-		B1E1C1BE18BB2960008AA3EF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		B1E1C1C018BB2964008AA3EF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		B1E1C1C218BB296E008AA3EF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B1FBAFB717EFE92E004D2B42 /* zoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zoom.png; sourceTree = "<group>"; };
 		B1FBAFBB17F0076A004D2B42 /* phonelist1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phonelist1.png; sourceTree = "<group>"; };
 		B1FBAFC217F029DB004D2B42 /* multiSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = multiSearch.h; sourceTree = "<group>"; };
@@ -847,9 +843,6 @@
 		9E1C81D816E06F5B0011998B = {
 			isa = PBXGroup;
 			children = (
-				B1E1C1C218BB296E008AA3EF /* Default-568h@2x.png */,
-				B1E1C1C018BB2964008AA3EF /* Default@2x.png */,
-				B1E1C1BE18BB2960008AA3EF /* Default.png */,
 				9E1D06B216F18BF600A546C1 /* builderaccess-logo-4.png */,
 				9E1D06B016F18BE300A546C1 /* builderaccess-logo57_57.png */,
 				9E1C81EC16E06F5B0011998B /* BuildersAccess */,
@@ -1025,6 +1018,7 @@
 				11A861EC1BE48A72008E3292 /* NaviSearchTabBaseViewController.m */,
 				11A861EE1BE48BCE008E3292 /* ProjectLsFromTaskDue.h */,
 				11A861EF1BE48BCE008E3292 /* ProjectLsFromTaskDue.m */,
+				1158DA7A1C44E9600022B2D5 /* Images.xcassets */,
 			);
 			name = BuildersAccess;
 			path = BuildersAccessPo;
@@ -1688,6 +1682,7 @@
 				9EF837EB16E5DCB0006682E3 /* forgetPs.xib in Resources */,
 				9EF837F016E5E4B2006682E3 /* SignUp.xib in Resources */,
 				9E2EE2A016ED6E1C00122496 /* upload2.png in Resources */,
+				1158DA7B1C44E9600022B2D5 /* Images.xcassets in Resources */,
 				9E2EE2A116ED6E1C00122496 /* upload1.png in Resources */,
 				9E2EE2A216ED6E1C00122496 /* setting.png in Resources */,
 				9E2EE2A416ED6E1C00122496 /* schedule.png in Resources */,
@@ -1732,9 +1727,6 @@
 				B11E0B2417F42A360097BD10 /* id.png in Resources */,
 				B11E0B2617F42D310097BD10 /* home1.png in Resources */,
 				B11E0B2817F42F960097BD10 /* phonelist.png in Resources */,
-				B1E1C1BF18BB2960008AA3EF /* Default.png in Resources */,
-				B1E1C1C118BB2964008AA3EF /* Default@2x.png in Resources */,
-				B1E1C1C418BB297B008AA3EF /* Default-568h@2x.png in Resources */,
 				B12AD2AE1A73B48900A43321 /* grayButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2059,6 +2051,8 @@
 		9E1C820D16E06F5C0011998B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2078,6 +2072,8 @@
 		9E1C820E16E06F5C0011998B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

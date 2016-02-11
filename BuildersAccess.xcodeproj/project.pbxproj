@@ -70,8 +70,6 @@
 		9E1D06A316F1709800A546C1 /* cl_phone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D06A216F1709800A546C1 /* cl_phone.m */; };
 		9E1D06A916F1763F00A546C1 /* phoneDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D06A816F1763F00A546C1 /* phoneDetail.m */; };
 		9E1D06AB16F1892900A546C1 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E1D06AA16F1892800A546C1 /* phone.png */; };
-		9E1D06B116F18BE500A546C1 /* builderaccess-logo57_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E1D06B016F18BE300A546C1 /* builderaccess-logo57_57.png */; };
-		9E1D06B316F18BF700A546C1 /* builderaccess-logo-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E1D06B216F18BF600A546C1 /* builderaccess-logo-4.png */; };
 		9E1E93BC173A21D500C8A157 /* assignVendor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E93BB173A21D500C8A157 /* assignVendor.m */; };
 		9E1ED59B175D8865006B7641 /* MRZoomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1ED59A175D8865006B7641 /* MRZoomScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9E1ED59E175D8CE8006B7641 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1ED59D175D8CE8006B7641 /* ViewController.m */; };
@@ -407,8 +405,6 @@
 		9E1D06A716F1763E00A546C1 /* phoneDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phoneDetail.h; sourceTree = "<group>"; };
 		9E1D06A816F1763F00A546C1 /* phoneDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = phoneDetail.m; sourceTree = "<group>"; };
 		9E1D06AA16F1892800A546C1 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
-		9E1D06B016F18BE300A546C1 /* builderaccess-logo57_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "builderaccess-logo57_57.png"; sourceTree = "<group>"; };
-		9E1D06B216F18BF600A546C1 /* builderaccess-logo-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "builderaccess-logo-4.png"; sourceTree = "<group>"; };
 		9E1E93BA173A21D500C8A157 /* assignVendor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assignVendor.h; sourceTree = "<group>"; };
 		9E1E93BB173A21D500C8A157 /* assignVendor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = assignVendor.m; sourceTree = "<group>"; };
 		9E1ED599175D8865006B7641 /* MRZoomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRZoomScrollView.h; sourceTree = "<group>"; };
@@ -842,8 +838,6 @@
 			isa = PBXGroup;
 			children = (
 				11E937311C6C234F00AD1801 /* Launch Screen.xib */,
-				9E1D06B216F18BF600A546C1 /* builderaccess-logo-4.png */,
-				9E1D06B016F18BE300A546C1 /* builderaccess-logo57_57.png */,
 				9E1C81EC16E06F5B0011998B /* BuildersAccess */,
 			);
 			sourceTree = "<group>";
@@ -1698,8 +1692,6 @@
 				9E2EE2BA16ED6E1C00122496 /* approve.png in Resources */,
 				9EFEE75D16EF1BFF00BB7046 /* error.png in Resources */,
 				9E1D06AB16F1892900A546C1 /* phone.png in Resources */,
-				9E1D06B116F18BE500A546C1 /* builderaccess-logo57_57.png in Resources */,
-				9E1D06B316F18BF700A546C1 /* builderaccess-logo-4.png in Resources */,
 				9E1A0E9E16F2D44400AA1B3F /* more.png in Resources */,
 				9E1C4C131703DEC500B5832D /* menu_active.png in Resources */,
 				9E1C4C141703DEC500B5832D /* menu_archive.png in Resources */,
@@ -2053,7 +2045,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BuildersAccessPo/BuildersAccess-Prefix.pch";
 				INFOPLIST_FILE = "BuildersAccessPo/BuildersAccess-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = BuildersAccess;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2bb3faba-abcb-40c6-ac29-62116378344b";
@@ -2073,7 +2065,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BuildersAccessPo/BuildersAccess-Prefix.pch";
 				INFOPLIST_FILE = "BuildersAccessPo/BuildersAccess-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = BuildersAccess;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2bb3faba-abcb-40c6-ac29-62116378344b";

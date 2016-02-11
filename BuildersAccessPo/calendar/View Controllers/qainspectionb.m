@@ -154,7 +154,7 @@
     UILabel *lbl;
     float rowheight=32.0;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Project";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -165,70 +165,70 @@
     
     
     UIView *lbl1;
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview: lbl1];
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.Nproject;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+rowheight+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Inspection";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.Inspection;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+rowheight+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Assign To";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.AssignTo;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+rowheight+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Status";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.Status;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
@@ -236,26 +236,26 @@
     y=y+rowheight+x;
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Walk";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.Walk;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+rowheight+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Penalty";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -263,19 +263,19 @@
     y=y+21+x;
     
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.Penalty;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+rowheight+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Points";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -283,12 +283,12 @@
     y=y+21+x;
     
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.Points;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
@@ -296,19 +296,19 @@
     y=y+rowheight+x;
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Remark (max 512 chars)";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 105)];
+    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 105)];
     [txtProject setBorderStyle:UITextBorderStyleRoundedRect];
     txtProject.enabled=NO;
     [uv addSubview:txtProject];
     
-    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, 296, 98) ];
+    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, self.view.frame.size.width-24, 98) ];
     txtNote.layer.cornerRadius=10;
     txtNote.font=[UIFont systemFontOfSize:17.0];
     txtNote.delegate=self;
@@ -324,7 +324,7 @@
     UIButton* loginButton;
     if ([result.BtnAdd isEqualToString:@"1"]) {
         loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+        [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         [loginButton setTitle:@"Add Inspection Item" forState:UIControlStateNormal];
         [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [loginButton setBackgroundImage:[[UIImage imageNamed:@"yButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -338,7 +338,7 @@
         wcfCalendarQAbItem * wi = [result.Dlist objectAtIndex:0];
         [result.Dlist removeObjectAtIndex:0];
         if ([wi.NIdnum isEqualToString:@"1"]) {
-            text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+            text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
             [text1 setBorderStyle:UITextBorderStyleRoundedRect];
             text1.enabled=NO;
             text1.text=@"";
@@ -361,7 +361,7 @@
             
             y=y+30+10;
         }
-        ut =[[UITableView alloc]initWithFrame:CGRectMake(10, y, 300, 44*[result.Dlist count])];
+        ut =[[UITableView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44*[result.Dlist count])];
         ut.layer.cornerRadius = 10;
         ut.tag=7;
         [ut setRowHeight:44];
@@ -376,7 +376,7 @@
     
     if ([result.BtnFail isEqualToString:@"1"]) {
         loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+        [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         [loginButton setTitle:@"Inspection > Save & Fail" forState:UIControlStateNormal];
         [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [loginButton setBackgroundImage:[[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -388,7 +388,7 @@
     
     if ([result.BtnFinish isEqualToString:@"1"]) {
         loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+        [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         [loginButton setTitle:@"Inspection > Save & Pass" forState:UIControlStateNormal];
         [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -401,7 +401,7 @@
     
     if ([result.BtnSubmit isEqualToString:@"1"]) {
         loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+        [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         [loginButton setTitle:@"Inspection > Ready Re-Submit" forState:UIControlStateNormal];
         [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -416,7 +416,7 @@
     if (y < uv.frame.size.height + 1) {
         y= uv.frame.size.height + 1;
     }
-    uv.contentSize=CGSizeMake(320.0,y);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width,y);
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet1 clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -501,7 +501,7 @@
         
        
         [ut removeFromSuperview];
-        ut =[[UITableView alloc]initWithFrame:CGRectMake(10, y, 300, 44*[result.Dlist count])];
+        ut =[[UITableView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44*[result.Dlist count])];
         ut.layer.cornerRadius = 10;
         ut.tag=7;
         [ut setRowHeight:44];
@@ -521,7 +521,7 @@
             }
         }
         
-         uv.contentSize=CGSizeMake(320.0,uv.contentSize.height+y1);
+         uv.contentSize=CGSizeMake(self.view.frame.size.width,uv.contentSize.height+y1);
         
     }
     

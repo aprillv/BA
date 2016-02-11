@@ -126,14 +126,14 @@ int currentpage, pageno;
 ////    NSLog(@"height %f", self.view.frame.size.height);
 //    
 //    if (self.view.frame.size.height>480) {
-//        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325+87)];
-//        sv.contentSize=CGSizeMake(320.0,326+87);
+//        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325+87)];
+//        sv.contentSize=CGSizeMake(self.view.frame.size.width,326+87);
 //    }else{
-//        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325)];
-//        sv.contentSize=CGSizeMake(320.0,326);
+//        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325)];
+//        sv.contentSize=CGSizeMake(self.view.frame.size.width,326);
 //    }
     
-//    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+//    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
     
 //     ciatbview.layer.cornerRadius = 10;
 //    ciatbview.tag=2;

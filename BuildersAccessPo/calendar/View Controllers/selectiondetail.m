@@ -57,7 +57,7 @@
     CGFloat screenWidth = view.frame.size.width;
     CGFloat screenHieight = view.frame.size.height;
     
-    ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-29, screenWidth, 49)];
+    ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-93, screenWidth, 49)];
     [view addSubview:ntabbar];
     UITabBarItem *firstItem0 ;
     firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home.png"] tag:1];
@@ -74,8 +74,8 @@
     [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
 //    [[ntabbar.items objectAtIndex:3] setAction:@selector(dorefresh:)];
     
-    uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, screenWidth, screenHieight-93)];
-    
+    uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHieight-93)];
+    view.backgroundColor = [UIColor whiteColor];
     uv.backgroundColor=[Mysql groupTableViewBackgroundColor];
     [view addSubview:uv];
 
@@ -86,7 +86,8 @@
     if (item.tag == 1) {
         [self gohome:item];
     }else if(item.tag == 2){
-//        [self dorefresh:item];
+        [self getInfofromService];
+        [ntabbar setSelectedItem:nil];
     }
 }
 
@@ -134,14 +135,14 @@
     uv.backgroundColor = [Mysql groupTableViewBackgroundColor];
     
     UILabel *lbl;
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Subject";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    txtSubject=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+    txtSubject=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
     [txtSubject setBorderStyle:UITextBorderStyleRoundedRect];
     
     txtSubject .delegate=self;
@@ -149,21 +150,21 @@
     [uv addSubview: txtSubject];
     y=y+30+x+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Location";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    txtLocation=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+    txtLocation=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
     [txtLocation setBorderStyle:UITextBorderStyleRoundedRect];
     txtLocation.delegate=self;
     txtLocation.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [uv addSubview: txtLocation];
     y=y+30+x+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Date";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -172,7 +173,7 @@
     
     UITextField * text1;
     
-    text1 =[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+    text1 =[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
     text1.text=@"";
@@ -188,7 +189,7 @@
     [uv addSubview: txtDate];
     y=y+30+x+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Start Time";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -196,7 +197,7 @@
     y=y+21+x;
     
     
-    text1 =[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+    text1 =[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
     text1.text=@"";
@@ -212,7 +213,7 @@
     [uv addSubview: txtStart];
     y=y+30+x+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"End Time";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -220,7 +221,7 @@
     y=y+21+x;
     
     
-    text1=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+    text1=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
     text1.text=@"";
@@ -236,56 +237,56 @@
     [uv addSubview: txtEnd];
     y=y+30+x+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Contact Name";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    txtContractNm=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+    txtContractNm=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
     [txtContractNm setBorderStyle:UITextBorderStyleRoundedRect];
     txtContractNm.delegate=self;
     txtContractNm.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [uv addSubview: txtContractNm];
     y=y+30+x+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Phone";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    txtPhone=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+    txtPhone=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
     [txtPhone setBorderStyle:UITextBorderStyleRoundedRect];
     txtPhone.delegate=self;
     txtPhone.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [uv addSubview: txtPhone];
     y=y+30+x+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Mobile";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    txtMobile=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+    txtMobile=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
     [txtMobile setBorderStyle:UITextBorderStyleRoundedRect];
     txtMobile.delegate=self;
     txtMobile.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [uv addSubview: txtMobile];
     y=y+30+x+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Email";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    txtemail=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+    txtemail=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
     [txtemail setBorderStyle:UITextBorderStyleRoundedRect];
     txtemail.delegate=self;
     txtemail.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -293,14 +294,14 @@
     y=y+30+x+5;
         
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Notes";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 75)];
+    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 75)];
     [txtProject setBorderStyle:UITextBorderStyleRoundedRect];
     txtProject.enabled=NO;
     [uv addSubview:txtProject];
@@ -315,7 +316,7 @@
             
         
         loginButton1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton1 setFrame:CGRectMake(20, y, 280, 44)];
+        [loginButton1 setFrame:CGRectMake(20, y, self.view.frame.size.width-40, 44)];
         [loginButton1 setTitle:@"Save" forState:UIControlStateNormal];
         [loginButton1.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [loginButton1 setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -324,7 +325,7 @@
         y=y+54;
         
         loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton setFrame:CGRectMake(20, y, 280, 44)];
+        [loginButton setFrame:CGRectMake(20, y, self.view.frame.size.width-40, 44)];
         [loginButton setTitle:@"Delete" forState:UIControlStateNormal];
         [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [loginButton setBackgroundImage:[[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -335,7 +336,7 @@
         
         
     
-    uv.contentSize=CGSizeMake(320.0,y+1);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width,y+1);
     ntabbar.userInteractionEnabled = YES;
     
     [[ntabbar.items objectAtIndex:0]setImage:[UIImage imageNamed:@"home.png"] ];
@@ -604,13 +605,13 @@
     if (!sheet) {
         sheet = [UIAlertController alertControllerWithTitle:@"Select Date" message:@"\n\n\n\n\n\n\n\n\n\n\n" preferredStyle:UIAlertControllerStyleActionSheet];
         
-        CGFloat aWidth =320;
+        CGFloat aWidth =self.view.frame.size.width;
         CGFloat CONTENT_HEIGHT = 400;
         //
         [sheet.view setBounds:CGRectMake(0, 0, aWidth, CONTENT_HEIGHT)];
         
         UIToolbar *toolbar = [[UIToolbar alloc]
-                              initWithFrame:CGRectMake(10, 44, 280, 44)];
+                              initWithFrame:CGRectMake(10, 44, self.view.frame.size.width-40, 44)];
         [toolbar setItems:@[
                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(pickerSheetCancel)],
                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
@@ -619,7 +620,7 @@
         
         
         if (pdate ==nil) {
-            pdate=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, 88, 320, 170)];
+            pdate=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 170)];
             pdate.datePickerMode=UIDatePickerModeDate;
             Mysql *msql=[[Mysql alloc]init];
             if (txtDate.titleLabel.text) {
@@ -672,7 +673,7 @@
 //    [actionSheet setTag:2];
     
     if (pstart ==nil) {
-        pstart = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+        pstart = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
         pstart.showsSelectionIndicator = YES;
         
         pstart.delegate = self;
@@ -799,7 +800,7 @@
 //        y=80;
 //    }
 //    
-//    [actionSheet setFrame:CGRectMake(0, 177+y, 320, 383)];
+//    [actionSheet setFrame:CGRectMake(0, 177+y, self.view.frame.size.width, 383)];
 //     [actionSheet showInView:self.view];
 }
 

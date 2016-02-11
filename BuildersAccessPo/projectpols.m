@@ -50,7 +50,7 @@
     UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     
-    searchBar= [[UISearchBar alloc] initWithFrame:CGRectMake(0, 64, 320, 44)];
+    searchBar= [[UISearchBar alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 44)];
     [view addSubview: searchBar];
     searchBar.delegate=self;
     
@@ -240,11 +240,11 @@
         
         if (ciatbview ==nil) {
             if (self.view.frame.size.height>480) {
-                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325+87)];
-                uv.contentSize=CGSizeMake(320.0,326+87);
+                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325+87)];
+                uv.contentSize=CGSizeMake(self.view.frame.size.width,326+87);
             }else{
-                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325)];
-                uv.contentSize=CGSizeMake(320.0,326);
+                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325)];
+                uv.contentSize=CGSizeMake(self.view.frame.size.width,326);
             }
 //            uv.backgroundColor=[Mysql groupTableViewBackgroundColor];
 //            ciatbview.layer.cornerRadius = 10;

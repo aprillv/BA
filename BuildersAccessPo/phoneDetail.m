@@ -263,7 +263,7 @@ NSEntityDescription *kv;
         
         kv =[rtnls objectAtIndex:0];
         
-        infoview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, 60.0)];
+        infoview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 60.0)];
         infoview.layer.cornerRadius = 10;
         infoview.separatorColor=[UIColor clearColor];
         infoview.tag=4;
@@ -273,14 +273,14 @@ NSEntityDescription *kv;
         [sv addSubview:infoview];
         y=y+70+x;
         
-        UILabel *lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+        UILabel *lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
         lbl.text=@"Office";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.backgroundColor=[UIColor clearColor];
         [sv addSubview:lbl];
         y=y+21+x;
         
-        phone=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, 44.0)];
+        phone=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44.0)];
         phone.layer.cornerRadius = 10;
         phone.tag=5;
         
@@ -292,14 +292,14 @@ NSEntityDescription *kv;
         
         y=y+44+x+5;
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
         lbl.text=@"Fax";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.backgroundColor=[UIColor clearColor];
         [sv addSubview:lbl];
         y=y+21+x;
  
-        fax=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, 44.0)];
+        fax=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44.0)];
         fax.layer.cornerRadius = 10;
         fax.tag=6;
         fax.separatorColor=[UIColor clearColor];
@@ -310,14 +310,14 @@ NSEntityDescription *kv;
         [sv addSubview:fax];
         y=y+44+x+5;
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
         lbl.text=@"Mobile";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.backgroundColor=[UIColor clearColor];
         [sv addSubview:lbl];
         y=y+21+x;
         
-       mobile= [[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, 44.0)];
+       mobile= [[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44.0)];
         mobile.layer.cornerRadius = 10;
         mobile.tag=7;
         mobile.separatorColor=[UIColor clearColor];
@@ -328,14 +328,14 @@ NSEntityDescription *kv;
         [sv addSubview:mobile];
         y=y+44+x+5;
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
         lbl.text=@"Email";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.backgroundColor=[UIColor clearColor];
         [sv addSubview:lbl];
         y=y+21+x;
         
-        uemail= [[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, 44.0)];
+        uemail= [[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44.0)];
         uemail.layer.cornerRadius = 10;
         uemail.tag=8;
         uemail.separatorColor=[UIColor clearColor];
@@ -346,10 +346,10 @@ NSEntityDescription *kv;
         [sv addSubview:uemail];
         y=y+44+x+5;
 
-        sv.contentSize=CGSizeMake(320.0,y+25);
+        sv.contentSize=CGSizeMake(self.view.frame.size.width,y+25);
         
     }else{
-         UILabel* lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+         UILabel* lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
         lbl.numberOfLines=0;
         lbl.text=[NSString stringWithFormat:@"In the company %@, %@ not found.", [userInfo getCiaName], ename];
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];

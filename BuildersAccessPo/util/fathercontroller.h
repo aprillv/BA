@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "fViewController.h"
 
-@interface fathercontroller : fViewController<UITabBarDelegate>
+@interface fathercontroller : fViewController<UITabBarDelegate, UITableViewDelegate>
 
 -(IBAction)gohome:(id)sender;
 -(IBAction)goBack:(id)sender;

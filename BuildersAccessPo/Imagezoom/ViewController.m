@@ -45,7 +45,7 @@
     [self.view addSubview:navigationBar];
 //    [navigationBar release];
     
-    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, NAVBAR_HEIGHT, 320, dheight-NAVBAR_HEIGHT)];
+    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, NAVBAR_HEIGHT, self.view.frame.size.width, dheight-NAVBAR_HEIGHT)];
     _scrollView.delegate = self;
     _scrollView.pagingEnabled = YES;
     _scrollView.userInteractionEnabled = YES;

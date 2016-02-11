@@ -157,7 +157,7 @@
 -(void)drawpage{
     UILabel *lbl;
     int y=10;
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=[NSString stringWithFormat:@"%@ # %@", pd.Doc, pd.IdDoc];
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -165,12 +165,12 @@
     [uv addSubview:lbl];
     y=y+30;
     
-    UIView *ta = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    UIView *ta = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     ta.backgroundColor = [UIColor whiteColor];
     ta.layer.cornerRadius = 10.0;
     [uv addSubview:ta];
     
-    lbl=[[InsetsLabel alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    lbl=[[InsetsLabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     lbl.layer.cornerRadius =10.0;
     lbl.font=[UIFont systemFontOfSize:17.0];
     lbl.text=[NSString stringWithFormat:@"Total: %@", pd.Total];
@@ -178,7 +178,7 @@
     
     y = y+30+10;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"To";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -187,7 +187,7 @@
     y=y+30;
     
     UITextField * text1;
-    text1=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    text1=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
@@ -210,7 +210,7 @@
     y=y+30+10;
     [uv addSubview:dd1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Message";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -218,12 +218,12 @@
     [uv addSubview:lbl];
     y=y+30;
     
-    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 105)];
+    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 105)];
     [txtProject setBorderStyle:UITextBorderStyleRoundedRect];
     txtProject.enabled=NO;
     [uv addSubview:txtProject];
     
-    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, 296, 98) ];
+    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, self.view.frame.size.width-24, 98) ];
     txtNote.layer.cornerRadius=10;
     txtNote.font=[UIFont systemFontOfSize:17.0];
     txtNote.delegate=self;
@@ -237,7 +237,7 @@
     y=y+120;
     
     UIButton* loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+    [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
     [loginButton setTitle:@"Send" forState:UIControlStateNormal];
     [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
     [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -246,7 +246,7 @@
     [uv addSubview:loginButton];
     
     y = y>uv.frame.size.height+1? y:uv.frame.size.height+1;
-    uv.contentSize=CGSizeMake(320.0,y);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width,y);
 }
 
 -(IBAction)sendEmail:(id)sender{

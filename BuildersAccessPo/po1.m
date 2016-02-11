@@ -104,7 +104,7 @@
     UILabel *lbl;
     int y=10;
     float rowheight=32.0;
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=[NSString stringWithFormat:@"%@ # %@", pd.Doc, pd.IdDoc];
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -124,14 +124,14 @@
     }
     
       UIView *lbl1;
-    lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight*[list1 count])];
+    lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight*[list1 count])];
     lbl1.backgroundColor = [UIColor whiteColor];
     lbl1.layer.cornerRadius =10.0;
     [uv addSubview:lbl1];
     
     InsetsLabel *lblTitle;
     for (NSString *s in list1) {
-        lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+        lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
         lblTitle.backgroundColor=[UIColor clearColor];
         lblTitle.text=s;
         lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -142,7 +142,7 @@
     
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Notes";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -155,26 +155,26 @@
         if ([pd.Shipto rangeOfString:@";"].location != NSNotFound) {
             NSArray *na =[pd.Shipto componentsSeparatedByString:@";"];
             
-            lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, ([na count]*22))];
+            lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, ([na count]*22))];
             lbl1.backgroundColor = [UIColor whiteColor];
             lbl1.layer.cornerRadius =10.0;
             [uv addSubview:lbl1];
             
-            lbl=[[InsetsLabel alloc]initWithFrame:CGRectMake(10, y, 300, ([na count]*22))];
+            lbl=[[InsetsLabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, ([na count]*22))];
            
             lbl.font=[UIFont systemFontOfSize:14.0];
             lbl.numberOfLines=0;
             lbl.text=[pd.Shipto stringByReplacingOccurrencesOfString:@";" withString:@"\n"];
             [lbl sizeToFit];
             CGRect f = lbl.frame;
-            f.size.width=300;
+            f.size.width=(self.view.frame.size.width-20);
             lbl1.frame=f;
             [uv addSubview:lbl];
         }else{
             
             
             
-            lbl=[[InsetsLabel alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+            lbl=[[InsetsLabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
             
              lbl.numberOfLines=0;
            
@@ -182,14 +182,14 @@
             lbl.text=pd.Shipto;
              [lbl sizeToFit];
             CGRect f = lbl.frame;
-            f.size.width=300;
+            f.size.width=(self.view.frame.size.width-20);
             lbl.frame=f;
             
              [uv addSubview:lbl];
         }
     }else{
       
-        lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+        lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
         lbl1.backgroundColor = [UIColor whiteColor];
         lbl1.layer.cornerRadius =10.0;
          [uv addSubview:lbl1];
@@ -198,7 +198,7 @@
     y = y+ lbl.frame.size.height+10;
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Reason";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -208,12 +208,12 @@
     
    
     
-    lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     lbl1.backgroundColor = [UIColor whiteColor];
     lbl1.layer.cornerRadius =10.0;
     [uv addSubview:lbl1];
     
-    lbl=[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    lbl=[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-30, 30)];
     lbl.font=[UIFont systemFontOfSize:14.0];
     lbl.text=pd.Reason;
     [uv addSubview:lbl];
@@ -221,7 +221,7 @@
 
     y=y+30+10;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Detail";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -235,27 +235,27 @@
         
         if(od.Notes!=nil && ![od.Notes isEqualToString:@""]){
             
-            lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight*5)];
+            lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight*5)];
             lbl1.backgroundColor = [UIColor whiteColor];
             lbl1.layer.cornerRadius =10.0;
             [uv addSubview:lbl1];
             
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
             lblTitle.backgroundColor=[UIColor clearColor];
             lblTitle.text=od.Description;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+rowheight;
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
             lblTitle.backgroundColor=[UIColor clearColor];
             lblTitle.text=od.Notes;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+rowheight;
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
             lblTitle.backgroundColor=[UIColor clearColor];
             if (od.Qty==nil) {
                 lblTitle.text=@"QTY";
@@ -266,7 +266,7 @@
             [uv addSubview:lblTitle];
             y=y+rowheight;
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
             lblTitle.backgroundColor=[UIColor clearColor];
             lblTitle.text=[NSString stringWithFormat:@"Price %@", od.Price];
             lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -274,7 +274,7 @@
             y=y+rowheight;
             
             //[NSString stringWithFormat:@"Amount %@", od.Amount]
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
             lblTitle.backgroundColor=[UIColor clearColor];
             lblTitle.text=[NSString stringWithFormat:@"Amount %@", od.Amount];
             lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -287,19 +287,19 @@
         }else{
             
             
-            lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight*4)];
+            lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight*4)];
             lbl1.backgroundColor = [UIColor whiteColor];
             lbl1.layer.cornerRadius =10.0;
             [uv addSubview:lbl1];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
             lblTitle.backgroundColor=[UIColor clearColor];
             lblTitle.text=od.Description;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+rowheight;
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
             lblTitle.backgroundColor=[UIColor clearColor];
            
             if (od.Qty==nil) {
@@ -313,7 +313,7 @@
             [uv addSubview:lblTitle];
             y=y+rowheight;
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
             lblTitle.backgroundColor=[UIColor clearColor];
             lblTitle.text=[NSString stringWithFormat:@"Price %@", od.Price];
             lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -321,7 +321,7 @@
             y=y+rowheight;
             
             //[NSString stringWithFormat:@"Amount %@", od.Amount]
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
             lblTitle.backgroundColor=[UIColor clearColor];
             lblTitle.text=[NSString stringWithFormat:@"Amount %@", od.Amount];
             lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -332,34 +332,34 @@
         }
     }
     
-    lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight*4)];
+    lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight*4)];
     lbl1.backgroundColor = [UIColor whiteColor];
     lbl1.layer.cornerRadius =10.0;
     [uv addSubview:lbl1];
     
     
-    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
     lblTitle.backgroundColor=[UIColor clearColor];
     lblTitle.text=[NSString stringWithFormat:@"Non Taxable %@", pd.Nontaxable];
     lblTitle.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lblTitle];
     y=y+rowheight;
     
-    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
     lblTitle.backgroundColor=[UIColor clearColor];
     lblTitle.text=[NSString stringWithFormat:@"Taxable %@", pd.Taxable];
     lblTitle.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lblTitle];
     y=y+rowheight;
     
-    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
     lblTitle.backgroundColor=[UIColor clearColor];
     lblTitle.text=[NSString stringWithFormat:@"Tax %@", [pd.Tax stringByReplacingOccurrencesOfString:@":" withString:@": "]];
     lblTitle.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lblTitle];
     y=y+rowheight;
     
-    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
     lblTitle.backgroundColor=[UIColor clearColor];
     lblTitle.text=[NSString stringWithFormat:@"Total %@", pd.Total];
     lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -375,7 +375,7 @@
             if (pd.Hold) {
               
                 loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+                [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
                 [loginButton setTitle:@"Hold" forState:UIControlStateNormal];
                 [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
                 [loginButton setBackgroundImage:[[UIImage imageNamed:@"yButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -390,7 +390,7 @@
             if ([pd.ApprovePayment isEqualToString:@"1"]) {
 //                firstItem= [[UITabBarItem alloc]initWithTitle:@"Approve" image:[UIImage imageNamed:@"approve.png"] tag:1];
                 loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+                [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
                 [loginButton setTitle:@"Approve" forState:UIControlStateNormal];
                 [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
                 [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -403,7 +403,7 @@
             if ([pd.Disapprove isEqualToString:@"1"]) {
 //                secondItem= [[UITabBarItem alloc]initWithTitle:@"Disapprove" image:[UIImage imageNamed:@"disapprove.png"] tag:3];
                 loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+                [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
                 [loginButton setTitle:@"Disapprove" forState:UIControlStateNormal];
                 [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
                 [loginButton setBackgroundImage:[[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -447,7 +447,7 @@
                 
                 //                firstItem= [[UITabBarItem alloc]initWithTitle:@"Approve" image:[UIImage imageNamed:@"approve.png"] tag:1];
                 loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+                [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
                 [loginButton setTitle:@"Approve" forState:UIControlStateNormal];
                 [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
                 [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -460,7 +460,7 @@
             if ([pd.Disapprove isEqualToString:@"1"]) {
                 //                secondItem= [[UITabBarItem alloc]initWithTitle:@"Disapprove" image:[UIImage imageNamed:@"disapprove.png"] tag:3];
                 loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+                [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
                 [loginButton setTitle:@"Disapprove" forState:UIControlStateNormal];
                 [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
                 [loginButton setBackgroundImage:[[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -490,7 +490,7 @@
         UIButton* loginButton;
         if (pd.CanEmail && ![pd.Status isEqualToString:@"Paid"]){
             loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+            [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
             [loginButton setTitle:@"Email Vendor" forState:UIControlStateNormal];
             [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
             [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -503,7 +503,7 @@
         
         if([pd.AssignVendor intValue]>0){
             loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+            [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
             if(pd.Idvendor>0){
                 [loginButton setTitle:@"Re-Assign Vendor" forState:UIControlStateNormal];
             }else{
@@ -524,7 +524,7 @@
         
         if(pd.Release!=nil && [pd.Release isEqualToString:@"1"]){
             loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+            [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
             [loginButton setTitle:@"Release" forState:UIControlStateNormal];
             [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
             [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -535,7 +535,7 @@
         }
         if([pd.ForApprove isEqualToString:@"1"]){
             loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+            [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
             [loginButton setTitle:@"Release" forState:UIControlStateNormal];
             [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
             [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -548,7 +548,7 @@
         
         if(pd.Hold){
             loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+            [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
             [loginButton setTitle:@"Hold" forState:UIControlStateNormal];
             [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
             [loginButton setBackgroundImage:[[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -560,7 +560,7 @@
         
         if(pd.ApprovePayment !=nil && [pd.ApprovePayment isEqualToString:@"1"]){
             loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+            [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
             [loginButton setTitle:@"Approve For Payment" forState:UIControlStateNormal];
             [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
             [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -572,7 +572,7 @@
         
         if(pd.PartialPayment !=nil && [pd.PartialPayment isEqualToString:@"1"]){
             loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+            [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
             [loginButton setTitle:@"Partial Payment" forState:UIControlStateNormal];
             [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
             [loginButton setBackgroundImage:[[UIImage imageNamed:@"yButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -585,7 +585,7 @@
         
         if(pd.PrintCheck!=nil && [pd.PrintCheck isEqualToString:@"1"]){
             loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+            [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
             [loginButton setTitle:@"Print Check" forState:UIControlStateNormal];
             [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
             [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -598,7 +598,7 @@
         
         if(pd.Disapprove !=nil && [pd.Disapprove isEqualToString:@"1"]){
             loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+            [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
             [loginButton setTitle:@"Disapprove" forState:UIControlStateNormal];
             [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
             [loginButton setBackgroundImage:[[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -611,7 +611,7 @@
         
         if (pd.ReOpen!=nil && [pd.ReOpen isEqualToString:@"1"]) {
             loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+            [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
             [loginButton setTitle:@"Re-Open" forState:UIControlStateNormal];
             [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
             [loginButton setBackgroundImage:[[UIImage imageNamed:@"yButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -623,7 +623,7 @@
         
         if(pd.Void!=nil && [pd.Void isEqualToString:@"1"]){
             loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+            [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
             [loginButton setTitle:@"Void" forState:UIControlStateNormal];
             [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
             [loginButton setBackgroundImage:[[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -654,7 +654,7 @@
     }
     
     
-    uv.contentSize=CGSizeMake(320.0,y+1);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width,y+1);
     [ntabbar setSelectedItem:nil];
 }
 

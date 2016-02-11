@@ -93,11 +93,11 @@
 //    sv.backgroundColor=[Mysql groupTableViewBackgroundColor];
     
     if (self.view.frame.size.height>480) {
-        tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325+87)];
-        sv.contentSize=CGSizeMake(320.0,326+87);
+        tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325+87)];
+        sv.contentSize=CGSizeMake(self.view.frame.size.width,326+87);
     }else{
-        tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325)];
-        sv.contentSize=CGSizeMake(320.0,326);
+        tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325)];
+        sv.contentSize=CGSizeMake(self.view.frame.size.width,326);
     }
   
     tbview.tag=2;

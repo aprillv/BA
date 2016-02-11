@@ -420,7 +420,7 @@
     
     
     UILabel *lbl;
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"New Requested Date";
     lbl.backgroundColor=[UIColor clearColor];
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
@@ -428,7 +428,7 @@
     [uv addSubview:lbl];
     y=y+21+x;
     
-    UITextField *text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    UITextField *text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
     text1.text=@"";
@@ -449,14 +449,14 @@
     if (iscriticalpath) {
         
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Reschedule Reason";
         lbl.backgroundColor=[UIColor clearColor];
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
     text1.text=@"";
@@ -476,19 +476,19 @@
     [uv addSubview: txtReason];
     y=y+30+10;
     }
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Comment";
     lbl.backgroundColor=[UIColor clearColor];
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 105)];
+    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 105)];
     [txtProject setBorderStyle:UITextBorderStyleRoundedRect];
     txtProject.enabled=NO;
     [uv addSubview:txtProject];
     
-    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, 296, 98) ];
+    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, self.view.frame.size.width-24, 98) ];
     txtNote.layer.cornerRadius=10;
     txtNote.font=[UIFont systemFontOfSize:17.0];
     txtNote.delegate=self;
@@ -509,14 +509,14 @@
     y=y+110;
     if (iscriticalpath) {
        
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Days #";
         lbl.backgroundColor=[UIColor clearColor];
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    tDate=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    tDate=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [tDate setBorderStyle:UITextBorderStyleRoundedRect];
     tDate.delegate=self;
     tDate.text=@"0";
@@ -549,9 +549,9 @@
     y=y+50+x;
     
     if(self.view.frame.size.height>480) {
-        uv.contentSize=CGSizeMake(320.0,465);
+        uv.contentSize=CGSizeMake(self.view.frame.size.width,465);
     }else{
-       uv.contentSize=CGSizeMake(320.0,y+1);
+       uv.contentSize=CGSizeMake(self.view.frame.size.width,y+1);
     }
 }
 
@@ -622,13 +622,13 @@
     if (!sheet) {
         sheet = [UIAlertController alertControllerWithTitle:@"Select Date" message:@"\n\n\n\n\n\n\n\n\n\n\n" preferredStyle:UIAlertControllerStyleActionSheet];
         
-        CGFloat aWidth =320;
+        CGFloat aWidth =self.view.frame.size.width;
         CGFloat CONTENT_HEIGHT = 400;
         //
         [sheet.view setBounds:CGRectMake(0, 0, aWidth, CONTENT_HEIGHT)];
         
         UIToolbar *toolbar = [[UIToolbar alloc]
-                              initWithFrame:CGRectMake(10, 44, 280, 44)];
+                              initWithFrame:CGRectMake(10, 44, self.view.frame.size.width-40, 44)];
         [toolbar setItems:@[
                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(pickerSheetCancel)],
                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
@@ -637,7 +637,7 @@
         
         
         if (pdate ==nil) {
-            pdate=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, 88, 320, 170)];
+            pdate=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 170)];
             pdate.datePickerMode=UIDatePickerModeDate;
             [pdate setDate:xstartd];
         }

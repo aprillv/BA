@@ -70,7 +70,7 @@
     
     
     
-//    UILabel *lbl =[[UILabel alloc]initWithFrame:CGRectMake(90, 12, 300, 40)];
+//    UILabel *lbl =[[UILabel alloc]initWithFrame:CGRectMake(90, 12, self.view.frame.size.width-20, 40)];
 //    lbl.text=[NSString stringWithFormat:@"Last Sync\n%@", lastsync];
 //    lbl.textAlignment=NSTextAlignmentCenter;
 //    lbl.textColor=[UIColor lightGrayColor];

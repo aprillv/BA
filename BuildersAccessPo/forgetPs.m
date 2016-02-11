@@ -35,6 +35,13 @@
         [service xisupdate_iphone:self action:@selector(xisupdate_iphoneHandler:) version:version];
     }
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    [self doSend:nil];
+    return YES;
+}
+
 - (void) xisupdate_iphoneHandler: (id) value {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     // Handle errors
@@ -57,19 +64,6 @@
     
     NSString* result = (NSString*)value;
     if ([result isEqualToString:@"1"]) {
-        
-        //        UIAlertView *alert = nil;
-        //        alert = [[UIAlertView alloc]
-        //                 initWithTitle:@"BuildersAccess"
-        //                 message:@"There is a new version?"
-        //                 delegate:self
-        //                 cancelButtonTitle:@"Cancel"
-        //                 otherButtonTitles:@"Ok", nil];
-        //        alert.tag = 1;
-        //        [alert show];
-        
-        
-        
         [[UIApplication sharedApplication]openURL:[NSURL URLWithString:Download_InstallLink]];
         
     }else{
@@ -87,7 +81,7 @@
 		UIAlertView *alert = nil;
         alert = [[UIAlertView alloc]
                  initWithTitle:@"Error"
-                 message:@"Please Input All Fields"
+                 message:@"Please Input Email Address."
                  delegate:self
                  cancelButtonTitle:nil
                  otherButtonTitles:@"OK", nil];
@@ -206,83 +200,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.title=@"Forgot Password";
+	
     
     [self.navigationItem setHidesBackButton:YES];
-    
-    UIButton *btnNext = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnNext.frame = CGRectMake(0, 40, 40, 40);
-    [btnNext addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
-    UIImage *btnNextImageNormal = [UIImage imageNamed:@"back.png"];
-    [btnNext setImage:btnNextImageNormal forState:UIControlStateNormal];
-    [btnNext setImageEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
-    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:btnNext]];
-    
-
-    
-    int x=5;
-    UIScrollView *sv =( UIScrollView *)[self.view viewWithTag:1];
-    sv.contentSize=CGSizeMake(320.0,self.view.frame.size.height+1);
-    
-    int y=20;
-    
-   
-    
-    UILabel *lbl;
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 65)];
-    lbl.text=@"Please enter the email address you used to create your account, and we will send you a link to reset your password.";
-    
-    lbl.numberOfLines=0;
-    lbl.lineBreakMode = NSLineBreakByWordWrapping;
-    [lbl sizeToFit];
-    [sv addSubview:lbl];
-    y=y+90+x;
-    
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
-    lbl.text=@"Email";
-    [sv addSubview:lbl];
-    y=y+21+x;
-    
-    txtEmail=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
-    [txtEmail setBorderStyle:UITextBorderStyleRoundedRect];
-    [txtEmail addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    txtEmail.delegate=self;
-    [sv addSubview: txtEmail];
-//    y=y+30+x+5;
-
-    keyboard=[[CustomKeyboard alloc]init];
-    keyboard.delegate=self;
-    txtEmail.inputAccessoryView=[keyboard getToolbarWithDone];
+    self.sendBtn.layer.cornerRadius = 5.0;
+//    UIButton *btnNext = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btnNext.frame = CGRectMake(0, 40, 40, 40);
+//    [btnNext addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
+//    UIImage *btnNextImageNormal = [UIImage imageNamed:@"back.png"];
+//    [btnNext setImage:btnNextImageNormal forState:UIControlStateNormal];
+//    [btnNext setImageEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+//    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:btnNext]];
 
 }
 
 
-- (BOOL)textFieldShouldReturn:(id)sender
-{
-    UIScrollView *sv =( UIScrollView *)[self.view viewWithTag:1];
-    [sv setContentOffset:CGPointMake(0, 0) animated:YES];
-    
-	return YES;
-}
-
--(BOOL)textFieldShouldBeginEditing:(UITextField *)sender
-{
-    
-    UIScrollView *sv =( UIScrollView *)[self.view viewWithTag:1];
-    if (self.view.frame.size.height<500) {
-     [sv setContentOffset:CGPointMake(0,15) animated:YES];
-    }
-    
-        
-	return YES;
-}
 
 
--(void)doneClicked{
-    [txtEmail resignFirstResponder];
-}
+
+
 - (IBAction)textFieldDoneEditing:(id)sender {
 	[sender resignFirstResponder];
+    [self doSend:nil];
 }
 
 - (void)didReceiveMemoryWarning {

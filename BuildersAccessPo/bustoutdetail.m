@@ -105,7 +105,7 @@ int hy;
     uv.backgroundColor=[Mysql groupTableViewBackgroundColor];
     
     int y=10;
-    UILabel *lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    UILabel *lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Termination Date";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -114,69 +114,69 @@ int hy;
     
     UIView *lbl1;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 32)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 32)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, 300, 24)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, self.view.frame.size.width-20, 24)];
     lbl.text=pd.Refdate;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+37;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Contract Date";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+26;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 32)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 32)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, 300, 24)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, self.view.frame.size.width-20, 24)];
     lbl.text=pd.ContractRefdate;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+37;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Non-Refundable";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+26;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 32)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 32)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, 300, 24)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, self.view.frame.size.width-20, 24)];
     lbl.text=pd.Nonrefundable;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+37;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Approve by";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+26;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 32)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 32)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, 300, 24)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, self.view.frame.size.width-20, 24)];
     lbl.text=pd.Appr_by;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
@@ -184,64 +184,64 @@ int hy;
     y=y+37;
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Project";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+26;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 32)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 32)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, 300, 24)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, self.view.frame.size.width-20, 24)];
     lbl.text=pd.Nproject;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+37;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Sub Division";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+26;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 32)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 32)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, 300, 24)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, self.view.frame.size.width-20, 24)];
     lbl.text=pd.Subdividion;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+37;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Buyer Name";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+26;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 32)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 32)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, 300, 24)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, self.view.frame.size.width-20, 24)];
     lbl.text=pd.Client;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+37;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Stage @ Contract";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -249,52 +249,52 @@ int hy;
     y=y+26;
     
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 32)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 32)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, 300, 24)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, self.view.frame.size.width-20, 24)];
     lbl.text=pd.Stage;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+37;
 
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Project Manager";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+26;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 32)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 32)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, 300, 24)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, self.view.frame.size.width-20, 24)];
     lbl.text=pd.PM1;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+37;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Consultant";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+26;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 32)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 32)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, 300, 24)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, self.view.frame.size.width-20, 24)];
     lbl.text=pd.Sales1;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
@@ -308,7 +308,7 @@ int hy;
     if ([pd.Approve isEqualToString:@"1"]) {
         
         loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+        [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         [loginButton setTitle:@"Approve" forState:UIControlStateNormal];
         [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -322,7 +322,7 @@ int hy;
        
         
         loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+        [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         [loginButton setTitle:@"Disapprove" forState:UIControlStateNormal];
         [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [loginButton setBackgroundImage:[[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -350,7 +350,7 @@ int hy;
     [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
 //    [[ntabbar.items objectAtIndex:3] setAction:@selector(refreshPrject:)];
     
-    uv.contentSize=CGSizeMake(320.0,y);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width,y);
 //    uv.backgroundColor = [UIColor redColor];
 }
 

@@ -165,7 +165,7 @@
     
     UIGraphicsBeginImageContext(image.size);
     [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
-    CGRect rect = CGRectMake((320-a.width)/2, 1, image.size.width, image.size.height);
+    CGRect rect = CGRectMake(([UIScreen mainScreen].bounds.size.width-a.width)/2, 1, image.size.width, image.size.height);
     [[UIColor whiteColor] set];
     [text drawInRect:CGRectIntegral(rect) withFont:font];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();

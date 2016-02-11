@@ -202,28 +202,10 @@
 	// Do something with the NSMutableArray* result
     rtnlist=[(wcfArrayOfSuggestedPriceListItem*)value toMutableArray];
     rtnlist1=rtnlist ;
-    
-    UIScrollView *sv =(UIScrollView *)[self.view viewWithTag:1];
-    sv.backgroundColor=[Mysql groupTableViewBackgroundColor];
-    
-    if (tbview !=nil) {
-        [tbview reloadData];
-        [ntabbar setSelectedItem:nil];
-        [searchtxt setText:@""];
-    }else{
-        if (self.view.frame.size.height>480) {
-            tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325+87)];
-            sv.contentSize=CGSizeMake(320.0,326+87);
-        }else{
-            tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325)];
-            sv.contentSize=CGSizeMake(320.0,326);
-        }
-        
-        tbview.tag=2;
-        tbview.delegate = self;
-        tbview.dataSource = self;
-        [sv addSubview:tbview];
-    }
+    [tbview reloadData];
+    [ntabbar setSelectedItem:nil];
+    [searchtxt setText:@""];
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -247,14 +229,6 @@
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;    }
     
     wcfSuggestedPriceListItem *kv =[rtnlist objectAtIndex:(indexPath.row)];
-//    @synthesize Comment = _Comment;
-//	@synthesize FormulaPrice = _FormulaPrice;
-//	@synthesize Idnumber = _Idnumber;
-//	@synthesize Idproject = _Idproject;
-//	@synthesize Nproject = _Nproject;
-//	@synthesize SQFT = _SQFT;
-//	@synthesize Suggested = _Suggested;
-//	@synthesize TotalPage = _TotalPage;
     
     cell.textLabel.text = kv.Nproject;
     cell.detailTextLabel.numberOfLines=0;

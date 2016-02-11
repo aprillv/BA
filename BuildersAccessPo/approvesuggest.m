@@ -318,6 +318,7 @@
     
     uv.backgroundColor=[Mysql groupTableViewBackgroundColor];
     
+    y = 20;
     
     UILabel*  lbl;
     CGFloat screenWidth = self.view.frame.size.width;
@@ -501,9 +502,9 @@
     if (data!=nil) {
         img =[UIImage imageWithData:data];
         if (img!=nil) {
-            float f = 300/img.size.width;
+            float f = (self.view.frame.size.width-20)/img.size.width;
             
-            UIImageView *ui =[[UIImageView alloc]initWithFrame:CGRectMake(10, y, 300, img.size.height*f)];
+            UIImageView *ui =[[UIImageView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, img.size.height*f)];
             ui.image=img;
             
             ui.userInteractionEnabled = YES;
@@ -524,16 +525,10 @@
     [txtNote setText:rsp.Comment];
     sendtoField.text=rsp.Email;
     
-//    if (self.view.frame.size.height>480) {
-//        uv.contentSize=CGSizeMake(320.0,370+87);
-//    }else{
-//        uv.contentSize=CGSizeMake(320.0,y+1);
-//    }
-    
     
     
     UIButton* loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+    [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
     [loginButton setTitle:@"Approve" forState:UIControlStateNormal];
     [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
     [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -544,7 +539,7 @@
     
     
     loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+    [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
     [loginButton setTitle:@"Disapprove" forState:UIControlStateNormal];
     [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
     [loginButton setBackgroundImage:[[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -594,7 +589,7 @@
         y=MRScreenHeight;
     }
     
-    uv.contentSize=CGSizeMake(320, y+1);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width, y+1);
 }
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{

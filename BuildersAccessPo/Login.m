@@ -53,24 +53,31 @@ BOOL isenter;
 
 NSString* xget;
 
-@implementation Login{
-    UISwitch *switchView;
-}
+@implementation Login
+
 @synthesize usernameField;
-@synthesize passwordField;
+@synthesize passwordField, switchView, backView, loginBtn;
 //@synthesize checkButton;
-@synthesize ischecked;
 @synthesize pwd, pickerArray;
 
+//UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1);
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
     self.title=@"BuildersAccess";
     
-    [self doInitPage];
-	self.ischecked = NO;
+    backView.layer.borderColor = [[UIColor alloc]initWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1].CGColor;
+    backView.layer.borderWidth = 1;
     
+    backView.layer.shadowColor = [[UIColor alloc]initWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1].CGColor;
+    backView.layer.shadowOpacity = 1;
+    backView.layer.shadowRadius = 3.0;
+    backView.layer.shadowOffset = CGSizeMake(1, 0);
+    
+    loginBtn.layer.cornerRadius = 5.0;
+    
+//    NSLog(@"%@", loginBtn);
 	NSString *filePath = [self dataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         
@@ -81,56 +88,35 @@ NSString* xget;
         name=self.usernameField.text;
         
 		self.passwordField.text = @"******";
-		self.ischecked=YES;
 		switchView.on=YES;
     }
     
-    
-  
-  
-    
-//    [self.navigationController setNavigationBarHidden:YES animated:NO];
-//    UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, NAVBAR_HEIGHT)];
-//    navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//    navigationBar.items = @[self.navigationItem];
-//    [self.navigationController.navigationBar addSubview:navigationBar];
-//     UIColor * cg1 =[UIColor whiteColor] ;
-//
-//    UIImage *tabBackground = [[UIImage imageNamed:@"grayButton.jpg"]
-//                              resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-//    // Set background for all UITabBars
-//    [[UITabBar appearance] setBackgroundImage:tabBackground];
-    // Set background for only this UITabBar
    
     
     UIColor * cg = [UIColor lightGrayColor];
     [[UITabBar appearance] setTintColor:cg];
-//
-//    [[UITabBarItem appearance] setTitleTextAttributes:
-//     [NSDictionary dictionaryWithObjectsAndKeys:
-//      cg1, UITextAttributeTextColor,
-//      [UIFont boldSystemFontOfSize:9.0], UITextAttributeFont,
-//      [UIColor darkGrayColor], UITextAttributeTextShadowColor,
-//      nil] forState:UIControlStateNormal];
-    
-  
     [[UIToolbar appearance] setTintColor:cg];
-//    [[UIBarItem appearance] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
-//    [[UITabBarItem appearance]setTitleShadowColor:<#(UIColor *)#> forState:<#(UIControlState)#>: [UIColor whiteColor] forState:UIControlStateNormal];
-    
-    
     self.navigationController.navigationBar.tintColor = cg;
-//      [[UISearchBar appearance] setTintColor:[UIColor redColor]];
-    
     [UIApplication sharedApplication].statusBarStyle =  UIStatusBarStyleBlackTranslucent;
-    keyboard=[[CustomKeyboard alloc]init];
-    keyboard.delegate=self;
-    [usernameField setInputAccessoryView:[keyboard getToolbarWithPrevNextDone:NO :TRUE]];
-    [passwordField setInputAccessoryView:[keyboard getToolbarWithPrevNextDone:TRUE :NO]];
+    
+//    keyboard=[[CustomKeyboard alloc]init];
+//    keyboard.delegate=self;
+//    [usernameField setInputAccessoryView:[keyboard getToolbarWithPrevNextDone:NO :TRUE]];
+//    [passwordField setInputAccessoryView:[keyboard getToolbarWithPrevNextDone:TRUE :NO]];
     
     isenter=YES;
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField == usernameField) {
+        [passwordField becomeFirstResponder];
+    }else{
+        [passwordField resignFirstResponder];
+        [self login:nil];
+    }
+    return YES;
+}
+
 
 -(void)viewDidAppear:(BOOL)animated{
     if (![[self unlockPasscode] isEqualToString:@"0"] && isenter) {
@@ -162,128 +148,7 @@ NSString* xget;
     [passwordField resignFirstResponder];
 }
 
--(void)doInitPage{
-    
-    UIScrollView *sv = (UIScrollView *)[self.view viewWithTag:1];
-    int x=0;
-    int y=10;
-    if (self.view.frame.size.height>480) {
-        sv.contentSize=CGSizeMake(320.0,425.0+80);
-        y=y+20;
-        x=10;
-    }else{
-        sv.contentSize=CGSizeMake(320.0,425.0);
-        x=5;
-    }
-    
-    UILabel *lbl;
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
-    lbl.text=@"Email";
-    [sv addSubview:lbl];
-    y=y+21+x;
-    
-    usernameField=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
-    [usernameField setBorderStyle:UITextBorderStyleRoundedRect];
-    [usernameField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-//    usernameField.returnKeyType=UIReturnKeyDone;
-    [sv addSubview: usernameField];
-    y=y+30+x+5;
-    
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
-    lbl.text=@"Password";
-    [sv addSubview:lbl];
-    y=y+21+x;
-    
-    passwordField=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
-    [passwordField setBorderStyle:UITextBorderStyleRoundedRect];
-    [passwordField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [passwordField setSecureTextEntry:YES];
-    [sv addSubview: passwordField];
-    y=y+30+x+15;
-    
-//    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
-//    lbl.text=@"Access";
-//    [sv addSubview:lbl];
-//    y=y+21+x+11;
-//    
-//    UITextField * text1=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
-//    
-//    [text1 setBorderStyle:UITextBorderStyleRoundedRect];
-//    text1.enabled=NO;
-//    text1.text=@"";
-//    [sv addSubview: text1];
-//    
-//    
-//    dd1=[UIButton buttonWithType: UIButtonTypeCustom];
-//    [dd1 setFrame:CGRectMake(25, y+4, 270, 21)];
-//    [dd1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [dd1 addTarget:self action:@selector(popupscreen2:) forControlEvents:UIControlEventTouchDown];
-//    [dd1 setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-//    [dd1 setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 23)];
-//    [dd1.titleLabel setFont:[UIFont systemFontOfSize:17]];
-//    [dd1 setTitle:@"Builder" forState:UIControlStateNormal];
-//    y=y+41+x+11;
-//    [sv addSubview:dd1];
-    
-    
-    
-    UIView *lbl1 =[[UIView alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width - 40, 36)];
-    lbl1.layer.cornerRadius=10.0;
-    lbl1.layer.borderWidth=1.0f;
-    lbl1.layer.borderColor=[UIColor lightGrayColor].CGColor;
-    [sv addSubview:lbl1];
-    
-   
-    
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(35, y+8, 120, 21)];
-    lbl.text=@"Remember Me";
-    [sv addSubview:lbl];
-    
-    switchView= [[UISwitch alloc] initWithFrame:CGRectMake(235.0f, y+4, 100.0f, 28.0f)];
-    switchView.on = NO;
-    switchView.transform=CGAffineTransformMakeScale(0.85, 0.85);
-//    switchView.onTintColor=[UIColor blueColor];
-//    switchView.tintColor = [UIColor blueColor];
-    [sv addSubview:switchView];
-    [switchView addTarget:self action:@selector(CheckboxClicked:) forControlEvents:UIControlEventValueChanged];
-     y=y+70+x;
-    
-    UIButton *btn1 = [baControl getGrayButton];
-    [btn1 setFrame:CGRectMake(20, y, 280, 44)];
-    [btn1 setTitle:@"Login" forState:UIControlStateNormal];
-    [btn1 addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchDown];
-    [sv addSubview:btn1];
-    
-//    NSLog(@"%@", btn1.titleLabel.textColor);
-    
-    //    btn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    //    [btn1 setFrame:CGRectMake(200, y, 100, 36)];
-    //    [btn1 setTitle:@"Sign Up" forState:UIControlStateNormal];
-    //    [btn1 addTarget:self action:@selector(SingUpOnclick:) forControlEvents:UIControlEventTouchDown];
-    //    [sv addSubview:btn1];
-    
-    y=y+50+x;
-    
-//    checkButton=[UIButton buttonWithType:UIButtonTypeCustom];
-//    [checkButton setFrame:CGRectMake(20, y, 280, 44)];
-//    [checkButton addTarget:self action:@selector(CheckboxClicked:) forControlEvents:UIControlEventTouchDown];
-//    [checkButton setImageEdgeInsets:UIEdgeInsetsMake(2.0, -150.0, 5.0, 5.0)];
-//    [checkButton setImage: [UIImage imageNamed:@"uncheck.png"] forState:UIControlStateNormal];
-//    [checkButton setTitleEdgeInsets:UIEdgeInsetsMake(2.0, -140.0, 5.0, 5.0)];
-//    [checkButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-////     [checkButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
-//    [checkButton setTitle:@"Remember Me" forState:UIControlStateNormal];
-//    [sv addSubview:checkButton];
-    
-    y=y+30+x;
-    
-    btn1 =[baControl getGrayButton];
-    [btn1 setFrame:CGRectMake(20, y, 280, 44)];
-    [btn1 setTitle:@"Forgot Your Password" forState:UIControlStateNormal];
-    [btn1 addTarget:self action:@selector(ForgotPasOnclick:) forControlEvents:UIControlEventTouchDown];
-    [sv addSubview:btn1];
-}
+
 
 - (UIImage *)imageWithColor:(UIColor *)color {
     CGRect rect = CGRectMake(0, 0, 1, 1);
@@ -354,14 +219,14 @@ NSString* xget;
 }
 
 - (IBAction) ForgotPasOnclick: (id) sender{
-    if (transiting) {
-        return;
-    }else{
-        transiting=YES;
-        forgetPs *fp = [forgetPs alloc];
-        fp.managedObjectContext=self.managedObjectContext;
-        [self.navigationController pushViewController:fp animated:YES];
-    }
+//    if (transiting) {
+//        return;
+//    }else{
+//        transiting=YES;
+//        forgetPs *fp = [forgetPs alloc];
+//        fp.managedObjectContext=self.managedObjectContext;
+//        [self.navigationController pushViewController:fp animated:YES];
+//    }
 }
 
 - (IBAction) SingUpOnclick: (id) sender{
@@ -374,14 +239,8 @@ NSString* xget;
         [self.navigationController pushViewController:mysignup animated:YES];
     }
 }
-
-- (IBAction) CheckboxClicked : (id) sender{
-    if (ischecked == NO) {
-		self.ischecked=YES;
-//		[self.checkButton setImage:[UIImage imageNamed:@"checked.png"] forState:UIControlStateNormal];
-	}else {
-		self.ischecked=NO;
-//		[self.checkButton setImage:[UIImage imageNamed:@"uncheck.png"] forState:UIControlStateNormal];
+- (IBAction)remChanged:(UISwitch *)sender {
+    if (!sender.on) {
         
         NSString *filePath = [self dataFilePath];
         if ([[NSFileManager defaultManager]fileExistsAtPath:filePath]) {
@@ -558,12 +417,6 @@ if([value isKindOfClass:[SoapFault class]]) {
         }else{
             wcfService* service = [wcfService service];
             
-//            if([self.dd1.titleLabel.text isEqualToString:@"Builder"]){
-//                
-//              
-//                
-//            }
-//            NSLog(@"%@", myMD5Pas);
             [service xCheckLogin:self action:@selector(xCheckLoginHandler:) xemail: user_name xpassword: myMD5Pas EquipmentType:@"3"];
         }
 	}
@@ -618,7 +471,7 @@ if([value isKindOfClass:[SoapFault class]]) {
             myMD5Pas = [Mysql md5:pass_word];
         }
         
-        if (self.ischecked == YES) {
+        if (switchView.on) {
             
             if (self.pwd == nil) {
                 [self creatFiles:myMD5Pas];

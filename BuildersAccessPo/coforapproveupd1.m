@@ -50,35 +50,35 @@
     if (self.view.frame.size.height>480) {
         y=y+5;
         x=10;
-        uv.contentSize=CGSizeMake(320.0,460.0);
+        uv.contentSize=CGSizeMake(self.view.frame.size.width,460.0);
     }else{
         x=5;
-        uv.contentSize=CGSizeMake(320.0,370.0);
+        uv.contentSize=CGSizeMake(self.view.frame.size.width,370.0);
     }
     
     uv.backgroundColor = [Mysql groupTableViewBackgroundColor];
     
     UILabel *lbl;
     
-    lbl0 =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl0 =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl0.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl0.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl0];
     y=y+21+x;
     
-    lbl1 =[[UITableView alloc]initWithFrame:CGRectMake(10, y, 300, 28)];
+    lbl1 =[[UITableView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 28)];
     lbl1.layer.cornerRadius = 7;
     lbl1.rowHeight=28;
     y=y+32+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"To";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    UITextField * text1=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    UITextField * text1=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
@@ -87,7 +87,7 @@
     
     
     dd1=[UIButton buttonWithType: UIButtonTypeCustom];
-    [dd1 setFrame:CGRectMake(15, y+4, 290, 21)];
+    [dd1 setFrame:CGRectMake(15, y+4, self.view.frame.size.width-30, 21)];
     [dd1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [dd1 addTarget:self action:@selector(popupscreen2:) forControlEvents:UIControlEventTouchDown];
     [dd1 setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
@@ -99,19 +99,19 @@
     y=y+30+x;
     [uv addSubview:dd1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Message";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 105)];
+    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 105)];
     [txtProject setBorderStyle:UITextBorderStyleRoundedRect];
     txtProject.enabled=NO;
     [uv addSubview:txtProject];
     
-    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, 296, 98) ];
+    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, self.view.frame.size.width-24, 98) ];
     txtNote.layer.cornerRadius=10;
     txtNote.font=[UIFont systemFontOfSize:17.0];
     txtNote.delegate=self;
@@ -137,7 +137,7 @@
 //        
 //    }
     UIButton* loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginButton setFrame:CGRectMake(10, y, 300, 36)];
+    [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 36)];
 
     if (xtype==1) {
         

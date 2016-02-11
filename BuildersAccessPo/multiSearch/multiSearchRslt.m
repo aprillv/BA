@@ -63,7 +63,7 @@
     [self getSearchResult];
     
     
-//    tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, xheight)];
+//    tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, xheight)];
 //    //    tbview.layer.cornerRadius = 10;
 //    tbview.delegate = self;
 //    tbview.dataSource = self;
@@ -116,7 +116,7 @@
         
     }else{
         UILabel *lbl;
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, 20, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, 20, self.view.frame.size.width-20, 21)];
         lbl.text=@"Projects not Found.";
         lbl.textColor=[UIColor redColor];
         [tbview addSubview:lbl];

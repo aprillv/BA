@@ -23,7 +23,7 @@
 @interface mastercialist ()<MBProgressHUDDelegate, UITabBarDelegate>{
     UITableView *ciatbview;
 }
-@property (weak, nonatomic) IBOutlet UITableView *tbview;
+
 
 @end
 
@@ -101,7 +101,7 @@
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
-    UITableView *tbview=(UITableView *)[self.view viewWithTag:2];
+//    UITableView *tbview=(UITableView *)[self.view viewWithTag:2];
 
     NSString *str;
     str=[NSString stringWithFormat:@"Key like '%@*' or Value like [c]'*%@*'", searchtxt.text, searchtxt.text];

@@ -51,7 +51,7 @@ int currentPageNo;
     UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     
-    searchBar= [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    searchBar= [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
     [view addSubview: searchBar];
     searchBar.delegate=self;
     
@@ -62,10 +62,10 @@ int currentPageNo;
     self.view = view;
     
     if (view.frame.size.height>480) {
-        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 454, 320, 50)];
+        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 454, self.view.frame.size.width, 50)];
     }else{
         
-        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 366, 320, 50)];
+        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 366, self.view.frame.size.width, 50)];
     }
     [view addSubview:ntabbar];
     
@@ -94,9 +94,9 @@ int currentPageNo;
 //    [[ntabbar.items objectAtIndex:3] setAction:@selector(dorefresh:)];
     
     if (self.view.frame.size.height>480) {
-        uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 44, 320, 410)];
+        uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, 410)];
     }else{
-        uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 44, 320, 322)];
+        uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, 322)];
     }
     [view addSubview:uv];
     
@@ -252,11 +252,11 @@ int currentPageNo;
                 result1=rtnlist;
                 if (ciatbview ==nil) {
                     if (self.view.frame.size.height>480) {
-                        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325+84)];
-                        uv.contentSize=CGSizeMake(320.0,326+87);
+                        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325+84)];
+                        uv.contentSize=CGSizeMake(self.view.frame.size.width,326+87);
                     }else{
-                        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325)];
-                        uv.contentSize=CGSizeMake(320.0,326);
+                        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325)];
+                        uv.contentSize=CGSizeMake(self.view.frame.size.width,326);
                     }
 //                    ciatbview.layer.cornerRadius = 10;
                     ciatbview.tag=2;
@@ -274,7 +274,7 @@ int currentPageNo;
             }else{
                 UILabel *lbl;
                 
-                lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, 170, 300, 35)];
+                lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, 170, self.view.frame.size.width-20, 35)];
                 lbl.tag=3;
                 lbl.text=@" Vendor not found.";
                 lbl.textColor=[UIColor redColor];

@@ -260,11 +260,11 @@
 //    
 //    if (ciatbview ==nil) {
 //        if (self.view.frame.size.height>480) {
-//            ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325+87)];
-//            uv.contentSize=CGSizeMake(320.0,326+87);
+//            ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325+87)];
+//            uv.contentSize=CGSizeMake(self.view.frame.size.width,326+87);
 //        }else{
-//            ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325)];
-//            uv.contentSize=CGSizeMake(320.0,326);
+//            ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325)];
+//            uv.contentSize=CGSizeMake(self.view.frame.size.width,326);
 //        }
 ////        ciatbview.layer.cornerRadius = 10;
 //        ciatbview.tag=2;

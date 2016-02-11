@@ -124,9 +124,8 @@
     rtnlist = [mp getVendorList:str];
     
     
-    UIScrollView *sv =(UIScrollView *)[self.view viewWithTag:1];
-    sv.backgroundColor=[Mysql groupTableViewBackgroundColor];
-    UILabel *lbl =[[UILabel alloc]initWithFrame:CGRectMake(90, 12, 300, 40)];
+    
+    UILabel *lbl =[[UILabel alloc]initWithFrame:CGRectMake(90, 12, self.view.frame.size.width-20, 40)];
     lbl.text=[NSString stringWithFormat:@"Last Sync\n%@", lastsync];
     lbl.textAlignment=NSTextAlignmentCenter;
     lbl.tag=14;
@@ -137,18 +136,18 @@
     lbl.backgroundColor=[UIColor clearColor];
     [ntabbar addSubview:lbl];
     
-    if (self.view.frame.size.height>480) {
-        tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325+87)];
-        sv.contentSize=CGSizeMake(320.0,326+87);
-    }else{
-        tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325)];
-        sv.contentSize=CGSizeMake(320.0,326);
-    }
-    
-//    tbview.layer.cornerRadius = 10;
-    tbview.delegate = self;
-    tbview.dataSource = self;
-    [sv addSubview:tbview];
+//    if (self.view.frame.size.height>480) {
+//        tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325+87)];
+//        sv.contentSize=CGSizeMake(self.view.frame.size.width,326+87);
+//    }else{
+//        tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325)];
+//        sv.contentSize=CGSizeMake(self.view.frame.size.width,326);
+//    }
+//    
+////    tbview.layer.cornerRadius = 10;
+//    tbview.delegate = self;
+//    tbview.dataSource = self;
+//    [sv addSubview:tbview];
 }
 
 -(IBAction)refreshAssembly:(id)sender{

@@ -52,7 +52,7 @@ int i;
      [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:btnNext]]; 
     
     checkButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    [checkButton setFrame:CGRectMake(10, 300, 34, 44)];
+    [checkButton setFrame:CGRectMake(10, self.view.frame.size.width-20, 34, 44)];
     [checkButton setImage:[UIImage imageNamed:@"uncheck.png"] forState:UIControlStateNormal];
     [checkButton addTarget:self action:@selector(CheckboxClicked:) forControlEvents:UIControlEventTouchDown];
     [sv addSubview:checkButton];

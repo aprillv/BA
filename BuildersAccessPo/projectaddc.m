@@ -106,7 +106,7 @@
     }
      int y=10;
     
-    UILabel  *lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    UILabel  *lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Description";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -131,7 +131,7 @@
         if (h < lblTitle.frame.size.height+10) {
             h = lblTitle.frame.size.height+10;
         }
-        UIView * lblTitle2  =[[UIView alloc] initWithFrame:CGRectMake(10, y, 300, h)];
+        UIView * lblTitle2  =[[UIView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, h)];
         lblTitle2.layer.cornerRadius =10.0;
         lblTitle2.backgroundColor = [UIColor whiteColor];
         [uv addSubview:lblTitle2];
@@ -153,7 +153,7 @@
         }
         
     }
-    uv.contentSize=CGSizeMake(320.0,y);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width,y);
 
 }
 

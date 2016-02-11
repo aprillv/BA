@@ -94,25 +94,25 @@
     UIView *lblView;
     
     if (xfromtype==1) {
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
         lbl.text=[NSString stringWithFormat:@"Project # %@", result.IDProject];
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.backgroundColor=[UIColor clearColor];
         [uv addSubview:lbl];
         y=y+21+8;
         
-        lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight*2)];
+        lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight*2)];
         lblView.backgroundColor = [UIColor whiteColor];
         lblView.layer.cornerRadius =10.0;
         [uv addSubview:lblView];
         
-        lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, 300, rowheight-3)];
+        lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+3, self.view.frame.size.width-20, rowheight-3)];
         lblTitle.backgroundColor=[UIColor clearColor];
         lblTitle.text=result.NProject;
         lblTitle.font=[UIFont systemFontOfSize:14.0];
         [uv addSubview:lblTitle];
         
-        lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+rowheight, 300, rowheight-3)];
+        lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y+rowheight, self.view.frame.size.width-20, rowheight-3)];
         lblTitle.backgroundColor=[UIColor clearColor];
         if (result.Stage==nil || [result.Stage isEqualToString:@""]) {
             lblTitle.text=@"Schedule Not Started";
@@ -126,7 +126,7 @@
         
         y=y+rowheight*2+8;
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
         lbl.text=@"Floorplan";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.font=[UIFont systemFontOfSize:17.0];
@@ -140,7 +140,7 @@
         if (result.Repeated){
             rtn=rtn+1;
         }
-        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, rtn*rowheight)];
+        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rtn*rowheight)];
         ciatbview.layer.cornerRadius = 10;
         ciatbview.separatorColor=[UIColor clearColor];
         ciatbview.tag=6;
@@ -153,19 +153,19 @@
         y=y+rtn*rowheight+10;
     }
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Contract Date";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+5;
     
-    lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lblView.backgroundColor = [UIColor whiteColor];
     lblView.layer.cornerRadius =10.0;
     [uv addSubview:lblView];
     
-    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lblTitle.text=result.ContractDate;
     lblTitle.layer.cornerRadius =10.0;
     lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -173,7 +173,7 @@
     y=y+40;
     
     if (xfromtype==1) {
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
         lbl.text=@"Sub Division";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.backgroundColor=[UIColor clearColor];
@@ -181,12 +181,12 @@
         y=y+21+5;
         
         
-        lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+        lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
         lblView.backgroundColor = [UIColor whiteColor];
         lblView.layer.cornerRadius =10.0;
         [uv addSubview:lblView];
         
-        lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+        lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
         lblTitle.text=result.SubDivision;
         lblTitle.layer.cornerRadius =10.0;
         lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -194,45 +194,45 @@
         y=y+40;
     }
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Consultant";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+5;
     
-    lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lblView.backgroundColor = [UIColor whiteColor];
     lblView.layer.cornerRadius =10.0;
     [uv addSubview:lblView];
     
-    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lblTitle.text=result.Consultant;
     lblTitle.layer.cornerRadius =10.0;
     lblTitle.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lblTitle];
     y=y+40;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Buyer Name";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+5;
     
-    lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lblView.backgroundColor = [UIColor whiteColor];
     lblView.layer.cornerRadius =10.0;
     [uv addSubview:lblView];
     
-    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lblTitle.text=result.Buyer;
     lblTitle.layer.cornerRadius =10.0;
     lblTitle.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lblTitle];
     y=y+40;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Broker Name";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -240,31 +240,31 @@
     y=y+21+5;
     
     
-    lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lblView.backgroundColor = [UIColor whiteColor];
     lblView.layer.cornerRadius =10.0;
     [uv addSubview:lblView];
     
-    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lblTitle.text=result.Broker;
     lblTitle.layer.cornerRadius =10.0;
     lblTitle.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lblTitle];
     y=y+40;
 
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Agent Name";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+5;
     
-    lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lblView.backgroundColor = [UIColor whiteColor];
     lblView.layer.cornerRadius =10.0;
     [uv addSubview:lblView];
     
-    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lblTitle.text=result.Agent;
     lblTitle.layer.cornerRadius =10.0;
     lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -274,19 +274,19 @@
     
     if (xfromtype==1) {
         if (result.IsShow) {
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"Base Price";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.BasePrice;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -294,38 +294,38 @@
             y=y+40;
             
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"List Price";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.ListPrice;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"A - Sales Price";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.SalesPrice;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -336,7 +336,7 @@
     
     
     if ([result.SalesList count]>0) {
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
         lbl.text=@"Items Included In Sales Price";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.backgroundColor=[UIColor clearColor];
@@ -347,7 +347,7 @@
         for (int i=0; i<[result.SalesList count]; i++) {
             int y1=y;
             di= (wcfContractDepositItem *)[result.SalesList objectAtIndex:i];
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 280, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 21)];
             lbl.text=di.Description;
             lbl.numberOfLines=0;
             lbl.font=[UIFont systemFontOfSize:14.0];
@@ -364,7 +364,7 @@
                     
                     y1=y1+5;
                 }else{
-                    lbl2 = [[UILabel alloc]initWithFrame:CGRectMake(20, y1, 280, 21)];
+                    lbl2 = [[UILabel alloc]initWithFrame:CGRectMake(20, y1, self.view.frame.size.width-40, 21)];
                     lbl2.text=di.BType;
                     lbl2.numberOfLines=0;
                     lbl2.font=[UIFont systemFontOfSize:14.0];
@@ -372,7 +372,7 @@
                     y1=y1+lbl2.frame.size.height+5;
                 }
             }else{
-                lbl2 = [[UILabel alloc]initWithFrame:CGRectMake(20, y1, 280, 21)];
+                lbl2 = [[UILabel alloc]initWithFrame:CGRectMake(20, y1, self.view.frame.size.width-40, 21)];
                 lbl2.text=[NSString stringWithFormat:@"%@ %@", di.BType, di.Price];
                 lbl2.numberOfLines=0;
                 lbl2.font=[UIFont systemFontOfSize:14.0];
@@ -380,7 +380,7 @@
                 y1=y1+lbl2.frame.size.height+5;
             }
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, y1-y)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, y1-y)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
@@ -400,19 +400,19 @@
    
     if (xfromtype==1) {
         if (result.IsShow) {
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"B - Total Items Included";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.BSalesPrice;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -421,7 +421,7 @@
             
             NSArray *firstSplit = [result.C1SalesPrice componentsSeparatedByString:@";"];
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=[NSString stringWithFormat:@"C1 - Broker Percentage %@", [firstSplit objectAtIndex:0] ];
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
@@ -429,19 +429,19 @@
             y=y+21+5;
             
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=[firstSplit objectAtIndex:1];
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"C2 - Btsa";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
@@ -449,19 +449,19 @@
             y=y+21+5;
             
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.C2SalesPrice;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"C3 - Special Financing";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
@@ -469,19 +469,19 @@
             y=y+21+5;
             
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.C3SalesPrice;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"D - Adjusted Sales Price";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
@@ -489,12 +489,12 @@
             y=y+21+5;
             
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.DSalesPrice;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -503,26 +503,26 @@
             
             firstSplit = [result.ESalesPrice componentsSeparatedByString:@";"];
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=[NSString stringWithFormat:@"E - # Of Days Closing Date Delayed %@", [firstSplit objectAtIndex:0]];
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=[firstSplit objectAtIndex:1];
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"F - Final Adjusted Sales Price";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
@@ -530,38 +530,38 @@
             y=y+21+5;
             
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.FSalesPrice;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"G - List Price %";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.GSalesPrice;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"Non-Refundable";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
@@ -569,38 +569,38 @@
             y=y+21+5;
             
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.NonRefundable;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"Collected";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.Collected;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"Balance";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
@@ -608,152 +608,152 @@
             y=y+21+5;
             
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.Balance;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"Additional Dep.";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.AdditionalDep;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"Final Price";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.FinalPrice;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"Lot Cost";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.LotCost;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"Administrative Cost";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.AdministrativeCost;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"Construction Cost";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.ConstructionCost;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"Open PO'S";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.OpenPO;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"Gran Total";
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
             lbl.backgroundColor=[UIColor clearColor];
             [uv addSubview:lbl];
             y=y+21+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.GranTotal;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
             [uv addSubview:lblTitle];
             y=y+40;
             
-            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+            lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
             lbl.text=@"Estimated Gross Profit(Before closing costs/Internal commission)";
             lbl.numberOfLines=0;
             lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
@@ -762,12 +762,12 @@
             [uv addSubview:lbl];
             y=y+45+5;
             
-            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblView = [[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblView.backgroundColor = [UIColor whiteColor];
             lblView.layer.cornerRadius =10.0;
             [uv addSubview:lblView];
             
-            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+            lblTitle  =[[InsetsLabel alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
             lblTitle.text=result.Estimated;
             lblTitle.layer.cornerRadius =10.0;
             lblTitle.font=[UIFont systemFontOfSize:14.0];
@@ -793,9 +793,9 @@
         if (data!=nil) {
             img =[UIImage imageWithData:data];
             if (img!=nil) {
-                float f = 300/img.size.width;
+                float f = (self.view.frame.size.width-20)/img.size.width;
                 
-                UIImageView *ui =[[UIImageView alloc]initWithFrame:CGRectMake(10, y, 300, img.size.height*f)];
+                UIImageView *ui =[[UIImageView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, img.size.height*f)];
                 ui.image=img;
                 
                 ui.userInteractionEnabled = YES;
@@ -818,7 +818,7 @@
         [uv addSubview:lbl];
         y=y+21+5;
     
-    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, 44)];
+    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
     ciatbview.layer.cornerRadius = 10;
     ciatbview.tag=7;
     [uv addSubview:ciatbview];
@@ -830,7 +830,7 @@
 
     if (result.Approve) {
         loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+        [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         [loginButton setTitle:@"Approve Contract" forState:UIControlStateNormal];
         [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -844,7 +844,7 @@
     if (result.Acknowledge ) {
         
         loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+        [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         [loginButton setTitle:@"PM Acknowledge" forState:UIControlStateNormal];
         [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [loginButton setBackgroundImage:[[UIImage imageNamed:@"yButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -856,7 +856,7 @@
     
     if (result.DisApprove) {
         loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+        [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         [loginButton setTitle:@"Disapprove" forState:UIControlStateNormal];
         [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [loginButton setBackgroundImage:[[UIImage imageNamed:@"redButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -871,7 +871,7 @@
     if (y<self.view.frame.size.height-44) {
         y=self.view.frame.size.height-44;
     }
-  uv.contentSize=CGSizeMake(320.0,y+1);
+  uv.contentSize=CGSizeMake(self.view.frame.size.width,y+1);
     ntabbar.delegate = self;
     if (xfromtype==1) {
         
@@ -1072,7 +1072,7 @@
        
         
         if (tableView.tag==6) {
-            cell=[[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, 300, 32)];
+            cell=[[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width-20, 32)];
             CGRect rect = CGRectMake(10, 0, 295, 32);
             UILabel * label= [[UILabel alloc]initWithFrame:rect];
             label.textAlignment=NSTextAlignmentLeft;

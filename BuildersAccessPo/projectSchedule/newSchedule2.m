@@ -172,7 +172,7 @@ tbview.separatorColor = [UIColor clearColor];
     }
     
       
-//    uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, xheight)];
+//    uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, xheight)];
 //    [self.view addSubview:uv];
   
     xheight=0;
@@ -411,9 +411,9 @@ tbview.separatorColor = [UIColor clearColor];
 //            [pdate setMaximumDate:[NSDate date]];
 //        }
 //        if (self.view.frame.size.height>500) {
-//            [actionSheet setFrame:CGRectMake(0, 207, 320, 383)];
+//            [actionSheet setFrame:CGRectMake(0, 207, self.view.frame.size.width, 383)];
 //        }else{
-//            [actionSheet setFrame:CGRectMake(0, 117, 320, 383)];
+//            [actionSheet setFrame:CGRectMake(0, 117, self.view.frame.size.width, 383)];
 //        }
 //        
 //        [[[actionSheet subviews]objectAtIndex:0] setFrame:CGRectMake(20,236, 120, 46)];

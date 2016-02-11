@@ -148,7 +148,7 @@ wcfUserProfileItem* result;
    
   
     
-    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, 60.0)];
+    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 60.0)];
 //    ciatbview.layer.cornerRadius = 10;
     ciatbview.separatorColor=[UIColor clearColor];
     
@@ -161,14 +161,14 @@ wcfUserProfileItem* result;
     y=y+70+x+5;
     
     UILabel *lbl;
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Name";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [sv addSubview:lbl];
     y=y+21+x;
     
-    uname=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    uname=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [uname setBorderStyle:UITextBorderStyleRoundedRect];
     [uname addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
     uname.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -177,14 +177,14 @@ wcfUserProfileItem* result;
     [sv addSubview: uname];
     y=y+30+x+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Title";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [sv addSubview:lbl];
     y=y+21+x;
     
-    utitle=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    utitle=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [utitle setBorderStyle:UITextBorderStyleRoundedRect];
     [utitle addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
     utitle.text=result.Title;
@@ -192,14 +192,14 @@ wcfUserProfileItem* result;
     [sv addSubview: utitle];
     y=y+30+x+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Office";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [sv addSubview:lbl];
     y=y+21+x;
     
-    phone=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    phone=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [phone setBorderStyle:UITextBorderStyleRoundedRect];
     [phone addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
     phone.text=result.Phone;
@@ -207,14 +207,14 @@ wcfUserProfileItem* result;
     [sv addSubview: phone];
     y=y+30+x+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Fax";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [sv addSubview:lbl];
     y=y+21+x;
     
-    fax=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    fax=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [fax setBorderStyle:UITextBorderStyleRoundedRect];
     [fax addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
     fax.text=result.Fax;
@@ -222,14 +222,14 @@ wcfUserProfileItem* result;
     [sv addSubview: fax];
     y=y+30+x+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Mobile";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
      lbl.backgroundColor=[UIColor clearColor];
     [sv addSubview:lbl];
     y=y+21+x;
     
-    mobile=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    mobile=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [mobile setBorderStyle:UITextBorderStyleRoundedRect];
     [mobile addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
     mobile.delegate=self;
@@ -238,7 +238,7 @@ wcfUserProfileItem* result;
    y=y+30+x+15;
     
     UIButton *btn1 = [baControl getGrayButton];
-    [btn1 setFrame:CGRectMake(10, y, 300, 44)];
+    [btn1 setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
     [btn1 setTitle:@"Save" forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(dosave:) forControlEvents:UIControlEventTouchDown];
     [sv addSubview:btn1];
@@ -249,7 +249,7 @@ wcfUserProfileItem* result;
         y = sv.frame.size.height + 1;
     }
     
-    sv.contentSize=CGSizeMake(320.0,y);
+    sv.contentSize=CGSizeMake(self.view.frame.size.width,y);
     keyboard=[[CustomKeyboard alloc]init];
     keyboard.delegate=self;
     

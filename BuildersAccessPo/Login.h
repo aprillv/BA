@@ -16,11 +16,14 @@
     CustomKeyboard *keyboard;
     MBProgressHUD *HUD;
 }
+@property (strong, nonatomic) IBOutlet UIView *backView;
+@property (strong, nonatomic) IBOutlet UITextField *usernameField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+@property (strong, nonatomic) IBOutlet UISwitch *switchView;
+@property (strong, nonatomic) IBOutlet UIButton *loginBtn;
 
-@property (nonatomic, retain)  UITextField         *usernameField;
-@property (nonatomic, retain)  UITextField         *passwordField;
-//@property (nonatomic, retain)  UIButton            *checkButton;
-@property (nonatomic, assign) bool                         ischecked;
+//@property (nonatomic, retain)  UITextField         *usernameField;
+//@property (nonatomic, retain)  UITextField         *passwordField;
 @property (nonatomic, retain) NSString                     *pwd;
 //@property(nonatomic, retain)  UIButton *dd1;
 @property (retain, nonatomic) NSArray * pickerArray;

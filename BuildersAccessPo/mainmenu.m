@@ -43,7 +43,7 @@ NSMutableArray *detailstrarr;
 NSString *atitle;
 
 @implementation mainmenu
-@synthesize xget, uv, ntabbar;
+@synthesize xget, uv, ntabbar, ciatbview;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,6 +55,9 @@ NSString *atitle;
     return self;
 }
 
+- (IBAction)logout:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 - (void)viewDidLoad
 {
@@ -64,18 +67,7 @@ NSString *atitle;
     [self.navigationItem setHidesBackButton:YES];
     
     
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logout:) ];
-    //    anotherButton.title=@"Inspector";
-    self.navigationItem.rightBarButtonItem=anotherButton;
     
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(logout:)] ;
-    
-//    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(logout:) ];
-    //    anotherButton.title=@"Inspector";
-   
-    
-    
-    self.title=@"BuildersAccess";
     
 //      self.view.backgroundColor = [Mysql groupTableViewBackgroundColor];
     menulist =[[NSMutableArray alloc]init];
@@ -262,40 +254,31 @@ NSString *atitle;
     
   
     
-    int tbheight;
-    if (self.view.frame.size.height>480) {
-        tbheight=70;
-        uv.contentSize=CGSizeMake(320.0,456);
-        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 456)];
-//        NSLog(@"%f %f", self.view.frame.size.height, tbheight*6.9+20);
-    }else{
-        tbheight=65;
-        uv.contentSize=CGSizeMake(320.0,368);
-        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 368)];
-    }
-    
-    //    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, 5, 300, tbheight*6)];
-    [UITableView appearance].separatorColor = [UIColor grayColor];
-    ciatbview.rowHeight = tbheight;
-//    ciatbview.separatorColor = [UIColor grayColor];
-//    ciatbview.layer.cornerRadius = 10;
-    
-    [uv addSubview:ciatbview];
-    ciatbview.delegate = self;
-    ciatbview.dataSource = self;
+//    int tbheight;
+//    if (self.view.frame.size.height>480) {
+//        tbheight=70;
+//        uv.contentSize=CGSizeMake(self.view.frame.size.width,456);
+//        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 456)];
+////        NSLog(@"%f %f", self.view.frame.size.height, tbheight*6.9+20);
+//    }else{
+//        tbheight=65;
+//        uv.contentSize=CGSizeMake(self.view.frame.size.width,368);
+//        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 368)];
+//    }
+//    
+//    //    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, 5, self.view.frame.size.width-20, tbheight*6)];
+//    [UITableView appearance].separatorColor = [UIColor grayColor];
+//    ciatbview.rowHeight = tbheight;
+////    ciatbview.separatorColor = [UIColor grayColor];
+////    ciatbview.layer.cornerRadius = 10;
+//    
+//    [uv addSubview:ciatbview];
+//    ciatbview.delegate = self;
+//    ciatbview.dataSource = self;
     
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
+
 
 -(void)viewDidLayoutSubviews
 {
@@ -500,21 +483,21 @@ NSString *atitle;
 //                [self changePasscode:nil];
             }else if([kv.Key isEqualToString:@"Kirby Title"]){
                 [userInfo initCiaInfo:1 andNm:@""];
-                kirbytitle *k =[[kirbytitle alloc]init];
+                kirbytitle *k =[self.storyboard instantiateViewControllerWithIdentifier:@"kirbytitle"];
                 k.managedObjectContext=self.managedObjectContext;
-                k.title=kv.Key;
                 [self.navigationController pushViewController:k animated:YES];
+                
             }else if([kv.Key isEqualToString:@"Selection Calendar"]){
                 [userInfo initCiaInfo:1 andNm:@""];
-                selectionCalendar *k =[[selectionCalendar alloc]init];
+                selectionCalendar *k =[self.storyboard instantiateViewControllerWithIdentifier:@"selectionCalendar"];
                 k.managedObjectContext=self.managedObjectContext;
                 k.title=kv.Key;
                 [self.navigationController pushViewController:k animated:YES];
             }else if([kv.Key isEqualToString:@"QA Calendar"]){
                 [userInfo initCiaInfo:1 andNm:@""];
-                calendarqa *k =[[calendarqa alloc]init];
+//                calendarqa *k =[[calendarqa alloc]init];
+                calendarqa *k =[self.storyboard instantiateViewControllerWithIdentifier:@"calendarqa"];
                 k.managedObjectContext=self.managedObjectContext;
-                k.title=@"QA";
                 [self.navigationController pushViewController:k animated:YES];
             }else{
                 cl_cia *mc=[[cl_cia alloc]init];

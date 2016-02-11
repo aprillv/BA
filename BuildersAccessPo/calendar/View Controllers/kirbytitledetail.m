@@ -18,7 +18,7 @@
 @end
 
 @implementation kirbytitledetail
-@synthesize idnumber;
+@synthesize idnumber, uv;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,37 +30,38 @@
 }
 
 
-- (void)loadView {
-    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-    view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    self.view = view;
-    //
-    
-    CGFloat screenWidth = view.frame.size.width;
-    CGFloat screenHieight = view.frame.size.height;
-    
-    ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-30, screenWidth, 50)];
-    
-    [view addSubview:ntabbar];
-    UITabBarItem *firstItem0 ;
-    firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home.png"] tag:1];
-    
-    UITabBarItem *fi =[[UITabBarItem alloc]init];
-    UITabBarItem *f2 =[[UITabBarItem alloc]init];
-    UITabBarItem *firstItem2 = [[UITabBarItem alloc]initWithTitle:@"Refresh" image:[UIImage imageNamed:@"refresh3.png"] tag:2];
-    NSArray *itemsArray =[NSArray arrayWithObjects: firstItem0, fi, f2, firstItem2, nil];
-    //
-    [ntabbar setItems:itemsArray animated:YES];
-    ntabbar.delegate = self;
-//    [[ntabbar.items objectAtIndex:0]setAction:@selector(gohome:) ];
-    [[ntabbar.items objectAtIndex:1]setEnabled:NO ];
-    [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
-//    [[ntabbar.items objectAtIndex:3] setAction:@selector(dorefresh:)];
-    self.view.backgroundColor=[Mysql groupTableViewBackgroundColor];
-}
+//- (void)loadView {
+//    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+//    view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+//    self.view = view;
+//    //
+//    
+//    CGFloat screenWidth = view.frame.size.width;
+//    CGFloat screenHieight = view.frame.size.height;
+//    
+//    ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-30, screenWidth, 50)];
+//    
+//    [view addSubview:ntabbar];
+//    UITabBarItem *firstItem0 ;
+//    firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home.png"] tag:1];
+//    
+//    UITabBarItem *fi =[[UITabBarItem alloc]init];
+//    UITabBarItem *f2 =[[UITabBarItem alloc]init];
+//    UITabBarItem *firstItem2 = [[UITabBarItem alloc]initWithTitle:@"Refresh" image:[UIImage imageNamed:@"refresh3.png"] tag:2];
+//    NSArray *itemsArray =[NSArray arrayWithObjects: firstItem0, fi, f2, firstItem2, nil];
+//    //
+//    [ntabbar setItems:itemsArray animated:YES];
+//    ntabbar.delegate = self;
+////    [[ntabbar.items objectAtIndex:0]setAction:@selector(gohome:) ];
+//    [[ntabbar.items objectAtIndex:1]setEnabled:NO ];
+//    [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
+////    [[ntabbar.items objectAtIndex:3] setAction:@selector(dorefresh:)];
+//    self.view.backgroundColor=[Mysql groupTableViewBackgroundColor];
+//}
 
 -(IBAction)dorefresh:(id)sender{
     [self getInfo];
+    [ntabbar setSelectedItem:nil];
     
 }
 
@@ -114,11 +115,12 @@
     [self.navigationItem setHidesBackButton:YES];
     [self.navigationItem setLeftBarButtonItem:[self getbackButton]];
     
-    if (uv) {
-        [uv removeFromSuperview];
-    }
-     uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-113)];
-    
+//    if (uv) {
+//        [uv removeFromSuperview];
+//    }
+//     uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-49)];
+    self.view.backgroundColor = [UIColor whiteColor];
+    uv.backgroundColor=[Mysql groupTableViewBackgroundColor];
     
     
     [self.view addSubview:uv];
@@ -127,7 +129,7 @@
     UILabel *lbl;
     float rowheight=32.0;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Subject";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -135,32 +137,32 @@
     y=y+21+x;
     
     UIView *lbl1;
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.Subject;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+rowheight+x;
         
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Location";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.Location;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
@@ -168,26 +170,26 @@
     y=y+rowheight+x;
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Date";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.TDate;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+rowheight+x;
         
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Start Time";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -195,19 +197,19 @@
     y=y+21+x;
     
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.StartTime;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+rowheight+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"End Time";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -215,31 +217,31 @@
     y=y+21+x;
     
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.EndTime;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+rowheight+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Contact Name";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=result.ContactName;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
@@ -247,14 +249,14 @@
     y=y+rowheight+x;
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Phone";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-//    txtPhone=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+//    txtPhone=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
 //    [txtPhone setBorderStyle:UITextBorderStyleRoundedRect];
 //    txtPhone.delegate=self;
 //    txtPhone.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -264,7 +266,7 @@
   
    
     if (result.Phone) {
-        phone=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+        phone=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
         phone.layer.cornerRadius = 10;
         phone.tag=5;
         [phone setRowHeight:rowheight];
@@ -272,14 +274,14 @@
         phone.dataSource = self;
         [uv addSubview:phone];
     }else{
-        lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+        lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
         lbl1.layer.cornerRadius=10.0;
         lbl1.backgroundColor = [UIColor whiteColor];
         [uv addSubview:lbl1];
     }
      y=y+rowheight+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Mobile";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -287,7 +289,7 @@
     y=y+21+x;
     
     if (result.Mobile) {
-        Mobile=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+        Mobile=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
         Mobile.layer.cornerRadius = 10;
         Mobile.tag=6;
         [Mobile setRowHeight:rowheight];
@@ -296,7 +298,7 @@
         [uv addSubview:Mobile];
        
     }else{
-        lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+        lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
         lbl1.layer.cornerRadius=10.0;
         lbl1.backgroundColor = [UIColor whiteColor];
         [uv addSubview:lbl1];
@@ -305,7 +307,7 @@
     
     y=y+rowheight+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Email";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -314,7 +316,7 @@
     
    
     if(result.Email){
-        Email=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, rowheight)];
+        Email=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
         Email.layer.cornerRadius = 10;
         Email.tag=7;
         [Email setRowHeight:rowheight];
@@ -323,7 +325,7 @@
         [uv addSubview:Email];
         
     }else{
-        lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+        lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
         lbl1.layer.cornerRadius=10.0;
         lbl1.backgroundColor = [UIColor whiteColor];
         [uv addSubview:lbl1];
@@ -333,14 +335,14 @@
     y=y+rowheight+x;
        
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Notes";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight*3)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight*3)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
@@ -355,7 +357,7 @@
     y=y+rowheight+x;
     
 
-    uv.contentSize=CGSizeMake(320.0,y+80);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width,y+80);
     
         
 }

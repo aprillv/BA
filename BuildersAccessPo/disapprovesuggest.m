@@ -326,7 +326,7 @@
     
     int y=10;
     UILabel*  lbl;
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Send To";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -335,7 +335,7 @@
     y=y+30;
     
     UITextField * text1;
-    text1=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    text1=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
     text1.text=@"";
@@ -356,7 +356,7 @@
     [uv addSubview:dd1];
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Counter Price";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -364,14 +364,14 @@
     [uv addSubview:lbl];
     y=y+30;
     
-    usernameField=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    usernameField=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [usernameField setBorderStyle:UITextBorderStyleRoundedRect];
     [usernameField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
     usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [uv addSubview: usernameField];
     y=y+30+5;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Disapprove Reason";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -379,12 +379,12 @@
     [uv addSubview:lbl];
     y=y+30;
     
-    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 105)];
+    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 105)];
     [txtProject setBorderStyle:UITextBorderStyleRoundedRect];
     txtProject.enabled=NO;
     [uv addSubview:txtProject];
     
-    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, 296, 98) ];
+    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, self.view.frame.size.width-24, 98) ];
     txtNote.layer.cornerRadius=10;
     txtNote.font=[UIFont systemFontOfSize:17.0];
     txtNote.delegate=self;
@@ -392,7 +392,7 @@
     y=y+120;
     
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btn1 setFrame:CGRectMake(10, y, 300, 36)];
+    [btn1 setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 36)];
     [btn1 setTitle:@"Disapprove" forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(doApprove:) forControlEvents:UIControlEventTouchDown];
     [uv addSubview:btn1];
@@ -404,7 +404,7 @@
     [txtNote setInputAccessoryView:[keyboard getToolbarWithPrevNextDone:TRUE :NO]];
     
     y = y>uv.frame.size.height+1? y:uv.frame.size.height+1;
-    uv.contentSize=CGSizeMake(320.0,y);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width,y);
     
 	// Do any additional setup after loading the view.
 }

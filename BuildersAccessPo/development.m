@@ -494,7 +494,7 @@
     }else{
         
         UILabel *lbl;
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
         lbl.text=[NSString stringWithFormat:@"Development # %@", idproject];
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.font=[UIFont systemFontOfSize:17.0];
@@ -507,47 +507,47 @@
         
         UIView *lbl1;
         
-        lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, 32)];
+        lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 32)];
         lbl1.layer.cornerRadius=10.0;
         lbl1.backgroundColor = [UIColor whiteColor];
         [uv addSubview:lbl1];
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, 300, rowheight-1)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, self.view.frame.size.width-20, rowheight-1)];
         lbl.text=result.Name;
         lbl.backgroundColor=[UIColor clearColor];
         lbl.font=[UIFont systemFontOfSize:16.0];
         [sv addSubview:lbl];
         y=y+rowheight;
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+3, 300, rowheight-1)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+3, self.view.frame.size.width-20, rowheight-1)];
         lbl.text=[NSString stringWithFormat:@"Total Units: %d", result.TotalUnits];
         lbl.backgroundColor=[UIColor clearColor];
         lbl.font=[UIFont systemFontOfSize:16.0];
         [sv addSubview:lbl];
         y=y+rowheight;
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+2, 300, rowheight-1)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+2, self.view.frame.size.width-20, rowheight-1)];
         lbl.text=[NSString stringWithFormat:@"Closed: %d", result.ClosedUnits];
         lbl.backgroundColor=[UIColor clearColor];
         lbl.font=[UIFont systemFontOfSize:16.0];
         [sv addSubview:lbl];
         y=y+rowheight;
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+1, 290, rowheight-1)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+1, self.view.frame.size.width-30, rowheight-1)];
         lbl.text=[NSString stringWithFormat:@"Sold: %d", result.SoldUnits];
         lbl.backgroundColor=[UIColor clearColor];
         lbl.font=[UIFont systemFontOfSize:16.0];
         [sv addSubview:lbl];
         y=y+rowheight;
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, rowheight-1)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, rowheight-1)];
         lbl.text=[NSString stringWithFormat:@"Specs: %d", result.SpecsUnits];
         lbl.backgroundColor=[UIColor clearColor];
         lbl.font=[UIFont systemFontOfSize:16.0];
         [sv addSubview:lbl];
         y=y+rowheight-1;
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y-1, 300, rowheight-1)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y-1, self.view.frame.size.width-20, rowheight-1)];
         lbl.text=[NSString stringWithFormat:@"Active Projects: %d", result.ActiveUnits];
         lbl.backgroundColor=[UIColor clearColor];
         lbl.font=[UIFont systemFontOfSize:16.0];
@@ -556,7 +556,7 @@
         y=y+10;
         
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
         lbl.text=@"Sitemap";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.font=[UIFont systemFontOfSize:17.0];
@@ -564,7 +564,7 @@
         [sv addSubview:lbl];
         y=y+30;
         
-        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, 44)];
+        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         ciatbview.layer.cornerRadius = 10;
         ciatbview.tag=5;
         ciatbview.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight;
@@ -583,7 +583,7 @@
         }
         
         if ([uploadLs count]>0) {
-            ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, [uploadLs count]*44)];
+            ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, [uploadLs count]*44)];
             ciatbview.layer.cornerRadius = 10;
             ciatbview.tag=30;
             
@@ -595,7 +595,7 @@
             y=y+[uploadLs count]*44+10;
         }
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
         lbl.text=@"Quick Link";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.font=[UIFont systemFontOfSize:17.0];
@@ -627,7 +627,7 @@
             
         }
         
-        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, [qllist count]*44)];
+        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, [qllist count]*44)];
         ciatbview.layer.cornerRadius = 10;
         ciatbview.tag=15;
         ciatbview.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight;
@@ -657,7 +657,7 @@
          
     }else{
         
-        UILabel* lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+        UILabel* lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
         lbl.text= @"Development Files";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.font=[UIFont systemFontOfSize:17.0];
@@ -669,7 +669,7 @@
         if (rtn==0) {
             rtn=1;
         }
-        UITableView* ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, rtn*44.0)];
+        UITableView* ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rtn*44.0)];
         ciatbview.layer.cornerRadius = 10;
         ciatbview.tag=7;
         
@@ -681,7 +681,7 @@
         
         y=y+44*rtn+10;
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
         lbl.text=@"Project Manager";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.font=[UIFont systemFontOfSize:17.0];
@@ -713,7 +713,7 @@
         if (rtn==0) {
             rtn=1;
         }
-        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, rtn*44.0)];
+        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rtn*44.0)];
         ciatbview.layer.cornerRadius = 10;
         ciatbview.tag=8;
         [ciatbview setRowHeight:44.0f];
@@ -724,7 +724,7 @@
         
         y=y+44*rtn+10;
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
         lbl.text=@"Sales Consultant";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.font=[UIFont systemFontOfSize:17.0];
@@ -743,7 +743,7 @@
             rtn=1;
         }
         
-        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, rtn*44.0)];
+        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rtn*44.0)];
         ciatbview.layer.cornerRadius = 10;
         ciatbview.tag=11;
         [ciatbview setRowHeight:44.0f];
@@ -754,7 +754,7 @@
         
         y=y+44*rtn+10;
         
-       sv.contentSize=CGSizeMake(320.0,y+25);
+       sv.contentSize=CGSizeMake(self.view.frame.size.width,y+25);
     }
     
 
@@ -803,7 +803,7 @@
             [cell .imageView setImage:nil];
         }else if(tableView.tag==8){
             if ([pmLs count]==0) {
-                cell=[[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, 300, 44)];
+                cell=[[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width-20, 44)];
                 CGRect rect = CGRectMake(10, 0, 295, 44);
                 UILabel * label= [[UILabel alloc]initWithFrame:rect];
                 label.textAlignment=NSTextAlignmentLeft;
@@ -860,7 +860,7 @@
 
         }else if(tableView.tag==11){
             if (result.Sales1==nil && result.Sales2==nil) {
-                cell=[[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, 300, 44)];
+                cell=[[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width-20, 44)];
                 CGRect rect = CGRectMake(10, 0, 295, 44);
                 UILabel * label= [[UILabel alloc]initWithFrame:rect];
                 label.textAlignment=NSTextAlignmentLeft;
@@ -904,7 +904,7 @@
             }
         }else{
             if ([rtnfiles count]==0) {
-                cell=[[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, 300, 44)];
+                cell=[[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width-20, 44)];
                 CGRect rect = CGRectMake(10, 0, 295, 44);
                 UILabel * label= [[UILabel alloc]initWithFrame:rect];
                 label.textAlignment=NSTextAlignmentLeft;

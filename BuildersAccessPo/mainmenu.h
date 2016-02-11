@@ -9,9 +9,12 @@
 #import "fathercontroller.h"
 
 @interface mainmenu : fathercontroller<UITableViewDataSource, UITableViewDelegate>{
-UITableView *ciatbview;
+//UITableView *ciatbview;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *uv;
 @property (weak, nonatomic) IBOutlet UITabBar *ntabbar;
 @property(retain, nonatomic) NSString * xget;
+
+@property (strong, nonatomic) IBOutlet UITableView *ciatbview;
+
 @end

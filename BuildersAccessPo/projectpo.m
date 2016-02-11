@@ -269,18 +269,18 @@ int currentpage, pageno;
     }
     if (result.count==0) {
         UILabel *lbl;
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, 20, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, 20, self.view.frame.size.width-20, 21)];
         lbl.text=@"Purchase Order not Found.";
         lbl.textColor=[UIColor redColor];
         [uv addSubview:lbl];
     }else{
         if (ciatbview ==nil) {
             if (self.view.frame.size.height>480) {
-                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 370+84)];
-                uv.contentSize=CGSizeMake(320.0,370+85);
+                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 370+84)];
+                uv.contentSize=CGSizeMake(self.view.frame.size.width,370+85);
             }else{
-                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 375)];
-                uv.contentSize=CGSizeMake(320.0,371);
+                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 375)];
+                uv.contentSize=CGSizeMake(self.view.frame.size.width,371);
             }
             //        ciatbview.layer.cornerRadius = 10;
             ciatbview.tag=2;
@@ -292,9 +292,9 @@ int currentpage, pageno;
             //            UIButton* loginButton;
             //            loginButton= [UIButton buttonWithType:UIButtonTypeCustom];
             //            if (self.view.frame.size.height>480) {
-            //                [loginButton setFrame:CGRectMake(10, 315+87, 300, 44)];
+            //                [loginButton setFrame:CGRectMake(10, 315+87, self.view.frame.size.width-20, 44)];
             //            }else{
-            //                [loginButton setFrame:CGRectMake(10, 315, 300, 44)];
+            //                [loginButton setFrame:CGRectMake(10, 315, self.view.frame.size.width-20, 44)];
             //            }
             //
             //            if (xtype==1) {
@@ -564,7 +564,7 @@ int currentpage, pageno;
         UIAlertView *alert=[self getErrorAlert:@"We are temporarily unable to connect to BuildersAccess, please check your internet connection and try again. Thanks for your patience."];
         [alert show];
     }else{
-        selectedrow=indexPath.row;
+        selectedrow = indexPath.row;
         wcfService* service = [wcfService service];
         NSString*   version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
         

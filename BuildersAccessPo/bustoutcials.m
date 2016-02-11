@@ -299,7 +299,7 @@
     [self.navigationItem setLeftBarButtonItem:[self getbackButton]];
     
     //    uv.backgroundColor=[Mysql groupTableViewBackgroundColor];
-//    uv.contentSize=CGSizeMake(320.0,425.0+80);
+//    uv.contentSize=CGSizeMake(self.view.frame.size.width,425.0+80);
     
 	// Do any additional setup after loading the view.
     if (result!=nil) {

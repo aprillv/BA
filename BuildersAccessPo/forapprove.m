@@ -30,7 +30,7 @@
 
 @implementation forapprove
 
-@synthesize ntabbar, rtnlist, mastercia;
+@synthesize ntabbar, rtnlist, mastercia, tbview;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -176,31 +176,32 @@
 	// Do something with the NSMutableArray* result
     rtnlist = (NSMutableArray*)value;
     
-    UIScrollView *sv =(UIScrollView *)[self.view viewWithTag:1];
+    
 //    sv.backgroundColor=[Mysql groupTableViewBackgroundColor];
     
-    
-    if (tbview!=nil) {
-        [tbview reloadData];
-        [ntabbar setSelectedItem:nil];
-    }else{
-        if (self.view.frame.size.height>480) {
-            tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 454)];
-            sv.contentSize=CGSizeMake(320.0,545);
-        }else{
-            tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 366)];
-            sv.contentSize=CGSizeMake(320.0,366);
-        }
-        
-       
-        
-        tbview.rowHeight=50;
-//        tbview.layer.cornerRadius = 10;
-        tbview.tag=2;
-        tbview.delegate = self;
-        tbview.dataSource = self;
-        [sv addSubview:tbview];
-    }
+     [ntabbar setSelectedItem:nil];
+    [tbview reloadData];
+//    if (tbview!=nil) {
+//        [tbview reloadData];
+//       
+//    }else{
+//        if (self.view.frame.size.height>480) {
+//            tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 454)];
+//            sv.contentSize=CGSizeMake(self.view.frame.size.width,545);
+//        }else{
+//            tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 366)];
+//            sv.contentSize=CGSizeMake(self.view.frame.size.width,366);
+//        }
+//        
+//       
+//        
+//        tbview.rowHeight=50;
+////        tbview.layer.cornerRadius = 10;
+//        tbview.tag=2;
+//        tbview.delegate = self;
+//        tbview.dataSource = self;
+//        [sv addSubview:tbview];
+//    }
     
     
 }

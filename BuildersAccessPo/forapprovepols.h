@@ -15,7 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchtxt;
 @property (weak, nonatomic) IBOutlet UITabBar *ntabbar;
-@property (weak, nonatomic) IBOutlet UITableView *ciatbview;
+//@property (weak, nonatomic) IBOutlet UITableView *ciatbview;
+@property (strong, nonatomic) IBOutlet UITableView *ciatbview;
 
 @property  (retain, nonatomic) NSMutableArray* result;
 @property  (retain, nonatomic) NSMutableArray* result1;

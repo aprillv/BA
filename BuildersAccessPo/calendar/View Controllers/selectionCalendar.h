@@ -13,6 +13,7 @@
 @interface selectionCalendar : fathercontroller
 @property (nonatomic, assign) id<CKCalendarViewDataSource> dataSource;
 @property (nonatomic, assign) id<CKCalendarViewDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UITabBar *ntabbar;
 
 - (CKCalendarView *)calendarView;
 @end

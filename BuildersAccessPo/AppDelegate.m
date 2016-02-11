@@ -25,6 +25,14 @@
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     Login *controller = (Login *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    
+    [[UITableView appearance] setLayoutMargins: UIEdgeInsetsZero];
+    [[UITableView appearance] setSeparatorInset:UIEdgeInsetsZero];
+    [[UITableView appearance] setPreservesSuperviewLayoutMargins:NO];
+    [[UITableViewCell appearance] setLayoutMargins:UIEdgeInsetsZero];
+    [[UITableViewCell appearance] setSeparatorInset:UIEdgeInsetsZero];
+    [[UITableViewCell appearance] setPreservesSuperviewLayoutMargins: NO];
+//    [[UITableView appearance] setCellLayoutMarginsFollowReadableWidth:NO];
     return YES;
 }
 							
@@ -60,12 +68,9 @@
             ciaList *cl = (ciaList *)T;
             if (cl.islocked==1 || cl.islocked==2) {
                 cl.islocked=2;
-                
             }else {
-                
                 [T enterPasscode:nil];
             }
-            
         }else{
             
             if (T.navigationItem.rightBarButtonItem !=nil) {

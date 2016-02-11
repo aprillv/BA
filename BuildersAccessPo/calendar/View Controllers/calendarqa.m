@@ -35,6 +35,7 @@
 
 NSString *tdate;
 @implementation calendarqa
+@synthesize ntabbar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,35 +46,35 @@ NSString *tdate;
     return self;
 }
 
-- (void)loadView {
-    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-    view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    self.view = view;
-    //
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Inspector" style:UIBarButtonItemStyleBordered target:self action:@selector(openInspection:) ];
-//    anotherButton.title=@"Inspector";
-    self.navigationItem.rightBarButtonItem=anotherButton;
-    CGFloat screenWidth = view.frame.size.width;
-    CGFloat screenHieight = view.frame.size.height;
-    
-    ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-29, screenWidth, 49)];
-    [view addSubview:ntabbar];
-    UITabBarItem *firstItem0 ;
-    firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home.png"] tag:1];
-    
-    UITabBarItem *fi =[[UITabBarItem alloc]init];
-    UITabBarItem *f2 =[[UITabBarItem alloc]init];
-    UITabBarItem *firstItem2 = [[UITabBarItem alloc]initWithTitle:@"Refresh" image:[UIImage imageNamed:@"refresh3.png"] tag:2];
-    NSArray *itemsArray =[NSArray arrayWithObjects: firstItem0, fi, f2, firstItem2, nil];
-    //
-    [ntabbar setItems:itemsArray animated:YES];
-    ntabbar.delegate = self;
-//    [[ntabbar.items objectAtIndex:0]setAction:@selector(goBack:) ];
-    [[ntabbar.items objectAtIndex:1]setEnabled:NO ];
-    [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
-//    [[ntabbar.items objectAtIndex:3] setAction:@selector(dorefresh:)];
-    self.view.backgroundColor=[Mysql groupTableViewBackgroundColor];
-}
+//- (void)loadView {
+//    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+//    view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+//    self.view = view;
+//    //
+//    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Inspector" style:UIBarButtonItemStyleBordered target:self action:@selector(openInspection:) ];
+////    anotherButton.title=@"Inspector";
+//    self.navigationItem.rightBarButtonItem=anotherButton;
+//    CGFloat screenWidth = view.frame.size.width;
+//    CGFloat screenHieight = view.frame.size.height;
+//    
+//    ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-93, screenWidth, 49)];
+//    [view addSubview:ntabbar];
+//    UITabBarItem *firstItem0 ;
+//    firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home.png"] tag:1];
+//    
+//    UITabBarItem *fi =[[UITabBarItem alloc]init];
+//    UITabBarItem *f2 =[[UITabBarItem alloc]init];
+//    UITabBarItem *firstItem2 = [[UITabBarItem alloc]initWithTitle:@"Refresh" image:[UIImage imageNamed:@"refresh3.png"] tag:2];
+//    NSArray *itemsArray =[NSArray arrayWithObjects: firstItem0, fi, f2, firstItem2, nil];
+//    //
+//    [ntabbar setItems:itemsArray animated:YES];
+//    ntabbar.delegate = self;
+////    [[ntabbar.items objectAtIndex:0]setAction:@selector(goBack:) ];
+//    [[ntabbar.items objectAtIndex:1]setEnabled:NO ];
+//    [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
+////    [[ntabbar.items objectAtIndex:3] setAction:@selector(dorefresh:)];
+//    self.view.backgroundColor=[Mysql groupTableViewBackgroundColor];
+//}
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     if (item.tag == 1) {
@@ -85,6 +86,7 @@ NSString *tdate;
 
 -(IBAction)dorefresh:(id)sender{
     [self loadDot];
+    [ntabbar setSelectedItem:nil];
 }
 -(IBAction)openInspection:(id)sender{
     donext=2;
@@ -97,6 +99,7 @@ NSString *tdate;
     
     [self.navigationItem setHidesBackButton:YES];
     [self.navigationItem setLeftBarButtonItem:[self getbackButton]];
+  
     
 }
 
@@ -122,7 +125,7 @@ NSString *tdate;
 
 - (void) xGetEmailListHandler: (id) value {
     
-	
+	[HUD hide:YES];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	// Handle errors
 	if([value isKindOfClass:[NSError class]]) {
@@ -144,19 +147,22 @@ NSString *tdate;
     
     NSMutableArray *a=[((wcfArrayOfstring *)value) toMutableArray];
     [self setEvents:a];
-    CKCalendarView *cv = [CKCalendarView new];
-    CGRect ct = cv.frame;
-    ct.origin.y += 64;
-    cv.frame = ct;
-    cv.xtype=2;
+    
     if (![self calendarView]) {
+        CKCalendarView *cv = [CKCalendarView new];
+        CGRect ct = cv.frame;
+        //    ct.origin.y += 64;
+        cv.frame = ct;
+        cv.xtype=2;
+        
+//        NSLog(@"sfsdfs \n%@", [self calendarView]);
         [self setCalendarView:cv];
         [[self calendarView] setDataSource:self];
         [[self calendarView] setDelegate:self];
         [[self view] addSubview:[self calendarView]];
         [[self calendarView] setDate:[[self calendarView] date] animated:NO];
     }else{
-    [[self calendarView] setDate:[[self calendarView] date] animated:NO];
+        [[self calendarView] setDate:[[self calendarView] date] animated:NO];
     }
   
     

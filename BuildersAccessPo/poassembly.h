@@ -14,8 +14,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchtxt;
 
 @property (weak, nonatomic) IBOutlet UITabBar *ntabbar;
-
-@property (retain, nonatomic)UITableView *tbview;
+@property (strong, nonatomic) IBOutlet UITableView *tbview;
 
 @property (retain, nonatomic)NSString *idproject;
 @property (retain, nonatomic)NSString *idmaster;

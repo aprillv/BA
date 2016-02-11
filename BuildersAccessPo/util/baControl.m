@@ -34,7 +34,7 @@
 //    return btn1;
     
    UIButton* loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+//    [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
 //    [loginButton setTitle:btntitle forState:UIControlStateNormal];
     [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
      [loginButton setBackgroundImage:[[UIImage imageNamed:@"grayButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];

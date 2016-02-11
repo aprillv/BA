@@ -139,7 +139,7 @@ int hy;
     
     int y=10;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Email To";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -147,7 +147,7 @@ int hy;
     y=y+30;
     
     UITextField * text1;
-    text1=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    text1=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
     text1.text=@"";
@@ -163,13 +163,13 @@ int hy;
     [uv addSubview:dd1];
     y=y+30+10;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Delivery Date";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];    lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+30;
     
-    text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
     text1.text=@"";
@@ -185,19 +185,19 @@ int hy;
     [uv addSubview: txtDate];
     y=y+30+10;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Notes (255 char)";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+30;
     
-    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 105)];
+    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 105)];
     [txtProject setBorderStyle:UITextBorderStyleRoundedRect];
     txtProject.enabled=NO;
     [uv addSubview:txtProject];
     
-    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, 296, 98) ];
+    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, self.view.frame.size.width-24, 98) ];
     txtNote.layer.cornerRadius=10;
     txtNote.font=[UIFont systemFontOfSize:17.0];
     txtNote.delegate=self;
@@ -207,14 +207,14 @@ int hy;
     [uv addSubview:txtNote];
     y=y+110;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Total $";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+30;
     
-    txtTotal=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    txtTotal=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [txtTotal setBorderStyle:UITextBorderStyleRoundedRect];
     [txtTotal addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
     txtTotal.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -279,18 +279,18 @@ int hy;
         [txtTotal setEnabled:NO];
         [dd1 setEnabled:NO];
         
-        uv.contentSize=CGSizeMake(320.0,hy+20);
+        uv.contentSize=CGSizeMake(self.view.frame.size.width,hy+20);
     }else{
     
         btn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [btn1 setFrame:CGRectMake(10, hy, 300, 44)];
+        [btn1 setFrame:CGRectMake(10, hy, self.view.frame.size.width-20, 44)];
         [btn1 setTitle:@"Attatch Picture" forState:UIControlStateNormal];
         [btn1 addTarget:self action:@selector(doAttatch:) forControlEvents:UIControlEventTouchDown];
         [uv addSubview:btn1];
         hy=hy+50;
         
         loginButton1= [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton1 setFrame:CGRectMake(10, hy, 300, 44)];
+        [loginButton1 setFrame:CGRectMake(10, hy, self.view.frame.size.width-20, 44)];
         
         [loginButton1 setTitle:@"Re-Submit" forState:UIControlStateNormal];
         [loginButton1.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
@@ -301,7 +301,7 @@ int hy;
         hy=hy+50;
         
         loginButton2= [UIButton buttonWithType:UIButtonTypeCustom];
-        [loginButton2 setFrame:CGRectMake(10, hy, 300, 44)];
+        [loginButton2 setFrame:CGRectMake(10, hy, self.view.frame.size.width-20, 44)];
         
         [loginButton2 setTitle:@"Void" forState:UIControlStateNormal];
         [loginButton2.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
@@ -312,7 +312,7 @@ int hy;
         
         hy=hy+60;
         
-        uv.contentSize=CGSizeMake(320.0,hy);
+        uv.contentSize=CGSizeMake(self.view.frame.size.width,hy);
     }
     [txtDate setTitle:pd.Delivery forState:UIControlStateNormal];
     [txtNote setText:pd.Notes];
@@ -378,12 +378,12 @@ int hy;
     
     if (pd.Updateyn) {
         [btn1 setTitle:@"Attatch Picture again" forState:UIControlStateNormal];
-        [btn1 setFrame:CGRectMake(10, y, 300, 44)];
+        [btn1 setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         y=y+50;
         
-        [loginButton1 setFrame:CGRectMake(10, y, 300, 44)];
+        [loginButton1 setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         y=y+50;
-        [loginButton2 setFrame:CGRectMake(10, y, 300, 44)];
+        [loginButton2 setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         y=y+60;
 
     }
@@ -391,7 +391,7 @@ int hy;
     myphoto=scaledImage;
     [uv addSubview:imageView];
     
-    uv.contentSize=CGSizeMake(320.0,y);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width,y);
 //    y=y1;
     //    [ciatbview reloadData];
     //    [ntabbar setSelectedItem:nil];
@@ -730,13 +730,13 @@ int hy;
     if (!sheet) {
         sheet = [UIAlertController alertControllerWithTitle:@"Select Date" message:@"\n\n\n\n\n\n\n\n\n\n\n" preferredStyle:UIAlertControllerStyleActionSheet];
         
-        CGFloat aWidth =320;
+        CGFloat aWidth =self.view.frame.size.width;
         CGFloat CONTENT_HEIGHT = 400;
         //
         [sheet.view setBounds:CGRectMake(0, 0, aWidth, CONTENT_HEIGHT)];
         
         UIToolbar *toolbar = [[UIToolbar alloc]
-                              initWithFrame:CGRectMake(10, 44, 280, 44)];
+                              initWithFrame:CGRectMake(10, 44, self.view.frame.size.width-40, 44)];
         [toolbar setItems:@[
                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(pickerSheetCancel)],
                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
@@ -745,7 +745,7 @@ int hy;
         
         
         if (pdate ==nil) {
-            pdate=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, 88, 320, 170)];
+            pdate=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 170)];
             pdate.datePickerMode=UIDatePickerModeDate;
             Mysql *msql=[[Mysql alloc]init];
             [pdate setDate:[msql dateFromString:pd.Delivery]];

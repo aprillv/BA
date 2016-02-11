@@ -178,11 +178,11 @@
             
             if (ciatbview ==nil) {
                 if (self.view.frame.size.height>480) {
-                    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 369+87)];
-                    uv.contentSize=CGSizeMake(320.0,370+87);
+                    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 369+87)];
+                    uv.contentSize=CGSizeMake(self.view.frame.size.width,370+87);
                 }else{
-                    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 369)];
-                    uv.contentSize=CGSizeMake(320.0,370);
+                    ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 369)];
+                    uv.contentSize=CGSizeMake(self.view.frame.size.width,370);
                 }
 //                ciatbview.layer.cornerRadius = 10;
                 ciatbview.tag=2;

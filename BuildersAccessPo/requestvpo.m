@@ -139,7 +139,7 @@
     int x=5;
     float rowheight=32.0;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Status";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -149,7 +149,7 @@
     
     UIView *lbl1;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
@@ -161,7 +161,7 @@
     [uv addSubview:lbl];
     y=y+rowheight+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Vendor";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -169,7 +169,7 @@
     [uv addSubview:lbl];
     y=y+30;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
@@ -181,7 +181,7 @@
     [uv addSubview:lbl];
     y=y+rowheight+x;
         
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Project";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -189,7 +189,7 @@
     [uv addSubview:lbl];
     y=y+30;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
@@ -201,7 +201,7 @@
     [uv addSubview:lbl];
     y=y+rowheight+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Date";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -209,7 +209,7 @@
     [uv addSubview:lbl];
     y=y+30;
     
-    UITextField *text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    UITextField *text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
     text1.text=@"";
@@ -231,7 +231,7 @@
     [uv addSubview: txtDate];
     y=y+30+10;
 
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Category";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -239,12 +239,12 @@
     [uv addSubview:lbl];
     y=y+30;
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=pd.CostCode;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
@@ -252,7 +252,7 @@
     y=y+rowheight+x;
     
 
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Notes";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -260,12 +260,12 @@
     [uv addSubview:lbl];
     y=y+30;
     
-    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 105)];
+    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 105)];
     [txtProject setBorderStyle:UITextBorderStyleRoundedRect];
     txtProject.enabled=NO;
     [uv addSubview:txtProject];
     
-    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, 296, 98) ];
+    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, self.view.frame.size.width-24, 98) ];
     txtNote.layer.cornerRadius=10;
     txtNote.delegate=self;
     txtNote.tag=19;
@@ -292,7 +292,7 @@
    
     if ([pd.Fs isEqualToString:@"1"]) {
         
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
         lbl.text=@"Attached File";
         lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
         lbl.font=[UIFont systemFontOfSize:17.0];
@@ -302,7 +302,7 @@
         
         if ([pd.extension isEqualToString:@"jpg"]||[pd.extension isEqualToString:@"jpeg"]||[pd.extension isEqualToString:@"png"]||[pd.extension isEqualToString:@"bmp"]||[pd.extension isEqualToString:@"gif"]) {
             uview=[[UIImageView alloc]init];
-            uview.frame = CGRectMake(10, y, 300, 225);
+            uview.frame = CGRectMake(10, y, self.view.frame.size.width-20, 225);
             y=y+245;
             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ws.buildersaccess.com/wsdownloadvpo.aspx?email=%@&password=%@&idcia=%@&id=%@&fname=%@", [userInfo getUserName], [userInfo getUserPwd], [[NSNumber numberWithInt:[userInfo getCiaId]]stringValue], idnum,[NSString stringWithFormat:@"tmp.%@", pd.extension]]];
             
@@ -318,7 +318,7 @@
             [uv addSubview:uview];
         }else{
             UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            [btn1 setFrame:CGRectMake(10, y, 300, 36)];
+            [btn1 setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 36)];
             [btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [btn1 setTitle:[NSString stringWithFormat:@"View Attached file .%@", pd.extension] forState:UIControlStateNormal];
             [btn1 addTarget:self action:@selector(openFile:) forControlEvents:UIControlEventTouchDown];
@@ -331,7 +331,7 @@
     
 
     
-//    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+//    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
 //    lbl.text=@"Total";
 //    lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
 //    lbl.font=[UIFont systemFontOfSize:17.0];
@@ -339,7 +339,7 @@
 //    [uv addSubview:lbl];
 //    y=y+30;
 //    
-//    txtTotal= [[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+//    txtTotal= [[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
 //    txtTotal.font=[UIFont systemFontOfSize:14.0];
 //    txtTotal.text=pd.Total;
 //    txtTotal.delegate=self;
@@ -351,10 +351,10 @@
 //        if (ciatbview ==nil) {
 //            NSLog(@"%@", pd.PO2Ls);
 //            if (self.view.frame.size.height>480) {
-//                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, 70*[pd.PO2Ls count]+70)];
+//                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 70*[pd.PO2Ls count]+70)];
 //                
 //            }else{
-//                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, 300, 70*[pd.PO2Ls count]+70)];
+//                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 70*[pd.PO2Ls count]+70)];
 //               
 //            }
 //            uv.backgroundColor=[Mysql groupTableViewBackgroundColor];
@@ -374,7 +374,7 @@
     int i =0;
     int xtag=20;
     for (wcfRequestedPO2Item *pi in pd.PO2Ls) {
-        lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight*3)];
+        lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight*3)];
         lbl1.layer.cornerRadius=10.0;
         lbl1.backgroundColor = [UIColor whiteColor];
         [uv addSubview:lbl1];
@@ -480,7 +480,7 @@
         
     }
     
-    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+    lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
@@ -492,7 +492,7 @@
     
     y=y+30;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Reason";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];
@@ -500,7 +500,7 @@
     [uv addSubview:lbl];
     y=y+30;
     
-    text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
     text1.text=@"";
@@ -521,7 +521,7 @@
     
     if ([pd.BtnApprove isEqualToString:@"1"]) {
         UIButton * btnUpdate = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btnUpdate setFrame:CGRectMake(10, y, 300, 44)];
+        [btnUpdate setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         [btnUpdate setTitle:@"Acknowledge" forState:UIControlStateNormal];
         [btnUpdate.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [btnUpdate setBackgroundImage:[UIImage imageNamed:@"greenButton.png"] forState:UIControlStateNormal];
@@ -536,7 +536,7 @@
     
     if ([pd.BtnDisapprove isEqualToString:@"1"]) {
         UIButton * btnUpdate1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btnUpdate1 setFrame:CGRectMake(10, y, 300, 44)];
+        [btnUpdate1 setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         [btnUpdate1 setTitle:@"Disapprove" forState:UIControlStateNormal];
         [btnUpdate1.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [btnUpdate1 setBackgroundImage:[UIImage imageNamed:@"yButton.png"] forState:UIControlStateNormal];
@@ -550,7 +550,7 @@
 
     if ([pd.BtnHold isEqualToString:@"1"]) {
         UIButton * btnUpdate = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btnUpdate setFrame:CGRectMake(10, y, 300, 44)];
+        [btnUpdate setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
         [btnUpdate setTitle:@"Hold" forState:UIControlStateNormal];
         [btnUpdate.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
         [btnUpdate setBackgroundImage:[UIImage imageNamed:@"grayButton.png"] forState:UIControlStateNormal];
@@ -564,7 +564,7 @@
     
               if ([pd.BtnVoid isEqualToString:@"1"]) {
                   UIButton * btnUpdate2 = [UIButton buttonWithType:UIButtonTypeCustom];
-                  [btnUpdate2 setFrame:CGRectMake(10, y, 300, 44)];
+                  [btnUpdate2 setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
                   [btnUpdate2 setTitle:@"Void" forState:UIControlStateNormal];
                   [btnUpdate2.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
                   [btnUpdate2 setBackgroundImage:[UIImage imageNamed:@"redButton.png"] forState:UIControlStateNormal];
@@ -575,7 +575,7 @@
                    
                    }
 
-    uv.contentSize=CGSizeMake(320.0,y+1);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width,y+1);
     ntabbar.delegate =self;
 //    [[ntabbar.items objectAtIndex:0]setAction:@selector(goback1:) ];
     [[ntabbar.items objectAtIndex:1]setEnabled:NO ];
@@ -671,8 +671,8 @@
             
             CGRect r = uview.frame;
             r.size.width=img.size.width*f;
-            if (r.size.width>300) {
-                r.size.width=300;
+            if (r.size.width>(self.view.frame.size.width-20)) {
+                r.size.width=(self.view.frame.size.width-20);
             }
 //            r.origin.y=(r.origin.y+(225-r.size.height)/2);
             uview.frame=r;
@@ -1294,13 +1294,13 @@ donext=@"1";
     if (!sheet) {
         sheet = [UIAlertController alertControllerWithTitle:@"Select Date" message:@"\n\n\n\n\n\n\n\n\n\n\n" preferredStyle:UIAlertControllerStyleActionSheet];
         
-        CGFloat aWidth =320;
+        CGFloat aWidth =self.view.frame.size.width;
         CGFloat CONTENT_HEIGHT = 400;
         //
         [sheet.view setBounds:CGRectMake(0, 0, aWidth, CONTENT_HEIGHT)];
         
         UIToolbar *toolbar = [[UIToolbar alloc]
-                              initWithFrame:CGRectMake(10, 44, 280, 44)];
+                              initWithFrame:CGRectMake(10, 44, self.view.frame.size.width-40, 44)];
         [toolbar setItems:@[
                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(pickerSheetCancel)],
                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
@@ -1309,7 +1309,7 @@ donext=@"1";
         
         
         if (pdate ==nil) {
-            pdate=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, 88, 320, 170)];
+            pdate=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 170)];
             pdate.datePickerMode=UIDatePickerModeDate;
             Mysql *msql=[[Mysql alloc]init];
             if (![txtDate.currentTitle isEqualToString:@""]) {

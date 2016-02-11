@@ -131,7 +131,7 @@
     }else{
 //        [uVendorTable removeFromSuperview];
         UILabel *lbl;
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, 20, 300, 21)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, 20, self.view.frame.size.width-20, 21)];
         lbl.text=@"Company not Found.";
         lbl.textColor=[UIColor redColor];
         [uVendorTable addSubview:lbl];

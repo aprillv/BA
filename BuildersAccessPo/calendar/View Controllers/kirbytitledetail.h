@@ -37,6 +37,7 @@
     
 }
 @property(copy, nonatomic) NSString *idnumber;
+@property (strong, nonatomic) IBOutlet UIScrollView *uv;
 
 
 @end

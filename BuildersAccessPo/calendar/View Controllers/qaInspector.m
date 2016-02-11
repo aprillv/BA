@@ -154,7 +154,7 @@
                 
                 if (tt!=nil) {
                     [rtnlist addObject:tt];
-                    tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, y, 320, [tt count]*44)];
+                    tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, [tt count]*44)];
 //                    tbview.layer.cornerRadius = 10;
                     tbview.delegate = self;
                     tbview.tag=j++;
@@ -162,7 +162,7 @@
                     [uv addSubview:tbview];
                     y= y+[tt count]*44+15;
                 }
-                lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+                lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
                 lbl.text=[NSString stringWithFormat:@"%@ 2013", [_montharry objectAtIndex:[month intValue]-1]];
                 lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
                 lbl.font=[UIFont boldSystemFontOfSize:17.0];
@@ -178,7 +178,7 @@
                       
         }
         [rtnlist addObject:tt];
-        tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, y, 320, [tt count]*44)];
+        tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, y, self.view.frame.size.width, [tt count]*44)];
 //        tbview.layer.cornerRadius = 10;
         tbview.delegate = self;
         tbview.tag=j++;
@@ -191,7 +191,7 @@
     if (y<uv.frame.size.height+1) {
         y=uv.frame.size.height+1;
     }
-      uv.contentSize=CGSizeMake(320, y);
+      uv.contentSize=CGSizeMake(self.view.frame.size.width, y);
     [ntabbar setSelectedItem:nil];
 }
 

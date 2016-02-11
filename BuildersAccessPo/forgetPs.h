@@ -8,16 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "fViewController.h"
-#import "CustomKeyboard.h"
 
-@interface forgetPs : fViewController<CustomKeyboardDelegate, UITextFieldDelegate> {
-	UITextField *txtEmail;
-    CustomKeyboard *keyboard;
-}
-
-@property (nonatomic, retain) IBOutlet UITextField *txtEmail;
+@interface forgetPs : fViewController<UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UITextField *txtEmail;
+@property (strong, nonatomic) IBOutlet UIButton *sendBtn;
 
 - (IBAction)doCancel:(id)sender;
 - (IBAction)doSend:(id)sender;
-- (IBAction)textFieldDoneEditing:(id)sender;
 @end

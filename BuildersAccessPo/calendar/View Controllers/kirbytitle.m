@@ -33,6 +33,9 @@ NSString *tdate;
     NSDateFormatter *dateFormatter;
 }
 
+
+@synthesize ntabbar;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -43,34 +46,7 @@ NSString *tdate;
 }
 
 
-- (void)loadView {
-    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-    view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    self.view = view;
-    //
-    
-    CGFloat screenWidth = view.frame.size.width;
-    CGFloat screenHieight = view.frame.size.height;
-    
-        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-30, screenWidth, 50)];
-    
-        [view addSubview:ntabbar];
-        UITabBarItem *firstItem0 ;
-        firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home.png"] tag:1];
-    
-        UITabBarItem *fi =[[UITabBarItem alloc]init];
-       UITabBarItem *f2 =[[UITabBarItem alloc]init];
-        UITabBarItem *firstItem2 = [[UITabBarItem alloc]initWithTitle:@"Refresh" image:[UIImage imageNamed:@"refresh3.png"] tag:2];
-        NSArray *itemsArray =[NSArray arrayWithObjects: firstItem0, fi, f2, firstItem2, nil];
-    //
-        [ntabbar setItems:itemsArray animated:YES];
-    ntabbar.delegate = self;
-//        [[ntabbar.items objectAtIndex:0]setAction:@selector(goBack:) ];
-        [[ntabbar.items objectAtIndex:1]setEnabled:NO ];
-        [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
-//        [[ntabbar.items objectAtIndex:3] setAction:@selector(dorefresh:)];
-        self.view.backgroundColor=[Mysql groupTableViewBackgroundColor];
-}
+
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     if (item.tag == 1) {
@@ -123,6 +99,8 @@ NSString *tdate;
 	
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	// Handle errors
+    [HUD setHidden:YES];
+    
 	if([value isKindOfClass:[NSError class]]) {
         NSError *error = value;
         NSLog(@"%@", [error localizedDescription]);
@@ -148,7 +126,7 @@ NSString *tdate;
     [[self calendarView] setDataSource:self];
     [[self calendarView] setDelegate:self];
     CGRect ct = self.calendarView.frame;
-    ct.origin.y = 64;
+//    ct.origin.y = 64;
     self.calendarView.frame = ct;
     [[self view] addSubview:[self calendarView]];
     [ntabbar setSelectedItem:nil];
@@ -392,9 +370,9 @@ NSString *tdate;
         
     }else{
         
-        
+         kirbytitledetail *pd =[self.storyboard instantiateViewControllerWithIdentifier:@"kirbytitledetail"];
     
-        kirbytitledetail *pd =[[kirbytitledetail alloc]init];
+//        kirbytitledetail *pd =[[kirbytitledetail alloc]init];
         pd.managedObjectContext=self.managedObjectContext;
         pd.idnumber=tdate;
         [self.navigationController pushViewController:pd animated:YES];

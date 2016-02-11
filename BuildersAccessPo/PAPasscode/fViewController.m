@@ -149,7 +149,7 @@
 //        [a.checkButton setImage:[UIImage imageNamed:@"uncheck.png"] forState:UIControlStateNormal];
         
         
-        a.ischecked=NO;
+        a.switchView.on = YES;
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 }

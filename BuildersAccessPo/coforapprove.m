@@ -206,28 +206,13 @@
     rtnlist = [(wcfArrayOfCOListItem*)value toMutableArray];
     rtnlist1=rtnlist;
     
-    UIScrollView *sv =(UIScrollView *)[self.view viewWithTag:1];
-    sv.backgroundColor=[Mysql groupTableViewBackgroundColor];
+   
     
-    if (tbview!=nil) {
+   
         [tbview reloadData];
         [ntabbar setSelectedItem:nil];
         [searchtxt setText:@""];
-    }else{
-        if (self.view.frame.size.height>480) {
-            tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325+87)];
-            sv.contentSize=CGSizeMake(320.0,326+87);
-        }else{
-            tbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 325)];
-            sv.contentSize=CGSizeMake(320.0,326);
-        }
-       
-        tbview.tag=2;
-        tbview.delegate = self;
-        tbview.dataSource = self;
-        [sv addSubview:tbview];
-
-    }
+    
     }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

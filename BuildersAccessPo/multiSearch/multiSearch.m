@@ -55,9 +55,9 @@
     ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-29, screenWidth, 49)];
 //    
 //    if (view.frame.size.height>480) {
-//        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 370+84, 320, 50)];
+//        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 370+84, self.view.frame.size.width, 50)];
 //    }else{
-//        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 366, 320, 50)];
+//        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 366, self.view.frame.size.width, 50)];
 //    }
     [view addSubview:ntabbar];
     UITabBarItem *firstItem0 ;
@@ -77,11 +77,11 @@
     [[ntabbar.items objectAtIndex:3]setEnabled:NO ];
     
 //    if (self.view.frame.size.height>480) {
-        sv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, screenWidth, screenHieight - 59)];
+        sv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHieight - 59)];
         sv.contentSize=CGSizeMake(screenWidth, screenHieight - 58);
 //    }else{
-//        sv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, 366)];
-//        sv.contentSize=CGSizeMake(320, 367);
+//        sv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 366)];
+//        sv.contentSize=CGSizeMake(self.view.frame.size.width, 367);
 //    }
     
     self.view.backgroundColor=[UIColor whiteColor];
@@ -115,11 +115,11 @@
     UILabel *lbl;
    
     if ([self.title isEqualToString:@"Project Multi Search"]) {
-         lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 280, 42)];
+         lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 42)];
          lbl.text=@"Search by project number, name or plan name";
          lbl.numberOfLines=0;
     }else{
-        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 280, 25)];
+        lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 25)];
     lbl.text=@"Search by vendor name";
     }
    
@@ -127,7 +127,7 @@
     [sv addSubview:lbl];
     y=y+lbl.frame.size.height+x;
     
-    usernameField=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+    usernameField=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
     [usernameField setBorderStyle:UITextBorderStyleRoundedRect];
     [usernameField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
     usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -141,13 +141,13 @@
     y=y+30+x+10;
     
     
-//    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 280, 21)];
+//    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 21)];
 //    lbl.text=@"Filter By";
 //    [sv addSubview:lbl];
 //    y=y+lbl.frame.size.height+x;
 //    
 //    UITextField * text1;
-//    text1=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+//    text1=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
 //    
 //    [text1 setBorderStyle:UITextBorderStyleRoundedRect];
 //    text1.enabled=NO;
@@ -170,7 +170,7 @@
    
     //    [btn1.layer setBackgroundColor:[UIColor redColor].CGColor];
     UIButton *btn1 =[baControl getGrayButton];
-    [btn1 setFrame:CGRectMake(20, y, 280, 44)];
+    [btn1 setFrame:CGRectMake(20, y, self.view.frame.size.width-40, 44)];
     [btn1 setTitle:@"Search" forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(dosearch:) forControlEvents:UIControlEventTouchDown];
     [sv addSubview:btn1];
@@ -208,7 +208,7 @@
 //    [actionSheet setTag:1];
 //    
 //    if (ddpicker ==nil) {
-//        ddpicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+//        ddpicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
 //        ddpicker.showsSelectionIndicator = YES;
 //        ddpicker.delegate = self;
 //        ddpicker.dataSource = self;
@@ -224,7 +224,7 @@
 //        y=80;
 //    }
 //    
-//    [actionSheet setFrame:CGRectMake(0, 177+y, 320, 383)];
+//    [actionSheet setFrame:CGRectMake(0, 177+y, self.view.frame.size.width, 383)];
 //    [actionSheet showInView:self.view];
 //    
 //}

@@ -180,7 +180,16 @@
 //    [self.navigationController popToRootViewControllerAnimated:YES];
 //}
 
-
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+//        [cell setSeparatorInset:UIEdgeInsetsZero];
+//    }
+//    
+//    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+//        [cell setLayoutMargins:UIEdgeInsetsZero];
+//    }
+//}
 -(UIBarButtonItem *)getbackButton{
     UIButton *btnNext = [UIButton buttonWithType:UIButtonTypeCustom];
     btnNext.frame = CGRectMake(0, 40, 40, 40);

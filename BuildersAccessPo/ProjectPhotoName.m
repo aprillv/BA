@@ -111,21 +111,21 @@
     int x=0;
     int y=10;
     if (self.view.frame.size.height>480) {
-        uv.contentSize=CGSizeMake(320.0,416.0+80);
+        uv.contentSize=CGSizeMake(self.view.frame.size.width,416.0+80);
         y=y+20;
         x=10;
     }else{
-        uv.contentSize=CGSizeMake(320.0,376.0);
+        uv.contentSize=CGSizeMake(self.view.frame.size.width,376.0);
         x=5;
     }
     
     UILabel *lbl;
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Name";
     [uv addSubview:lbl];
     y=y+21+x;
     
-    usernameField=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+    usernameField=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
     [usernameField setBorderStyle:UITextBorderStyleRoundedRect];
     [usernameField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
     usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -148,14 +148,14 @@
     [uv addSubview:lbl];
     y=y+21+x;
     
-//    passwordField=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 30)];
+//    passwordField=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 30)];
 //    [passwordField setBorderStyle:UITextBorderStyleRoundedRect];
 //    [passwordField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
 //    [uv addSubview: passwordField];
 //    y=y+30+x+35;
     
     
-    UITextField *txtProject=[[UITextField alloc]initWithFrame:CGRectMake(20, y, 280, 105)];
+    UITextField *txtProject=[[UITextField alloc]initWithFrame:CGRectMake(20, y, self.view.frame.size.width-40, 105)];
     [txtProject setBorderStyle:UITextBorderStyleRoundedRect];
     txtProject.enabled=NO;
     [uv addSubview:txtProject];
@@ -174,7 +174,7 @@
     
     
     
-//    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, 296, 98) ];
+//    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, self.view.frame.size.width-24, 98) ];
 //    txtNote.layer.cornerRadius=10;
 //    txtNote.font=[UIFont systemFontOfSize:17.0];
 //  
@@ -184,7 +184,7 @@
     
     
     UIButton *btn1 = [baControl getGrayButton];
-    [btn1 setFrame:CGRectMake(20, y, 280, 44)];
+    [btn1 setFrame:CGRectMake(20, y, self.view.frame.size.width-40, 44)];
     [btn1 setTitle:@"Submit" forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(doSubmit:) forControlEvents:UIControlEventTouchDown];
     [uv addSubview:btn1];

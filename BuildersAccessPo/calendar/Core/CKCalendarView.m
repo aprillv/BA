@@ -213,7 +213,8 @@
 - (CGSize)_cellSize
 {
     // These values must be hard coded in order for rectForDisplayMode: to work correctly
-    return CGSizeMake(46, 44);
+    CGFloat cx = [UIScreen mainScreen].bounds.size.width/7.0;
+    return CGSizeMake(cx, cx*0.9565);
 }
 
 #pragma mark - Layout
@@ -258,10 +259,12 @@
     
     CGRect tableFrame = [[self superview] frame];
     tableFrame.size.height -= [self frame].size.height;
-    tableFrame.size.height -=50 + 64;
-    tableFrame.origin.y += [self frame].size.height + 64;
+//    tableFrame.size.height -=50 + 64;
+     tableFrame.size.height -=50;
+//    tableFrame.origin.y += [self frame].size.height + 64;
+    tableFrame.origin.y = [self frame].size.height;
     
-
+//    NSLog(@"=== %f", [self frame].size.height);
     [[self table] setFrame:tableFrame animated:animated];
     
     [[self superview] insertSubview:[self table]  belowSubview:self];

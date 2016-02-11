@@ -12,9 +12,9 @@
 #import "CKCalendarDataSource.h"
 
 @interface calendarqa : fathercontroller<MBProgressHUDDelegate>{
-    UITabBar *ntabbar;
    MBProgressHUD *HUD;
 }
+@property (strong, nonatomic) IBOutlet UITabBar *ntabbar;
 
 @property (nonatomic, assign) id<CKCalendarViewDataSource> dataSource;
 @property (nonatomic, assign) id<CKCalendarViewDelegate> delegate;

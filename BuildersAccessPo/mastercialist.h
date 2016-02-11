@@ -14,6 +14,7 @@
    
 }
 
+@property (strong, nonatomic) IBOutlet UITableView *tbview;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchtxt;
 @property (weak, nonatomic) IBOutlet UITabBar *ntabbar;
 @property int type;

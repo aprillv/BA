@@ -141,7 +141,7 @@ int y;
     
     y=10;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Email To";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -149,7 +149,7 @@ int y;
     y=y+30;
     
     UITextField * text1;
-    text1=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    text1=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
     text1.text=@"";
@@ -166,13 +166,13 @@ int y;
     [uv addSubview:dd1];
     y=y+30+10;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Delivery Date";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];    lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+30;
     
-    text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    text1 =[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [text1 setBorderStyle:UITextBorderStyleRoundedRect];
     text1.enabled=NO;
     text1.text=@"";
@@ -189,19 +189,19 @@ int y;
     [uv addSubview: txtDate];
     y=y+30+10;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Notes (255 char)";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+30;
     
-    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 105)];
+    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 105)];
     [txtProject setBorderStyle:UITextBorderStyleRoundedRect];
     txtProject.enabled=NO;
     [uv addSubview:txtProject];
     
-    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, 296, 98) ];
+    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, self.view.frame.size.width-24, 98) ];
     txtNote.layer.cornerRadius=10;
     txtNote.font=[UIFont systemFontOfSize:17.0];
     txtNote.delegate=self;
@@ -212,14 +212,14 @@ int y;
     y=y+110;
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Total $";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+30;
     
-    txtTotal=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 30)];
+    txtTotal=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
     [txtTotal setBorderStyle:UITextBorderStyleRoundedRect];
     [txtTotal addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
     txtTotal.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -230,14 +230,14 @@ int y;
     
     
     btn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btn1 setFrame:CGRectMake(10, y, 300, 44)];
+    [btn1 setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
     [btn1 setTitle:@"Attatch Picture" forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(doAttatch:) forControlEvents:UIControlEventTouchDown];
     [uv addSubview:btn1];
     y=y+50;
     
     loginButton= [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+    [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
     
     [loginButton setTitle:@"Submit" forState:UIControlStateNormal];
     [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
@@ -248,7 +248,7 @@ int y;
     
     y=y+60;
     
-    uv.contentSize=CGSizeMake(320.0,y);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width,y);
     [txtTotal setInputAccessoryView:[keyboard getToolbarWithPrevNextDone:YES :NO]];
     
     [self getEmail];
@@ -471,15 +471,15 @@ int y;
     imageView.layer.masksToBounds = YES;
     y=y+235;
     imageView.image = image;
-    [btn1 setFrame:CGRectMake(10, y, 300, 44)];
+    [btn1 setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
     y=y+50;
-    [loginButton setFrame:CGRectMake(10, y, 300, 44)];
+    [loginButton setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
     y=y+60;
     //    isChange=YES;
     myphoto=scaledImage;
     [uv addSubview:imageView];
     
-    uv.contentSize=CGSizeMake(320.0,y);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width,y);
     y=y1;
     //    [ciatbview reloadData];
     //    [ntabbar setSelectedItem:nil];
@@ -616,13 +616,13 @@ int y;
     if (!sheet) {
         sheet = [UIAlertController alertControllerWithTitle:@"Select Date" message:@"\n\n\n\n\n\n\n\n\n\n\n" preferredStyle:UIAlertControllerStyleActionSheet];
         
-        CGFloat aWidth =320;
+        CGFloat aWidth =self.view.frame.size.width;
         CGFloat CONTENT_HEIGHT = 400;
         //
         [sheet.view setBounds:CGRectMake(0, 0, aWidth, CONTENT_HEIGHT)];
         
         UIToolbar *toolbar = [[UIToolbar alloc]
-                              initWithFrame:CGRectMake(10, 44, 280, 44)];
+                              initWithFrame:CGRectMake(10, 44, self.view.frame.size.width-40, 44)];
         [toolbar setItems:@[
                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(pickerSheetCancel)],
                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
@@ -631,7 +631,7 @@ int y;
         
         
         if (pdate ==nil) {
-            pdate=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, 88, 320, 170)];
+            pdate=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 170)];
             pdate.datePickerMode=UIDatePickerModeDate;
             Mysql *msql=[[Mysql alloc]init];
             if (txtDate.titleLabel.text) {

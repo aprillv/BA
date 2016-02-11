@@ -176,7 +176,7 @@
     float rowheight=32.0;
     int x =5;
     int y =10;
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Category";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
@@ -185,33 +185,33 @@
     
     
     
-   UIView * lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, 300, rowheight)];
+   UIView * lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight)];
     lbl1.layer.cornerRadius=10.0;
     lbl1.backgroundColor = [UIColor whiteColor];
     [uv addSubview:lbl1];
     
     
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, 300, rowheight-6)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(18, y+4, self.view.frame.size.width-20, rowheight-6)];
     lbl.text=wi.Category;
     lbl.backgroundColor=[UIColor clearColor];
     lbl.font=[UIFont systemFontOfSize:14.0];
     [uv addSubview:lbl];
     y=y+rowheight+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, 300, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
     lbl.text=@"Notes (max 512 chars)";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.backgroundColor=[UIColor clearColor];
     [uv addSubview:lbl];
     y=y+21+x;
     
-    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, 300, 105)];
+    UITextField *txtProject= txtProject=[[UITextField alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 105)];
     [txtProject setBorderStyle:UITextBorderStyleRoundedRect];
     txtProject.enabled=NO;
     [uv addSubview:txtProject];
     
-    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, 296, 98) ];
+    txtNote = [[UITextView alloc]initWithFrame:CGRectMake(12, y+3, self.view.frame.size.width-24, 98) ];
     txtNote.layer.cornerRadius=10;
     txtNote.delegate=self;
     txtNote.font=[UIFont systemFontOfSize:17.0];
@@ -231,7 +231,7 @@
     
     
     if ([wi.Fs isEqualToString:@"1"]) {
-        uview.frame = CGRectMake(10, y, 300, 225);
+        uview.frame = CGRectMake(10, y, self.view.frame.size.width-20, 225);
         y=y+245;
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ws.buildersaccess.com/wsdownloadqa.aspx?email=%@&password=%@&idcia=%@&id=%@&fname=%@", [userInfo getUserName], [userInfo getUserPwd], [[NSNumber numberWithInt:[userInfo getCiaId]]stringValue], itemId,@"tmp"]];
         
@@ -255,7 +255,7 @@
         if ([wi.btn4 isEqualToString:@"0"]) {
             if ([wi.btn1 isEqualToString:@"1"] || [wi.btn3 isEqualToString:@"1"]){
                 btnAddPic = [UIButton buttonWithType:UIButtonTypeCustom];
-                [btnAddPic setFrame:CGRectMake(10, y, 300, 44)];
+                [btnAddPic setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
                 if ([wi.Fs isEqualToString:@"1"]) {
                     [btnAddPic setTitle:@"Re - Attatch Picture" forState:UIControlStateNormal];
                 }else{
@@ -271,7 +271,7 @@
                 
                 if ([wi.btn1 isEqualToString:@"1"] ) {
                     btnUpdate = [UIButton buttonWithType:UIButtonTypeCustom];
-                    [btnUpdate setFrame:CGRectMake(10, y, 300, 44)];
+                    [btnUpdate setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
                     [btnUpdate setTitle:[NSString stringWithFormat:@"Item > %@", wi.btn1name] forState:UIControlStateNormal];
                     [btnUpdate.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
                     if ([wi.btn1name isEqualToString:@"Update"]) {
@@ -290,7 +290,7 @@
                 
                 if ([wi.btn3 isEqualToString:@"1"]) {
                     btnPass = [UIButton buttonWithType:UIButtonTypeCustom];
-                    [btnPass setFrame:CGRectMake(10, y, 300, 44)];
+                    [btnPass setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
                     [btnPass setTitle:@"Item > Save & Pass" forState:UIControlStateNormal];
                     [btnPass.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
                     [btnPass setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -308,7 +308,7 @@
             
         }else{
             btnReady = [UIButton buttonWithType:UIButtonTypeCustom];
-            [btnReady setFrame:CGRectMake(10, y, 300, 44)];
+            [btnReady setFrame:CGRectMake(10, y, self.view.frame.size.width-20, 44)];
             [btnReady setTitle:@"Item > Ready" forState:UIControlStateNormal];
             [btnReady.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
             [btnReady setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -324,7 +324,7 @@
     if (y<self.view.frame.size.height-43) {
         y=self.view.frame.size.height-43;
     }
-    uv.contentSize=CGSizeMake(320, y);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width, y);
 }
 
 
@@ -649,23 +649,23 @@
 //    y=0;
 //    w=w*scaleSize;
 //    x=(160-w)/2;
-    uview.frame=CGRectMake(10, imgy, 300, 225);
+    uview.frame=CGRectMake(10, imgy, self.view.frame.size.width-20, 225);
     uview.userInteractionEnabled = YES;
     uview.layer.cornerRadius=10;
     uview.layer.masksToBounds = YES;
     
     int y1 = imgy+250;
-    btnAddPic.frame=CGRectMake(10, y1, 300, 44);
+    btnAddPic.frame=CGRectMake(10, y1, self.view.frame.size.width-20, 44);
     y1=y1+50;
     
     if ([wi.btn4 isEqualToString:@"0"]) {
-        btnUpdate.frame=CGRectMake(10, y1, 300, 44);
+        btnUpdate.frame=CGRectMake(10, y1, self.view.frame.size.width-20, 44);
         y1=y1+50;
         
-        btnPass.frame=CGRectMake(10, y1, 300, 44);
+        btnPass.frame=CGRectMake(10, y1, self.view.frame.size.width-20, 44);
         y1=y1+50;
     }
-    uv.contentSize=CGSizeMake(320, y1+20);
+    uv.contentSize=CGSizeMake(self.view.frame.size.width, y1+20);
     
     uview.image=image;
     UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(myFunction:)];

@@ -16,9 +16,9 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchtxt;
 @property int mxtype;
 @property (retain, nonatomic) NSMutableArray *rtnlist;
+@property (strong, nonatomic) IBOutlet UITableView *tbview;
 
 @property (weak, nonatomic) IBOutlet UITabBar *ntabbar;
-@property (retain, nonatomic)UITableView *tbview;
 @property (retain, nonatomic) NSMutableArray *rtnlist1;
 @property(copy, nonatomic) NSString *masterciaid;
 @end

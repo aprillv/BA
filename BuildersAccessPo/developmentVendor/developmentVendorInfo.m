@@ -174,7 +174,7 @@
 -(void)drawPage{
     int y=10;
     int x=10;
-    int lblwidth =300;
+    int lblwidth =(self.view.frame.size.width-20);
     UILabel *lbl=[[UILabel alloc]initWithFrame:CGRectMake(x, y, lblwidth, 21)];
     lbl.text=result.Name;
     lbl.font=[UIFont boldSystemFontOfSize:17.0];
@@ -358,7 +358,7 @@
     y = y+64;
     
     if (y > uv.frame.size.height+1) {
-        uv.contentSize= CGSizeMake(320, y);
+        uv.contentSize= CGSizeMake(self.view.frame.size.width, y);
     }
     
      [ntabbar setSelectedItem:nil];

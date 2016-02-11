@@ -13,9 +13,9 @@
 #import "MBProgressHUD.h"
 
 @interface kirbytitle : fathercontroller<MBProgressHUDDelegate>{
-UITabBar *ntabbar;
     MBProgressHUD *HUD;
 }
+@property (strong, nonatomic) IBOutlet UITabBar *ntabbar;
 
 @property (nonatomic, assign) id<CKCalendarViewDataSource> dataSource;
 @property (nonatomic, assign) id<CKCalendarViewDelegate> delegate;

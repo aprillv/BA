@@ -17,8 +17,7 @@
 
 @property (retain, nonatomic) NSMutableArray *rtnlist;
 @property (weak, nonatomic) IBOutlet UITabBar *ntabbar;
-
-@property (retain, nonatomic)UITableView *tbview;
+@property (strong, nonatomic) IBOutlet UITableView *tbview;
 @property (retain, nonatomic) NSMutableArray *rtnlist1;
 
 @end

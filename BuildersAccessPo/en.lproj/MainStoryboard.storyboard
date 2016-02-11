@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -3788,14 +3787,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Tuh-gs-xmF">
-                                <rect key="frame" x="137" y="8" width="100" height="100"/>
+                                <rect key="frame" x="137" y="0.0" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="LHS-tg-1rd"/>
                                     <constraint firstAttribute="height" constant="100" id="Nd7-Yu-yMO"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ave-Dh-csw">
-                                <rect key="frame" x="16" y="129" width="343" height="269"/>
+                                <rect key="frame" x="16" y="120" width="343" height="269"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xz-cj-HHl">
                                         <rect key="frame" x="0.0" y="50" width="343" height="1"/>
@@ -3820,7 +3819,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                                         <connections>
-                                            <outlet property="delegate" destination="drr-j0-3Vc" id="15v-tS-dzM"/>
+                                            <outlet property="delegate" destination="2wV-OA-hui" id="70q-3B-1yc"/>
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lhq-u9-V1P">
@@ -3838,7 +3837,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember Me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kyr-dZ-eTE">
-                                        <rect key="frame" x="8" y="116" width="94" height="19"/>
+                                        <rect key="frame" x="8" y="116" width="95" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -3950,7 +3949,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryb-Jb-6Hf">
-                                <rect key="frame" x="201" y="353" width="150" height="30"/>
+                                <rect key="frame" x="199" y="344" width="152" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Forgot Your Password">
                                     <color key="titleColor" red="0.074509803920000006" green="0.28235294119999998" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
@@ -3967,9 +3966,9 @@
                             <constraint firstItem="ryb-Jb-6Hf" firstAttribute="top" secondItem="Fn1-sz-CMR" secondAttribute="bottom" constant="8" id="Cj1-E1-u7v"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Ave-Dh-csw" secondAttribute="leading" id="Qnl-6C-FMF"/>
                             <constraint firstItem="ryb-Jb-6Hf" firstAttribute="trailing" secondItem="Fn1-sz-CMR" secondAttribute="trailing" id="UOG-5J-44A"/>
-                            <constraint firstItem="Tuh-gs-xmF" firstAttribute="top" secondItem="I4p-Jy-cQ9" secondAttribute="bottom" constant="8" id="qRG-mj-QZX"/>
+                            <constraint firstItem="Tuh-gs-xmF" firstAttribute="top" secondItem="I4p-Jy-cQ9" secondAttribute="bottom" id="qRG-mj-QZX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ave-Dh-csw" secondAttribute="trailing" id="rV5-ez-7oQ"/>
-                            <constraint firstItem="Ave-Dh-csw" firstAttribute="top" secondItem="I4p-Jy-cQ9" secondAttribute="bottom" constant="129" id="v23-WJ-fOi"/>
+                            <constraint firstItem="Ave-Dh-csw" firstAttribute="top" secondItem="I4p-Jy-cQ9" secondAttribute="bottom" constant="120" id="v23-WJ-fOi"/>
                             <constraint firstItem="Tuh-gs-xmF" firstAttribute="centerX" secondItem="drr-j0-3Vc" secondAttribute="centerX" id="yHO-Yg-YP7"/>
                         </constraints>
                     </view>
@@ -3995,4 +3994,9 @@
         <image name="logo" width="100" height="100"/>
         <image name="refresh3.png" width="30" height="30"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

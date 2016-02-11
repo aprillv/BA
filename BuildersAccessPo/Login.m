@@ -97,7 +97,7 @@ NSString* xget;
     [[UITabBar appearance] setTintColor:cg];
     [[UIToolbar appearance] setTintColor:cg];
     self.navigationController.navigationBar.tintColor = cg;
-    [UIApplication sharedApplication].statusBarStyle =  UIStatusBarStyleBlackTranslucent;
+//    [UIApplication sharedApplication].statusBarStyle =  UIStatusBarStyleBlackTranslucent;
     
 //    keyboard=[[CustomKeyboard alloc]init];
 //    keyboard.delegate=self;

@@ -215,7 +215,10 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 48;
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    
+    
+    return 48*(font.pointSize/15.0);
 }
 
 

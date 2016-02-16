@@ -141,7 +141,6 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:Download_InstallLink]];
         
     }else{
-//        [ciatbview removeFromSuperview];
         result=nil;
         result1=nil;
         [searchtxt setText:@""];
@@ -152,10 +151,10 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear: animated];
     result=[[NSMutableArray alloc]init];
     result1=[[NSMutableArray alloc]init];
     [searchtxt setText:@""];
-//    [ciatbview removeFromSuperview];
     [self getPols];
 }
 
@@ -229,7 +228,10 @@
    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 88;
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    
+    
+    return 88*(font.pointSize/15.0);
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     

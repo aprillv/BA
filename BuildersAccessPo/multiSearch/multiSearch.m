@@ -53,12 +53,6 @@
     CGFloat screenHieight = view.frame.size.height;
     
     ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-29, screenWidth, 49)];
-//    
-//    if (view.frame.size.height>480) {
-//        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 370+84, self.view.frame.size.width, 50)];
-//    }else{
-//        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 366, self.view.frame.size.width, 50)];
-//    }
     [view addSubview:ntabbar];
     UITabBarItem *firstItem0 ;
     firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home.png"] tag:1];
@@ -84,8 +78,8 @@
 //        sv.contentSize=CGSizeMake(self.view.frame.size.width, 367);
 //    }
     
-    self.view.backgroundColor=[UIColor whiteColor];
-    [self.view addSubview:sv];
+    view.backgroundColor=[UIColor whiteColor];
+    [view addSubview:sv];
    
    
 }
@@ -183,7 +177,7 @@
     
     y=y+50+x;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(30, y, 260, 147)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(30, y, self.view.frame.size.width-60, 147)];
     lbl.font=[UIFont systemFontOfSize:13.0];
     if ([self.title hasPrefix:@"Project"]) {
         lbl.text=@"* Notes: You can use any combination of keywords to find your projects, but search will only return the first 100 records that match your criteria. \n\nA minimum of 4 characters are required to search.";

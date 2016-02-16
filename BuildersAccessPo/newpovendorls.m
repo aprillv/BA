@@ -50,7 +50,7 @@ int currentPageNo;
     UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     
-    searchBar= [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    searchBar= [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, 44)];
     [view addSubview: searchBar];
     searchBar.delegate=self;
     
@@ -60,12 +60,17 @@ int currentPageNo;
     
     self.view = view;
     
-    if (view.frame.size.height>480) {
-        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 370+84, self.view.frame.size.width, 50)];
-    }else{
-        
-        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 366, self.view.frame.size.width, 50)];
-    }
+    CGFloat screenWidth = view.frame.size.width;
+    CGFloat screenHieight = view.frame.size.height;
+    
+    ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-93, screenWidth, 49)];
+//    
+//    if (view.frame.size.height>480) {
+//        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 370+84, view.frame.size.width, 50)];
+//    }else{
+//        
+//        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 366, view.frame.size.width, 50)];
+//    }
     [view addSubview:ntabbar];
     
     UITabBarItem *firstItem0 ;
@@ -83,12 +88,8 @@ int currentPageNo;
     [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
     [[ntabbar.items objectAtIndex:3] setEnabled:NO];
     
-    if (self.view.frame.size.height>480) {
-        uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, 326+84)];
-    }else{
-        uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, 326)];
-    }
-    [view addSubview:uv];
+    uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHieight - 93)];
+    uv.contentSize=CGSizeMake(screenWidth, screenHieight - 58);
     
     view.backgroundColor=[UIColor whiteColor];
     

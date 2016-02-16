@@ -959,7 +959,8 @@
 //            ((UIImageView *)uw).image=nil;
 //        }
 //    }
-     ViewController *si = [ViewController alloc];
+//     ViewController *si = [ViewController alloc];
+     ViewController *si = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"ViewController"];
     si.xurl=[NSString stringWithFormat:@"http://ws.buildersaccess.com/contractsitemap.aspx?email=%@&password=%@&idcia=%@&projectid=%@&projectid2=%@", [userInfo getUserName], [userInfo getUserPwd], result.IDCia, result.IDSub, result.IDProject ];
     si.managedObjectContext=self.managedObjectContext;
     

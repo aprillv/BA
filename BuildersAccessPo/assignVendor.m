@@ -20,13 +20,11 @@
 #import "forapprove.h"
 
 @interface assignVendor ()<UITableViewDelegate, UITableViewDataSource, CustomKeyboardDelegate, UISearchBarDelegate, UITabBarDelegate>{
-    UITabBar *ntabbar;
-    UIScrollView *uv;
-    UISearchBar *searchBar;
-    CustomKeyboard *keyboard;
-    UITableView *ciatbview;
     NSMutableArray *result1;
 }
+@property (strong, nonatomic) IBOutlet UITableView *ciatbview;
+@property (strong, nonatomic) IBOutlet UITabBar *ntabbar;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 
 @end
@@ -36,77 +34,8 @@ int currentPageNo;
 
 @implementation assignVendor
 
-@synthesize xpocode, xpoid, xidcostcode, xidproject, rtnlist, searchField, xshipto, xdelivery, fromforapprove;
+@synthesize xpocode, xpoid, xidcostcode, xidproject, rtnlist, searchField, xshipto, xdelivery, fromforapprove, ciatbview, ntabbar, searchBar;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
--(void)loadView{
-    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-    view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    
-    searchBar= [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    [view addSubview: searchBar];
-    searchBar.delegate=self;
-    
-    keyboard=[[CustomKeyboard alloc]init];
-    keyboard.delegate=self;
-    [searchBar setInputAccessoryView:[keyboard getToolbarWithDone]];
-    
-    self.view = view;
-    
-    if (view.frame.size.height>480) {
-        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 454, self.view.frame.size.width, 50)];
-    }else{
-        
-        ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, 366, self.view.frame.size.width, 50)];
-    }
-    [view addSubview:ntabbar];
-    
-    UITabBarItem *firstItem0 ;
-    if (fromforapprove==1){
-          firstItem0= [[UITabBarItem alloc]initWithTitle:@"For Approve" image:[UIImage imageNamed:@"home.png"] tag:1];
-    }else if (fromforapprove==2) {
-        firstItem0= [[UITabBarItem alloc]initWithTitle:@"Development" image:[UIImage imageNamed:@"home.png"] tag:1];
-    }else if (fromforapprove==3){
-        firstItem0= [[UITabBarItem alloc]initWithTitle:@"Project" image:[UIImage imageNamed:@"home.png"] tag:1];
-    }else{
-    firstItem0= [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home.png"] tag:1];
-    }
-
-    
-    UITabBarItem *fi =[[UITabBarItem alloc]init];
-    UITabBarItem *f2 =[[UITabBarItem alloc]init];
-    UITabBarItem *firstItem2 = [[UITabBarItem alloc]initWithTitle:@"Refresh" image:[UIImage imageNamed:@"refresh3.png"] tag:2];
-    NSArray *itemsArray =[NSArray arrayWithObjects: firstItem0, fi, f2, firstItem2, nil];
-    
-    [ntabbar setItems:itemsArray animated:YES];
-    ntabbar.delegate = self;
-//    [[ntabbar.items objectAtIndex:0]setAction:@selector(goback1:) ];
-    [[ntabbar.items objectAtIndex:1]setEnabled:NO ];
-    [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
-//    [[ntabbar.items objectAtIndex:3] setAction:@selector(dorefresh:)];
-    
-    if (self.view.frame.size.height>480) {
-        uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, 410)];
-    }else{
-        uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, 322)];
-    }
-    [view addSubview:uv];
-    
-    view.backgroundColor=[UIColor whiteColor];
-    
-    [self.navigationItem setHidesBackButton:YES];
-    [self.navigationItem setLeftBarButtonItem:[self getbackButton]];
-    
-//    uv.backgroundColor=[Mysql groupTableViewBackgroundColor];
-}
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     if (item.tag == 1) {
@@ -119,7 +48,7 @@ int currentPageNo;
 -(IBAction)dorefresh:(id)sender{
     currentPageNo=1;
     rtnlist=nil;
-    [ciatbview removeFromSuperview];
+    [ciatbview reloadData];
     [self getVenderls:currentPageNo];
 }
 -(IBAction)goback1:(id)sender{
@@ -174,9 +103,21 @@ int currentPageNo;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     self.title=@"Select Vendor";
+//     self.title=@"Select Vendor";
     searchField.text=@"";
     currentPageNo=1;
+    
+    if (fromforapprove==1){
+        [[[ntabbar items] objectAtIndex:0] setTitle:@"For Approve"];
+        
+    }else if (fromforapprove==2) {
+        [[[ntabbar items] objectAtIndex:0] setTitle:@"Development"];
+    }else if (fromforapprove==3){
+        [[[ntabbar items] objectAtIndex:0] setTitle:@"Project"];
+    }else{
+        [[[ntabbar items] objectAtIndex:0] setTitle:@"Home"];
+    }
+    
     [self getVenderls:currentPageNo];
 }
 
@@ -220,8 +161,7 @@ int currentPageNo;
     
 	// Do something with the NSMutableArray* result
     NSMutableArray* result = (NSMutableArray*)value;
-    
-    UIScrollView *sv =uv;
+   
     
     
    
@@ -250,25 +190,10 @@ int currentPageNo;
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             if ([rtnlist count]>0) {
                 result1=rtnlist;
-                if (ciatbview ==nil) {
-                    if (self.view.frame.size.height>480) {
-                        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325+84)];
-                        uv.contentSize=CGSizeMake(self.view.frame.size.width,326+87);
-                    }else{
-                        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325)];
-                        uv.contentSize=CGSizeMake(self.view.frame.size.width,326);
-                    }
-//                    ciatbview.layer.cornerRadius = 10;
-                    ciatbview.tag=2;
-                    [uv addSubview:ciatbview];
-                    ciatbview.delegate = self;
-                    ciatbview.dataSource = self;
-                    [ntabbar setSelectedItem:nil];
-                }else{
-                    [uv addSubview: ciatbview];
+                
                     [ciatbview reloadData];
                     [ntabbar setSelectedItem:nil];
-                }
+                
 
                 
             }else{
@@ -278,7 +203,7 @@ int currentPageNo;
                 lbl.tag=3;
                 lbl.text=@" Vendor not found.";
                 lbl.textColor=[UIColor redColor];
-                [sv addSubview:lbl];
+                [ciatbview addSubview:lbl];
                 [ntabbar setSelectedItem:nil];
             }
 

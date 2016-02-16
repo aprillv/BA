@@ -71,7 +71,10 @@
     }
     
     [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
-    tbview.rowHeight = 50.0f;
+//    tbview.rowHeight = 50.0f;
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    
+    tbview.rowHeight=50*(font.pointSize/15.0);
     //    [[ntabbar.items objectAtIndex:3]setAction:@selector(dorefresh)];
     self.view.backgroundColor=[UIColor whiteColor];
 }

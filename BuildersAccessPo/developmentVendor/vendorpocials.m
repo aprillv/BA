@@ -223,7 +223,7 @@
         NSArray *firstSplit = [kv.Key componentsSeparatedByString:@","];
         
       
-        projectpo *cc =[[projectpo alloc]init];
+         projectpo *cc =[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"projectpo"];
         
         tmcia=[userInfo getCiaId];
         cc.idmaster=[NSString stringWithFormat:@"%d", [userInfo getCiaId]];

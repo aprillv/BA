@@ -12,7 +12,6 @@
 #import "wcfService.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Reachability.h"
-#import "po1.h"
 #import "forapprove.h"
 #import "bustoutdetail.h"
 #import "wcfArrayOfStartPackItem.h"
@@ -201,7 +200,10 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 70;
+    
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    
+    return 70*(font.pointSize/15.0);
 }
 
 

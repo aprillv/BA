@@ -19,8 +19,8 @@
     CustomKeyboard *keyboard;
     NSMutableArray* result1;
 }
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UITableView *ciatbview;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UITableView *ciatbview;
 
 @property (weak, nonatomic) IBOutlet UITabBar *ntabbar;
 
@@ -123,7 +123,7 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-    [ciatbview removeFromSuperview];
+    [super viewWillAppear:animated];
     [self getcialistofcoforapprove];
 }
 -(IBAction)refreshPrject:(id)sender{
@@ -164,20 +164,10 @@
     NSString* result5 = (NSString*)value;
     if ([result5 isEqualToString:@"1"]) {
         
-        //        UIAlertView *alert = nil;
-        //        alert = [[UIAlertView alloc]
-        //                 initWithTitle:@"BuildersAccess"
-        //                 message:@"There is a new version?"
-        //                 delegate:self
-        //                 cancelButtonTitle:@"Cancel"
-        //                 otherButtonTitles:@"Ok", nil];
-        //        alert.tag = 1;
-        //        [alert show];
-        
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:Download_InstallLink]];
         
     }else{
-        [ciatbview removeFromSuperview];
+        [ciatbview reloadData];
         [self getcialistofcoforapprove];
     }
     

@@ -206,7 +206,10 @@
         tb.delegate=self;
         tb.dataSource=self;
         tb.separatorColor=[UIColor clearColor];
-        tb.rowHeight=35;
+//        tb.rowHeight=35;
+        UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+        
+        tb.rowHeight=35*(font.pointSize/15.0);
         
         tb.tag=10;
         [uv addSubview:tb];
@@ -229,7 +232,9 @@
         tb.dataSource=self;
         tb.separatorColor=[UIColor clearColor];
         tb.tag=11;
-         tb.rowHeight=35;
+        UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+        
+        tb.rowHeight=35*(font.pointSize/15.0);
         [uv addSubview:tb];
         y = y+35;
          tmph =tmph+35;
@@ -240,7 +245,9 @@
     tb.delegate=self;
     tb.dataSource=self;
     tb.separatorColor=[UIColor clearColor];
-    tb.rowHeight=35;
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    
+    tb.rowHeight=35*(font.pointSize/15.0);
     tb.tag=12;
     [uv addSubview:tb];
     y = y+40;
@@ -295,7 +302,9 @@
             tb.delegate=self;
            
             tb.dataSource=self;
-            tb.rowHeight=35;
+            UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+            
+            tb.rowHeight=35*(font.pointSize/15.0);
             tb.separatorColor=[UIColor clearColor];
             tb.tag=i;
             i=i+1;
@@ -351,7 +360,9 @@
     tb.delegate=self;
     tb.dataSource=self;
     tb.separatorColor=[UIColor clearColor];
-    tb.rowHeight=44;
+//    tb.rowHeight=44;
+    UIFont *fontq = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    tb.rowHeight=44*(fontq.pointSize/15.0);
     tb.layer.cornerRadius = 10;
     tb.tag=9;
     [uv addSubview:tb];
@@ -526,8 +537,7 @@
                     [self.navigationController pushViewController:cl animated:YES];
                 }else{
                     
-                    projectpo *cc =[[projectpo alloc]init];
-                    
+                     projectpo *cc =[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"projectpo"];
                     
                     cc.idmaster=idmaster;
                    

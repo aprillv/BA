@@ -11,13 +11,11 @@
 #import "fathercontroller.h"
 
 @interface ViewController : fathercontroller<UIScrollViewDelegate>{
-
-    UIActivityIndicatorView *_spinner;
     NSMutableData *_data;
 }
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
-@property (nonatomic, retain) UIScrollView      *scrollView;
-
-@property (nonatomic, retain) MRZoomScrollView  *zoomScrollView;
 @property(copy, nonatomic) NSString *xurl;
 @end

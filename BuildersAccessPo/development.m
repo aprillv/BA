@@ -27,6 +27,7 @@
 #import "MBProgressHUD.h"
 #import "projectPhotoFolder.h"
 #import "ProjectPhotoName.h"
+#import "InsetsLabel.h"
 
 @interface development ()<MBProgressHUDDelegate, UITabBarDelegate>{
 //    AGAlertViewWithProgressbar *alertViewWithProgressbar;
@@ -505,12 +506,10 @@
         int rowheight=32;
         UITableView *ciatbview;
         
-        UIView *lbl1;
+        InsetsLabel *lbl1;
         
-        lbl1 =[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 32)];
-        lbl1.layer.cornerRadius=10.0;
-        lbl1.backgroundColor = [UIColor whiteColor];
-        [uv addSubview:lbl1];
+        lbl1 =[[InsetsLabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, rowheight*6)];
+        [sv addSubview:lbl1];
         
         lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, y+4, self.view.frame.size.width-20, rowheight-1)];
         lbl.text=result.Name;
@@ -1027,7 +1026,7 @@
                               otherButtonTitles:@"OK", nil];
         [alert show];
     }else{
-        projectpo *cc =[[projectpo alloc]init];
+         projectpo *cc =[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"projectpo"];
         cc.idmaster=result.mastercia;
         if ([result.Status isEqualToString:@"Closed"]) {
             cc.xtype=1;
@@ -1116,7 +1115,8 @@
 //                
 //                [self presentViewController:si animated:YES completion:nil];
                 
-                ViewController *si=[[ViewController alloc]init];
+//                ViewController *si=[[ViewController alloc]init];
+                 ViewController *si = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"ViewController"];
                 si.managedObjectContext=self.managedObjectContext;
                 si.xurl=[NSString stringWithFormat:@"http://ws.buildersaccess.com/sitemap.aspx?email=%@&password=%@&idcia=%d&projectid=%@", [userInfo getUserName], [userInfo getUserPwd], [userInfo getCiaId], idproject];
                 

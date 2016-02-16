@@ -20,44 +20,7 @@
 @implementation kirbytitledetail
 @synthesize idnumber, uv;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
-
-//- (void)loadView {
-//    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-//    view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-//    self.view = view;
-//    //
-//    
-//    CGFloat screenWidth = view.frame.size.width;
-//    CGFloat screenHieight = view.frame.size.height;
-//    
-//    ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-30, screenWidth, 50)];
-//    
-//    [view addSubview:ntabbar];
-//    UITabBarItem *firstItem0 ;
-//    firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home.png"] tag:1];
-//    
-//    UITabBarItem *fi =[[UITabBarItem alloc]init];
-//    UITabBarItem *f2 =[[UITabBarItem alloc]init];
-//    UITabBarItem *firstItem2 = [[UITabBarItem alloc]initWithTitle:@"Refresh" image:[UIImage imageNamed:@"refresh3.png"] tag:2];
-//    NSArray *itemsArray =[NSArray arrayWithObjects: firstItem0, fi, f2, firstItem2, nil];
-//    //
-//    [ntabbar setItems:itemsArray animated:YES];
-//    ntabbar.delegate = self;
-////    [[ntabbar.items objectAtIndex:0]setAction:@selector(gohome:) ];
-//    [[ntabbar.items objectAtIndex:1]setEnabled:NO ];
-//    [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
-////    [[ntabbar.items objectAtIndex:3] setAction:@selector(dorefresh:)];
-//    self.view.backgroundColor=[Mysql groupTableViewBackgroundColor];
-//}
 
 -(IBAction)dorefresh:(id)sender{
     [self getInfo];

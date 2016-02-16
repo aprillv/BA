@@ -65,10 +65,10 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     result=[[NSMutableArray alloc]init];
     result1=[[NSMutableArray alloc]init];
     [searchtxt setText:@""];
-//    [ciatbview removeFromSuperview];
     [self getPols];
 }
 
@@ -76,7 +76,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(IBAction)refreshPrject:(id)sender{
-    [ciatbview removeFromSuperview];
+    [ciatbview reloadData];
     [self getPols];
 }
 

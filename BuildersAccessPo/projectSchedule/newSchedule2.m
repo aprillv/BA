@@ -39,18 +39,20 @@
     UIActionSheet *actionSheet;
     NSDateFormatter *formatter;
     BOOL hasUpdateButton;
-    UIButton* loginButton;
+//    UIButton* loginButton;
     int donext;
 //    UIButton*  scanQRCodeButton;
 }
 - (IBAction)gotoSelectProject:(UIBarButtonItem *)sender;
+@property (strong, nonatomic) IBOutlet UIButton *loginButton;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraints;
 
 @end
 
 
 @implementation newSchedule2
 
-@synthesize xidproject, xidstep, tbview, pdate, ntabbar;
+@synthesize xidproject, xidstep, tbview, pdate, ntabbar, loginButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -113,10 +115,11 @@ tbview.separatorColor = [UIColor clearColor];
     if (wi) {
         [wi removeAllObjects];
         [self.tbview reloadData];
-        if (loginButton) {
-            [loginButton removeFromSuperview];
-            loginButton = nil;
-        }
+        loginButton.hidden = YES;
+//        if (loginButton) {
+//            [loginButton removeFromSuperview];
+//            loginButton = nil;
+//        }
         tbview.separatorColor = [UIColor clearColor];
     }
     [self getMilestoneItem];
@@ -202,19 +205,10 @@ tbview.separatorColor = [UIColor clearColor];
                     xh += 54;
                 }
             }
-            if (loginButton) {
-                [loginButton removeFromSuperview];
-                loginButton = nil;
-            }
-            loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [loginButton setFrame:CGRectMake(10, xh+20, self.view.frame.size.width-20, 44)];
-            [loginButton setTitle:@"Update Schedule" forState:UIControlStateNormal];
-            [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
-            [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
-            [loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [loginButton addTarget:self action:@selector(doapprove1) forControlEvents:UIControlEventTouchUpInside];
-            [tbview addSubview:loginButton];
-            //        xheight=xheight+74;
+            loginButton.hidden = NO;
+        }else{
+            self.bottomConstraints.constant = 0.0;
+            [tbview updateConstraints];
             
         }
     }
@@ -256,19 +250,18 @@ tbview.separatorColor = [UIColor clearColor];
 }
 
 
-
--(void)doapprove1{
+- (IBAction)doapprove1:(id)sender {
     donext=1;
     [self doupdateCheck];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 //    NSLog(@"%d", [wi count]);
-    if (hasUpdateButton && [wi count]>0) {
-        return [wi count] + 1;
-    }else{
+//    if (hasUpdateButton && [wi count]>0) {
+//        return [wi count] + 1;
+//    }else{
         return [wi count];
-    }
+//    }
     
 }
 
@@ -502,14 +495,17 @@ tbview.separatorColor = [UIColor clearColor];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    
+    
     if (indexPath.row == [wi count]) {
-        return 80;
+        return 80*(font.pointSize/15.0);
     }
     wcfProjectSchedule *event =[wi objectAtIndex:(indexPath.row)];
     if (event.Notes!=nil) {
-       return 64;
+       return 64*(font.pointSize/15.0);
     }else{
-        return 54;
+        return 54*(font.pointSize/15.0);
     }
    
 }
@@ -759,8 +755,8 @@ tbview.separatorColor = [UIColor clearColor];
     [self doapprove];
     
 }
+- (void)doapprove {
 
--(void)doapprove{
     
     if ([wi2 count]>0) {
         UIAlertView *alert = [[UIAlertView alloc]

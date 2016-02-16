@@ -380,7 +380,7 @@
         [uv addSubview:lbl1];
         
         y = y+3;
-        lbl= [[UILabel alloc] initWithFrame: CGRectMake( 15, y, 250, 21)];
+        lbl= [[UILabel alloc] initWithFrame: CGRectMake( 15, y, self.view.frame.size.width-30, 21)];
         lbl.text= [NSString stringWithFormat:@"%@ ~ %@", pi.Part, pi.Des];;
         [uv addSubview: lbl];
         
@@ -492,7 +492,7 @@
     
     y=y+30;
     
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-20, 21)];
+    lbl =[[UILabel alloc]initWithFrame:CGRectMake(15, y, self.view.frame.size.width-30, 21)];
     lbl.text=@"Reason";
     lbl.textColor= [UIColor colorWithRed:0.30 green:0.34 blue:0.42 alpha:1.0];
     lbl.font=[UIFont systemFontOfSize:17.0];

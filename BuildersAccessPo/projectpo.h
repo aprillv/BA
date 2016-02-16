@@ -14,5 +14,7 @@
 @property (nonatomic, retain) NSString *idmaster;
 @property int xtype;
 @property int isfromdevelopment;
+@property (strong, nonatomic) IBOutlet UITabBar *ntabbar;
+@property (strong, nonatomic) IBOutlet UITableView *ciatbview;
 @property (nonatomic, retain) NSMutableArray* result;
 @end

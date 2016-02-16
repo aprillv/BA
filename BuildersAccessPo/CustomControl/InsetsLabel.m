@@ -12,7 +12,8 @@
 
 -(id) initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    
+    self.layer.backgroundColor = [UIColor whiteColor].CGColor;
+    self.layer.cornerRadius = 10.0;
     return self;
 }
 -(void) drawTextInRect:(CGRect)rect {

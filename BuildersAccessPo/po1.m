@@ -28,14 +28,6 @@
 
 @synthesize ntabbar, uv, idpo1, xcode, fromforapprove;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -155,20 +147,16 @@
         if ([pd.Shipto rangeOfString:@";"].location != NSNotFound) {
             NSArray *na =[pd.Shipto componentsSeparatedByString:@";"];
             
-            lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, ([na count]*22))];
-            lbl1.backgroundColor = [UIColor whiteColor];
-            lbl1.layer.cornerRadius =10.0;
-            [uv addSubview:lbl1];
+           
             
             lbl=[[InsetsLabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, ([na count]*22))];
            
             lbl.font=[UIFont systemFontOfSize:14.0];
             lbl.numberOfLines=0;
             lbl.text=[pd.Shipto stringByReplacingOccurrencesOfString:@";" withString:@"\n"];
-            [lbl sizeToFit];
-            CGRect f = lbl.frame;
-            f.size.width=(self.view.frame.size.width-20);
-            lbl1.frame=f;
+//            [lbl sizeToFit];
+           
+            
             [uv addSubview:lbl];
         }else{
             
@@ -180,8 +168,9 @@
            
             lbl.font=[UIFont systemFontOfSize:14.0];
             lbl.text=pd.Shipto;
-             [lbl sizeToFit];
+//             [lbl sizeToFit];
             CGRect f = lbl.frame;
+            
             f.size.width=(self.view.frame.size.width-20);
             lbl.frame=f;
             
@@ -189,9 +178,7 @@
         }
     }else{
       
-        lbl1=[[UIView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
-        lbl1.backgroundColor = [UIColor whiteColor];
-        lbl1.layer.cornerRadius =10.0;
+        lbl1=[[InsetsLabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 30)];
          [uv addSubview:lbl1];
     }
    
@@ -1009,7 +996,7 @@
       
             //[rtnlist addObject:@"Assign Vendor"];
         }else if([kv isEqualToString:@"Re-Assign Vendor"] || [kv isEqualToString:@"Assign Vendor"]){
-            assignVendor *next =[assignVendor alloc];
+            assignVendor *next =[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"assignVendor"];
             next.managedObjectContext=self.managedObjectContext;
             next.xpocode=self.xcode;
             next.xpoid=self.idpo1;

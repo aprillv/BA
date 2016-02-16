@@ -1721,7 +1721,7 @@
                               otherButtonTitles:@"OK", nil];
         [alert show];
     }else{
-        projectpo *cc =[[projectpo alloc]init];
+         projectpo *cc =[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"projectpo"];
           cc.idvendor=@"-1";
         cc.idproject=self.idproject;
         cc.result=poresult;

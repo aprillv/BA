@@ -23,81 +23,22 @@
     CustomKeyboard *keyboard;
     UIScrollView *uv;
     NSMutableArray* result1;
-    UITableView *ciatbview;
-    UISearchBar *searchBar;
-    UITabBar *ntabbar;
     int currentpage;
     int pageNo;
     MBProgressHUD *HUD;
 }
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UITableView *ciatbview;
+@property (strong, nonatomic) IBOutlet UITabBar *ntabbar;
 
 
 @end
 
 @implementation projectpols
 
-@synthesize idproject, result, xtatus, isfromdevelopment, idvendor;
+@synthesize idproject, result, xtatus, isfromdevelopment, idvendor, searchBar, ciatbview, ntabbar;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-- (void)loadView {
-    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-    view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    
-    searchBar= [[UISearchBar alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 44)];
-    [view addSubview: searchBar];
-    searchBar.delegate=self;
-    
-    keyboard=[[CustomKeyboard alloc]init];
-    keyboard.delegate=self;
-    [searchBar setInputAccessoryView:[keyboard getToolbarWithDone]];
-    
-    self.view = view;
-    
-    CGFloat screenWidth = view.frame.size.width;
-    CGFloat screenHieight = view.frame.size.height;
-    
-    ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-29, screenWidth, 49)];
-    
-    [view addSubview:ntabbar];
-    UITabBarItem *firstItem0 ;
-    if (isfromdevelopment==1) {
-        firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Development" image:[UIImage imageNamed:@"home.png"] tag:1];
-    }else  if (isfromdevelopment==0) {
-    firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Project" image:[UIImage imageNamed:@"home.png"] tag:1];
-    }else{
-    firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home.png"] tag:1];
-    }
-    
-    UITabBarItem *fi =[[UITabBarItem alloc]init];
-    UITabBarItem *f2 =[[UITabBarItem alloc]init];
-    UITabBarItem *firstItem2 = [[UITabBarItem alloc]initWithTitle:@"Refresh" image:[UIImage imageNamed:@"refresh3.png"] tag:2];
-    NSArray *itemsArray =[NSArray arrayWithObjects: firstItem0, fi, f2, firstItem2, nil];
-    
-    [ntabbar setItems:itemsArray animated:YES];
-    ntabbar.delegate = self;
-//    [[ntabbar.items objectAtIndex:0]setAction:@selector(gotoProject:) ];
-    [[ntabbar.items objectAtIndex:1]setEnabled:NO ];
-    [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
-//    [[ntabbar.items objectAtIndex:3] setAction:@selector(dorefresh:)];
-    
-    uv =[[UIScrollView alloc]initWithFrame:CGRectMake(0, 108, screenWidth, screenHieight - 93)];
-    
-    [view addSubview:uv];
-    
-    view.backgroundColor=[UIColor whiteColor];
-    
-    [self.navigationItem setHidesBackButton:YES];
-    [self.navigationItem setLeftBarButtonItem:[self getbackButton]];
-    
-//    uv.backgroundColor=[Mysql groupTableViewBackgroundColor];
-}
+
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     if (item.tag == 1) {
@@ -135,6 +76,17 @@
     }else{
         [self setTitle:[NSString stringWithFormat:@"%@ POs", self.xtatus]];
     }
+    
+    if (isfromdevelopment == 0) {
+        [[ntabbar.items objectAtIndex:0] setTitle:@"Project" ];
+    }else{
+        [[ntabbar.items objectAtIndex:0] setTitle:@"Development" ];
+    }
+    
+    
+    [self.navigationItem setHidesBackButton:YES];
+    [self.navigationItem setLeftBarButtonItem:[self getbackButton]];
+    
     if (!idvendor) {
         idvendor=@"";
     }
@@ -142,6 +94,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     result=nil;
     result1=nil;
     [searchBar setText:@""];
@@ -238,25 +191,13 @@
         result1=result;
         
         
-        if (ciatbview ==nil) {
-            if (self.view.frame.size.height>480) {
-                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325+87)];
-                uv.contentSize=CGSizeMake(self.view.frame.size.width,326+87);
-            }else{
-                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 325)];
-                uv.contentSize=CGSizeMake(self.view.frame.size.width,326);
-            }
-//            uv.backgroundColor=[Mysql groupTableViewBackgroundColor];
-//            ciatbview.layer.cornerRadius = 10;
-            ciatbview.tag = 2;
-            ciatbview.rowHeight=82;
-            [uv addSubview: ciatbview];
-            ciatbview.delegate = self;
-            ciatbview.dataSource = self;
-        }else{
-            [uv addSubview: ciatbview];
+        
+            UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+            
+            ciatbview.rowHeight=82*(font.pointSize/15.0);
+//            [uv addSubview: ciatbview];
             [ciatbview reloadData];
-        }
+        
         [ntabbar setSelectedItem:nil];
     }else{
         [self getPols:(currentpage+1)];

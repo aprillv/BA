@@ -68,7 +68,9 @@ MBProgressHUD *HUD;
     
     lbl1 =[[UITableView alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 28)];
     lbl1.layer.cornerRadius = 7;
-    lbl1.rowHeight=28;
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    
+    lbl1.rowHeight=28*(font.pointSize/15.0);
     y=y+32+x;
     
     lbl =[[UILabel alloc]initWithFrame:CGRectMake(10, y, self.view.frame.size.width-20, 21)];

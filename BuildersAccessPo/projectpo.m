@@ -23,8 +23,6 @@
 @interface projectpo ()<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, MBProgressHUDDelegate, UITabBarDelegate>{
     
     UIScrollView *uv;
-    UITableView *ciatbview;
-    UITabBar *ntabbar;
     MBProgressHUD * HUD;
     bool isfirsttime;
     int selectedrow;
@@ -36,64 +34,8 @@ int currentpage, pageno;
 
 @implementation projectpo
 
-@synthesize  idproject,xtype, idmaster, isfromdevelopment,result, idvendor;
+@synthesize  idproject,xtype, idmaster, isfromdevelopment,result, idvendor, ciatbview, ntabbar;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)loadView {
-    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
-    view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    
-    
-    self.view = view;
-    CGFloat screenWidth = view.frame.size.width;
-    CGFloat screenHieight = view.frame.size.height;
-    
-    ntabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, screenHieight-29, screenWidth, 49)];
-    
-    [view addSubview:ntabbar];
-    UITabBarItem *firstItem0;
-      if (isfromdevelopment==0) {
-        firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Project" image:[UIImage imageNamed:@"home.png"] tag:1];
-    }else if (isfromdevelopment==1){
-        firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Development" image:[UIImage imageNamed:@"home.png"] tag:1];
-    }else{
-    firstItem0 = [[UITabBarItem alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home.png"] tag:1];
-    }
-    UITabBarItem *fi =[[UITabBarItem alloc]init];
-    UITabBarItem *f2 =[[UITabBarItem alloc]init];
-    UITabBarItem *firstItem2 = [[UITabBarItem alloc]initWithTitle:@"Refresh" image:[UIImage imageNamed:@"refresh3.png"] tag:2];
-    NSArray *itemsArray =[NSArray arrayWithObjects: firstItem0, fi, f2, firstItem2, nil];
-    
-    [ntabbar setItems:itemsArray animated:YES];
-    ntabbar.delegate = self;
-//    [[ntabbar.items objectAtIndex:0]setAction:@selector(gotoProject:) ];
-         [[ntabbar.items objectAtIndex:1]setEnabled:NO ];
-         [[ntabbar.items objectAtIndex:2]setEnabled:NO ];
-//    [[ntabbar.items objectAtIndex:3] setAction:@selector(dorefresh:)];
-    
-    
-    CGRect ct = CGRectMake(0, 64, screenWidth, screenHieight - 59);
-    uv =[[UIScrollView alloc]initWithFrame: ct];
-    ct.size.height += 1;
-    uv.contentSize = ct.size;
-    
-    [view addSubview:uv];
-    
-    view.backgroundColor=[UIColor whiteColor];
-    
-    [self.navigationItem setHidesBackButton:YES];
-    [self.navigationItem setLeftBarButtonItem:[self getbackButton]];
-    
-    
-}
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     if (item.tag == 1) {
         [self gotoProject:item];
@@ -114,23 +56,30 @@ int currentpage, pageno;
 - (void)viewDidLoad{
     [super viewDidLoad];
 	self.title=@"Purchase Order";
-    
+    [self.navigationItem setHidesBackButton:YES];
+    [self.navigationItem setLeftBarButtonItem:[self getbackButton]];
     if ([idproject isEqualToString:@"-1"]) {
         idproject=@"";
     }else if ([idvendor isEqualToString:@"-1"]){
         idvendor=@"";
     }
-        
+    
+    if (isfromdevelopment == 0) {
+        [[ntabbar.items objectAtIndex:0] setTitle:@"Project" ];
+    }else{
+        [[ntabbar.items objectAtIndex:0] setTitle:@"Development" ];
+    }
     if (result) {
          [self drawPage];
     }else{
-     [self getDetail];
+        [self getDetail];
     }
    
     isfirsttime=YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     if (isfirsttime) {
         isfirsttime=NO;
     }else{
@@ -272,49 +221,11 @@ int currentpage, pageno;
         lbl =[[UILabel alloc]initWithFrame:CGRectMake(20, 20, self.view.frame.size.width-20, 21)];
         lbl.text=@"Purchase Order not Found.";
         lbl.textColor=[UIColor redColor];
-        [uv addSubview:lbl];
+        [ciatbview addSubview:lbl];
     }else{
-        if (ciatbview ==nil) {
-            if (self.view.frame.size.height>480) {
-                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 370+84)];
-                uv.contentSize=CGSizeMake(self.view.frame.size.width,370+85);
-            }else{
-                ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 375)];
-                uv.contentSize=CGSizeMake(self.view.frame.size.width,371);
-            }
-            //        ciatbview.layer.cornerRadius = 10;
-            ciatbview.tag=2;
-            [uv addSubview:ciatbview];
-            ciatbview.delegate = self;
-            ciatbview.dataSource = self;
-            
-            //        if ([[userInfo getUserName] isEqualToString:@"roberto@buildersaccess.com"]) {
-            //            UIButton* loginButton;
-            //            loginButton= [UIButton buttonWithType:UIButtonTypeCustom];
-            //            if (self.view.frame.size.height>480) {
-            //                [loginButton setFrame:CGRectMake(10, 315+87, self.view.frame.size.width-20, 44)];
-            //            }else{
-            //                [loginButton setFrame:CGRectMake(10, 315, self.view.frame.size.width-20, 44)];
-            //            }
-            //
-            //            if (xtype==1) {
-            //                [loginButton setTitle:@"Request WPO" forState:UIControlStateNormal];
-            //            }else{
-            //                [loginButton setTitle:@"Request VPO" forState:UIControlStateNormal];
-            //            }
-            //
-            //            [loginButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
-            //            [loginButton setBackgroundImage:[[UIImage imageNamed:@"greenButton.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
-            //            [loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            //            [loginButton addTarget:self action:@selector(docreatevpo:) forControlEvents:UIControlEventTouchUpInside];
-            //            [uv addSubview:loginButton];
-            //        }
-            
-            
-        }else{
-            [uv addSubview: ciatbview];
+        
             [ciatbview reloadData];
-        }
+        
     }
    
    
@@ -603,7 +514,7 @@ int currentpage, pageno;
         wcfKeyValueItem *kv =[result objectAtIndex:selectedrow];
         
         if (![kv.Key isEqualToString:@"VPO Pending"]) {
-            projectpols *pl =[[projectpols alloc]init];
+            projectpols *pl =[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"projectpols"];
             pl.isfromdevelopment=self.isfromdevelopment;
             pl.managedObjectContext=self.managedObjectContext;
             pl.idvendor=self.idvendor;

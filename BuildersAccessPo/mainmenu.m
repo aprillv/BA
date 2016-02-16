@@ -708,9 +708,11 @@ NSString *atitle;
     }
 }
 -(void)viewWillDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
     [lbla removeFromSuperview];
 }
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [ntabbar setSelectedItem:nil];
 //    if (!lbla) {
 //        lbla =[UIButton buttonWithType:UIButtonTypeCustom];

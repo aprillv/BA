@@ -198,7 +198,7 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:Download_InstallLink]];
         
     }else{
-        [ciatbview removeFromSuperview];
+        [ciatbview reloadData];
         [self getcialistofcoforapprove];
     }
     
@@ -207,7 +207,7 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-//    [ciatbview removeFromSuperview];
+    [super viewWillAppear:animated];
     [self getcialistofcoforapprove];
 }
 

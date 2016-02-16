@@ -60,7 +60,7 @@ NSString* xget;
 //@synthesize checkButton;
 @synthesize pwd, pickerArray;
 
-//UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1);
+//UIColor(red: 220/255.01, green: 220/255.0, blue: 220/255.0, alpha: 1);
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	[super viewDidLoad];

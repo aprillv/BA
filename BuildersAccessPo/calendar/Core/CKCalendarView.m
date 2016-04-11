@@ -17,6 +17,7 @@
 #import "UIView+AnimatedFrame.h"
 #import "wcfKirbytileItem.h"
 #import <QuartzCore/QuartzCore.h>
+#import "BuildersAccess-Swift.h"
 
 @interface CKCalendarView () <CKCalendarHeaderViewDataSource, CKCalendarHeaderViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -953,12 +954,12 @@
     return count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (BAUITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger count = [[self events] count];
     
     if (count == 0) {
-        UITableViewCell *cell = [[self table] dequeueReusableCellWithIdentifier:@"noDataCell"];
+        BAUITableViewCell *cell = [[self table] dequeueReusableCellWithIdentifier:@"noDataCell"];
         [[cell textLabel] setTextAlignment:NSTextAlignmentCenter];
         [[cell textLabel] setTextColor:[UIColor colorWithWhite:0.2 alpha:0.8]];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -973,7 +974,7 @@
         return cell;
     }
     
-    UITableViewCell *cell = [[self table] dequeueReusableCellWithIdentifier:@"cell"];
+    BAUITableViewCell *cell = [[self table] dequeueReusableCellWithIdentifier:@"cell"];
     
         wcfKirbytileItem *event = [[self events] objectAtIndex:[indexPath row]];
         

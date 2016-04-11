@@ -471,7 +471,11 @@
 	- (SoapRequest*) xGetProject: (id <SoapDelegate>) handler xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia projectid: (NSString*) projectid xtype: (int) xtype EquipmentType: (NSString*) EquipmentType;
 	- (SoapRequest*) xGetProject: (id) target action: (SEL) action xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia projectid: (NSString*) projectid xtype: (int) xtype EquipmentType: (NSString*) EquipmentType;
 
-	/* Returns NSMutableArray*.  */
+/* Returns NSMutableArray*.  */
+- (SoapRequest*) xGetProjectContractFiles: (id <SoapDelegate>) handler xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia projectid: (NSString*) projectid EquipmentType: (NSString*) EquipmentType;
+- (SoapRequest*) xGetProjectContractFiles: (id) target action: (SEL) action xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia projectid: (NSString*) projectid EquipmentType: (NSString*) EquipmentType;
+
+/* Returns NSMutableArray*.  */
 	- (SoapRequest*) xGetProjectFiles: (id <SoapDelegate>) handler xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia projectid: (NSString*) projectid EquipmentType: (NSString*) EquipmentType;
 	- (SoapRequest*) xGetProjectFiles: (id) target action: (SEL) action xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia projectid: (NSString*) projectid EquipmentType: (NSString*) EquipmentType;
 

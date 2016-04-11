@@ -265,7 +265,7 @@ tbview.separatorColor = [UIColor clearColor];
     
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (BAUITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row >= [wi count] ) {
@@ -324,7 +324,7 @@ tbview.separatorColor = [UIColor clearColor];
 //        scanQRCodeButton.frame = CGRectMake(200.0f, 10.0f, 80.0f, 30.0f);
 //        scanQRCodeButton.backgroundColor = [UIColor redColor];
 //        [scanQRCodeButton setTitle:@"Hello" forState:UIControlStateNormal];
-////        UITableViewCell *cell= [tbview cellForRowAtIndexPath:selIndex];
+////        BAUITableViewCell *cell= [tbview cellForRowAtIndexPath:selIndex];
 //        [cell addSubview:scanQRCodeButton];
 ////        [scanQRCodeButton setHidden:YES];
 //        

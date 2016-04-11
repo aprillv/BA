@@ -29,6 +29,25 @@
     return self;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // Remove seperator inset
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    // Prevent the cell from inheriting the Table View's margin settings
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    
+    // Explictly set your cell's layout margins
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
+
 -(IBAction)goBack:(id)sender
 {
     
@@ -180,7 +199,7 @@
 //    [self.navigationController popToRootViewControllerAnimated:YES];
 //}
 
-//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(BAUITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 //{
 //    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 //        [cell setSeparatorInset:UIEdgeInsetsZero];

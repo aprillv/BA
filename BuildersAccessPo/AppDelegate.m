@@ -27,11 +27,14 @@
     controller.managedObjectContext = self.managedObjectContext;
     
     [[UITableView appearance] setLayoutMargins: UIEdgeInsetsZero];
-    [[UITableView appearance] setSeparatorInset:UIEdgeInsetsZero];
-    [[UITableView appearance] setPreservesSuperviewLayoutMargins:NO];
-    [[UITableViewCell appearance] setLayoutMargins:UIEdgeInsetsZero];
-    [[UITableViewCell appearance] setSeparatorInset:UIEdgeInsetsZero];
+    [[UITableView appearance] setSeparatorInset: UIEdgeInsetsZero];
+    [[UITableView appearance] setPreservesSuperviewLayoutMargins: NO];
+    [[UITableViewCell appearance] setLayoutMargins: UIEdgeInsetsZero];
+    [[UITableViewCell appearance] setSeparatorInset: UIEdgeInsetsZero];
     [[UITableViewCell appearance] setPreservesSuperviewLayoutMargins: NO];
+//    [[UITableView appearance] setSeparatorColor:[UIColor clearColor]];
+    [[UITableView appearance] setCellLayoutMarginsFollowReadableWidth:NO];
+//    [UITableViewCell appearance] setspe
 //    [[UITableView appearance] setCellLayoutMarginsFollowReadableWidth:NO];
     return YES;
 }

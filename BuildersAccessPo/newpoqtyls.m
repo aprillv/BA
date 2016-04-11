@@ -597,7 +597,7 @@ int y;
 //- (void)doneClicked{
 //    [uv setContentOffset:CGPointMake(0,0) animated:YES];
 //
-////    UITableViewCell * cell;
+////    BAUITableViewCell * cell;
 ////    for (int i=1; i<[result1 count]+1; i++) {
 ////        cell =[ciatbview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
 ////        for (UITextField *uf in cell.subviews) {

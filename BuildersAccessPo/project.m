@@ -35,6 +35,7 @@
 #import "projectPhotoFolder.h"
 #import "ProjectPhotoName.h"
 #import "newSchedule2.h"
+#import "projectContractFiles.h"
 
 @interface project ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate,MBProgressHUDDelegate, UITabBarDelegate>{
     MBProgressHUD *HUD;
@@ -448,6 +449,7 @@
     }else{
         wcfService* service = [wcfService service];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+//        NSLog(@"[userInfo getUserPwd] %@ %@", [userInfo getUserPwd], self.idproject);
         [service xGetProject:self action:@selector(xGetProjectHandler:) xemail:[userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] projectid: self.idproject xtype: 0 EquipmentType: @"3"];
         
     }
@@ -932,6 +934,9 @@
         if (result.coyn) {
             [qllist addObject:@"Change Order"];
         }
+        if (result.contractyn) {
+            [qllist addObject:[NSString stringWithFormat:@"Contract(%@)", result.contractCnt]];
+        }
         if ([result.Status isEqualToString:@"Sold"] || [result.Status isEqualToString:@"Closed"]) {
             [qllist addObject:@"Addendum C"];
         }
@@ -1105,15 +1110,15 @@
 
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (BAUITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BAUITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil){
         if (tableView.tag==30) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+            cell = [[BAUITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.selectionStyle = UITableViewCellSelectionStyleBlue;
             
@@ -1177,7 +1182,7 @@
                 cell.userInteractionEnabled = NO;
             }else{
                
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                    cell = [[BAUITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     cell.selectionStyle = UITableViewCellSelectionStyleBlue;                
                 cell.textLabel.font=[UIFont systemFontOfSize:16.0];
@@ -1201,7 +1206,7 @@
                 cell.userInteractionEnabled = NO;
             }else{
                 if (cell == nil){
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                    cell = [[BAUITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     cell.selectionStyle = UITableViewCellSelectionStyleBlue;                }
                 cell.textLabel.font=[UIFont systemFontOfSize:16.0];
@@ -1222,7 +1227,7 @@
         }else if(tableView.tag==10){
             if (result.Brochure) {
                 if (cell == nil){
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                    cell = [[BAUITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     cell.selectionStyle = UITableViewCellSelectionStyleBlue;                }
                 cell.textLabel.text =@"Download Brochure";
@@ -1256,7 +1261,7 @@
                 cell.userInteractionEnabled = NO;
             }else{
                 
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                    cell = [[BAUITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     cell.selectionStyle = UITableViewCellSelectionStyleBlue;                
                 wcfProjectFile *pf =[rtnfiles objectAtIndex:indexPath.row];
@@ -1267,7 +1272,7 @@
             }
         }else if(tableView.tag==15){
             if (cell == nil){
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                cell = [[BAUITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 cell.selectionStyle = UITableViewCellSelectionStyleBlue;            }
             cell.textLabel.font=[UIFont systemFontOfSize:16.0];
@@ -1285,7 +1290,7 @@
         
          }else if(tableView.tag==16){
             if (cell == nil){
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                cell = [[BAUITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 cell.selectionStyle = UITableViewCellSelectionStyleBlue;            }
             cell.textLabel.font=[UIFont systemFontOfSize:16.0];
@@ -1293,7 +1298,7 @@
              cell.textLabel.text=@"Suggest New Price";
          }else if(tableView.tag==57){
              if (cell == nil){
-                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                 cell = [[BAUITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
                  cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                  cell.selectionStyle = UITableViewCellSelectionStyleBlue;            }
              cell.textLabel.font=[UIFont systemFontOfSize:16.0];
@@ -1301,7 +1306,7 @@
              cell.textLabel.text=@"Task Due";
          }else if(tableView.tag==18){
              if (cell == nil){
-                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                 cell = [[BAUITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
                  cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                  cell.selectionStyle = UITableViewCellSelectionStyleBlue;            }
              cell.textLabel.font=[UIFont systemFontOfSize:16.0];
@@ -1309,7 +1314,7 @@
              cell.textLabel.text=result.Status;
          }else{
              if (cell == nil){
-                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                 cell = [[BAUITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
                  cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                  cell.selectionStyle = UITableViewCellSelectionStyleBlue;            }
              cell.textLabel.font=[UIFont systemFontOfSize:16.0];
@@ -1506,7 +1511,7 @@
 //                [alertViewWithProgressbar show];
             }else if (tbview.tag==15) {
                 
-                UITableViewCell *ccell = [tbview cellForRowAtIndexPath:indexPath];
+                BAUITableViewCell *ccell = [tbview cellForRowAtIndexPath:indexPath];
                 NSString *str =[qllist objectAtIndex:indexPath.row];
                 
                 NSString *surl;
@@ -1536,6 +1541,8 @@
                 }else if([str isEqualToString:@"Change Order"]){
                     
                     [self getCols];
+                }else if([str hasPrefix: @"Contract("]){
+                    [self gotoContractFiles: str];
                 }else if ([str isEqualToString:@"Preferred Vendors"]) {
                         developmentVendorLs *dl = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"developmentVendorLs"];
                         dl.managedObjectContext=self.managedObjectContext;
@@ -1629,6 +1636,123 @@
     
     
 }
+
+
+-(void)gotoContractFiles:(NSString *) str{
+    wcfService* service = [wcfService service];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [service xGetProjectContractFiles:self action: @selector(xGetProjectContractFilesHandler:)  xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] xidcia:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue]  projectid:idproject EquipmentType:@"3"];
+    
+}
+
+- (void) xGetProjectContractFilesHandler: (id) value {
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    // Handle errors
+    if([value isKindOfClass:[NSError class]]) {
+        NSError *error = value;
+        NSLog(@"%@", [error localizedDescription]);
+        UIAlertView *alert=[self getErrorAlert:@"We are temporarily unable to connect to BuildersAccess, please check your internet connection and try again. Thanks for your patience."];
+        [alert show];
+        return;
+    }
+    
+    // Handle faults
+    if([value isKindOfClass:[SoapFault class]]) {
+        SoapFault *sf =value;
+        NSLog(@"%@", [sf description]);
+        UIAlertView *alert = [self getErrorAlert: value];
+        [alert show];
+        return;
+    }
+    
+    wcfArrayOfProjectFile* result2 = (wcfArrayOfProjectFile*)value;
+    if (result2.count == 1) {
+        wcfProjectFile *item = [result2.items firstObject];
+        HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        [self.navigationController.view addSubview:HUD];
+        HUD.labelText=@"Download Project's Contract File...";
+        HUD.dimBackground = YES;
+        HUD.delegate = self;
+        [HUD show:YES];
+        //                alertViewWithProgressbar = [[AGAlertViewWithProgressbar alloc] initWithTitle:@"BuildersAccess" message:@"Download Project File..." delegate:self otherButtonTitles:nil];
+        
+        //                [alertViewWithProgressbar show];
+        NSString *str;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
+        
+        NSString *url1 = [NSString stringWithFormat:@"http://ws.buildersaccess.com/wsdownload.aspx?id=%@-%@&fs=%@&fname%@", item.ID, [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue], item.FSize, [item.FName stringByReplacingOccurrencesOfString:@" " withString:@""]];
+        wcfService* service = [wcfService service];
+        str=[[NSString stringWithFormat:@"%@ ~ %@", idproject, result.Name]stringByAddingPercentEscapesUsingEncoding:
+             NSASCIIStringEncoding];
+        
+        NSString* escapedUrlString =
+        [[NSString stringWithFormat:@"<view> %@", item.FName] stringByAddingPercentEscapesUsingEncoding:
+         NSASCIIStringEncoding];
+        
+        [service xAddUserLog:self action:@selector(xAddUserLogHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] logscreen: @"Project File" keyname: str filename: escapedUrlString EquipmentType: @"3"];
+        
+        NSURL *url = [NSURL URLWithString:url1];
+        [self downloadFile: url];
+        
+        //                NSData *data = [NSData dataWithContentsOfURL:url];
+    }else{
+        projectContractFiles *pl =[self .storyboard instantiateViewControllerWithIdentifier:@"projectContractFiles"];
+        pl.managedObjectContext=self.managedObjectContext;
+        pl.title=@"Contract Files";
+        pl.idproject = self.idproject;
+        pl.projectname = result.Name;
+        pl.fileListresult = result2.items;
+        
+        [self.navigationController pushViewController:pl animated:YES];
+    }
+    
+}
+
+-(void) downloadFile:(NSURL *)url
+{
+//    NSURL * url = [NSURL URLWithString:@"https://s3.amazonaws.com/hayageek/downloads/SimpleBackgroundFetch.zip"];
+    
+//    let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
+//    dispatch_async(dispatch_get_global_queue(qos, 0)) {
+//        let imageData = NSData(contentsOfURL: url)
+//        dispatch_async(dispatch_get_main_queue()){
+//            if url == self.imageURL{
+//                if imageData != nil{
+//                    self.image = UIImage(data: imageData!)
+//                }else{
+//                    self.image = nil
+//                }
+//            }
+//            
+//        }
+//    }
+    
+//    id qos = [QOS_CLASS_USER_INITIATED rawValue];
+    NSString *pdfname = @"tmp.pdf";
+    dispatch_async((dispatch_get_global_queue(0, 0)), ^{
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [data writeToFile:[self GetTempPath:pdfname] atomically:NO];
+            
+            BOOL exist = [self isExistsFile:[self GetTempPath:pdfname]];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
+            if (exist) {
+                HUD.progress=1;
+                [HUD hide];
+                
+                NSString *filePath = [self GetTempPath:pdfname];
+                NSURL *URL = [NSURL fileURLWithPath:filePath];
+                [self openDocumentInteractionController:URL];
+            }
+
+        });
+    });
+    
+}
+
+
+
 
 
 
@@ -1897,7 +2021,6 @@
             }
         }
 
-        
     }else if ( [HUD.labelText isEqualToString:@"Download Project Brochure..."]) {
         NSString*  str =[NSString stringWithFormat:@"http://ws.buildersaccess.com/brochure.aspx?email=%@&password=%@&idfloorplan=%@&idcia=%d", [userInfo getUserName], [userInfo getUserPwd], result.IDFloorplan, [userInfo getCiaId]];
         

@@ -24,6 +24,7 @@
 #import "cl_phone.h"
 #import "dowloadproject.h"
 #import "ProjectLsFromTaskDue.h"
+#import "BuildersAccess-Swift.h"
 
 @interface ciaList ()<MBProgressHUDDelegate, dowloadprojectDelegate, UITabBarDelegate>{
     MBProgressHUD *HUD;
@@ -150,26 +151,21 @@ int currentpage, pageno;
     
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (BAUITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BAUITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[BAUITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     }
-    
-    
     NSEntityDescription *cia =[ciaListresult objectAtIndex:indexPath.row];
-    NSString *idnm = [cia valueForKey:@"ciaid"];    
-    
+    NSString *idnm = [cia valueForKey:@"ciaid"];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ ~ %@", idnm, [cia valueForKey:@"cianame"]];
- 
-    
     [cell .imageView setImage:nil];
     return cell;
 

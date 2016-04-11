@@ -2253,7 +2253,28 @@
 		return _request;
 	}
 
-	/* Returns wcfProjectItem*.  */
+/* Returns NSMutableArray*.  */
+- (SoapRequest*) xGetProjectContractFiles: (id <SoapDelegate>) handler xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia projectid: (NSString*) projectid EquipmentType: (NSString*) EquipmentType
+{
+    return [self xGetProjectContractFiles: handler action: nil xemail: xemail xpassword: xpassword xidcia: xidcia projectid: projectid EquipmentType: EquipmentType];
+}
+
+- (SoapRequest*) xGetProjectContractFiles: (id) _target action: (SEL) _action xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia projectid: (NSString*) projectid EquipmentType: (NSString*) EquipmentType
+{
+    NSMutableArray* _params = [NSMutableArray array];
+    
+    [_params addObject: [[[SoapParameter alloc] initWithValue: xemail forName: @"xemail"] autorelease]];
+    [_params addObject: [[[SoapParameter alloc] initWithValue: xpassword forName: @"xpassword"] autorelease]];
+    [_params addObject: [[[SoapParameter alloc] initWithValue: xidcia forName: @"xidcia"] autorelease]];
+    [_params addObject: [[[SoapParameter alloc] initWithValue: projectid forName: @"projectid"] autorelease]];
+    [_params addObject: [[[SoapParameter alloc] initWithValue: EquipmentType forName: @"EquipmentType"] autorelease]];
+    NSString* _envelope = [Soap createEnvelope: @"xGetProjectContractFiles" forNamespace: self.namespace withParameters: _params withHeaders: self.headers];
+    SoapRequest* _request = [SoapRequest create: _target action: _action service: self soapAction: @"http://tempuri.org/IService/xGetProjectContractFiles" postData: _envelope deserializeTo: [[wcfArrayOfProjectFile alloc] autorelease]];
+    [_request send];
+    return _request;
+}
+
+/* Returns wcfProjectItem*.  */
 	- (SoapRequest*) xGetProject: (id <SoapDelegate>) handler xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia projectid: (NSString*) projectid xtype: (int) xtype EquipmentType: (NSString*) EquipmentType
 	{
 		return [self xGetProject: handler action: nil xemail: xemail xpassword: xpassword xidcia: xidcia projectid: projectid xtype: xtype EquipmentType: EquipmentType];

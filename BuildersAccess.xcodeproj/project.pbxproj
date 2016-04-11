@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		110D4D6F1BE304FA00542FEA /* taskDueSelProViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110D4D6E1BE304FA00542FEA /* taskDueSelProViewController.m */; };
 		1158DA7B1C44E9600022B2D5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1158DA7A1C44E9600022B2D5 /* Images.xcassets */; };
+		117BA0AF1CBBE24500751319 /* projectContractFiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 117BA0AE1CBBE24500751319 /* projectContractFiles.m */; };
 		11A861ED1BE48A72008E3292 /* NaviSearchTabBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861EC1BE48A72008E3292 /* NaviSearchTabBaseViewController.m */; };
 		11A861F01BE48BCE008E3292 /* ProjectLsFromTaskDue.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861EF1BE48BCE008E3292 /* ProjectLsFromTaskDue.m */; };
 		11A861F31BE49313008E3292 /* wcfArrayOfProjectTaskDue.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861F21BE49313008E3292 /* wcfArrayOfProjectTaskDue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		11A861F61BE49460008E3292 /* wcfProjectTaskDue.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A861F51BE49460008E3292 /* wcfProjectTaskDue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		11CD93081CBB6F3F008FB0D0 /* BAUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CD93071CBB6F3F008FB0D0 /* BAUITableViewCell.swift */; };
 		11E937321C6C234F00AD1801 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E937311C6C234F00AD1801 /* Launch Screen.xib */; };
 		9E0C7792179FBF7B00FB9A17 /* requestpoemail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0C7791179FBF7B00FB9A17 /* requestpoemail.m */; };
 		9E14BEFC16E0AE5A00490EA5 /* projectls.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E14BEFA16E0AE5A00490EA5 /* projectls.m */; };
@@ -298,6 +300,8 @@
 		110D4D6D1BE304FA00542FEA /* taskDueSelProViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskDueSelProViewController.h; sourceTree = "<group>"; };
 		110D4D6E1BE304FA00542FEA /* taskDueSelProViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taskDueSelProViewController.m; sourceTree = "<group>"; };
 		1158DA7A1C44E9600022B2D5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BuildersAccess/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		117BA0AD1CBBE24500751319 /* projectContractFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = projectContractFiles.h; sourceTree = "<group>"; };
+		117BA0AE1CBBE24500751319 /* projectContractFiles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = projectContractFiles.m; sourceTree = "<group>"; };
 		11A861EB1BE48A72008E3292 /* NaviSearchTabBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviSearchTabBaseViewController.h; sourceTree = "<group>"; };
 		11A861EC1BE48A72008E3292 /* NaviSearchTabBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviSearchTabBaseViewController.m; sourceTree = "<group>"; };
 		11A861EE1BE48BCE008E3292 /* ProjectLsFromTaskDue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectLsFromTaskDue.h; sourceTree = "<group>"; };
@@ -306,6 +310,8 @@
 		11A861F21BE49313008E3292 /* wcfArrayOfProjectTaskDue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wcfArrayOfProjectTaskDue.m; sourceTree = "<group>"; };
 		11A861F41BE49460008E3292 /* wcfProjectTaskDue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wcfProjectTaskDue.h; sourceTree = "<group>"; };
 		11A861F51BE49460008E3292 /* wcfProjectTaskDue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wcfProjectTaskDue.m; sourceTree = "<group>"; };
+		11CD93061CBB6F3E008FB0D0 /* BuildersAccess-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BuildersAccess-Bridging-Header.h"; sourceTree = "<group>"; };
+		11CD93071CBB6F3F008FB0D0 /* BAUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAUITableViewCell.swift; sourceTree = "<group>"; };
 		11E937311C6C234F00AD1801 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		9E0C7790179FBF7B00FB9A17 /* requestpoemail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = requestpoemail.h; sourceTree = "<group>"; };
 		9E0C7791179FBF7B00FB9A17 /* requestpoemail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = requestpoemail.m; sourceTree = "<group>"; };
@@ -1106,6 +1112,10 @@
 				9E1C833416E07A090011998B /* checkbutton.m */,
 				9E1A617E1716916E00E32F2A /* InsetsLabel.h */,
 				9E1A617F1716916E00E32F2A /* InsetsLabel.m */,
+				11CD93071CBB6F3F008FB0D0 /* BAUITableViewCell.swift */,
+				11CD93061CBB6F3E008FB0D0 /* BuildersAccess-Bridging-Header.h */,
+				117BA0AD1CBBE24500751319 /* projectContractFiles.h */,
+				117BA0AE1CBBE24500751319 /* projectContractFiles.m */,
 			);
 			path = CustomControl;
 			sourceTree = "<group>";
@@ -1627,6 +1637,7 @@
 		9E1C81D916E06F5B0011998B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = eloveit;
 				TargetAttributes = {
@@ -1770,6 +1781,7 @@
 				9E2543971721144200589124 /* forapprovepocials.m in Sources */,
 				9E25443A172128C600589124 /* forapprovepols.m in Sources */,
 				9E2AE4F61726679F007E61EA /* po1.m in Sources */,
+				117BA0AF1CBBE24500751319 /* projectContractFiles.m in Sources */,
 				9E16BB8B1727A1520045889F /* poemail.m in Sources */,
 				9E18944C1730DF2400CB50DE /* coforapprovecials.m in Sources */,
 				9E18944F1730FB2F00CB50DE /* contractforapprovecials.m in Sources */,
@@ -1784,6 +1796,7 @@
 				9E48CF75174386A200D70A14 /* suggestforapprove.m in Sources */,
 				9E48D1061743B39F00D70A14 /* disapprovesuggest.m in Sources */,
 				9E48D1D91743C84900D70A14 /* BuildersAccessPo.xcdatamodeld in Sources */,
+				11CD93081CBB6F3F008FB0D0 /* BAUITableViewCell.swift in Sources */,
 				9E178696174615EA009DE9A6 /* navViewController.m in Sources */,
 				9E6CAE401749EA0E002A79BC /* poassembly.m in Sources */,
 				9E6CAE431749F535002A79BC /* cl_assembly.m in Sources */,
@@ -2040,17 +2053,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BuildersAccessPo/BuildersAccess-Prefix.pch";
 				INFOPLIST_FILE = "BuildersAccessPo/BuildersAccess-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = BuildersAccess;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2bb3faba-abcb-40c6-ac29-62116378344b";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "BuildersAccessPo/CustomControl/BuildersAccess-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2060,17 +2077,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BuildersAccessPo/BuildersAccess-Prefix.pch";
 				INFOPLIST_FILE = "BuildersAccessPo/BuildersAccess-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = BuildersAccess;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2bb3faba-abcb-40c6-ac29-62116378344b";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "BuildersAccessPo/CustomControl/BuildersAccess-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

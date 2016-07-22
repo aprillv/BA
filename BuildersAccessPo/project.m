@@ -935,7 +935,10 @@
             [qllist addObject:@"Change Order"];
         }
         if (result.contractyn) {
-            [qllist addObject:[NSString stringWithFormat:@"Contract(%@)", result.contractCnt]];
+            if (![result.contractCnt isEqualToString:@"0"]){
+             [qllist addObject:[NSString stringWithFormat:@"Contract(%@)", result.contractCnt]];
+            }
+           
         }
         if ([result.Status isEqualToString:@"Sold"] || [result.Status isEqualToString:@"Closed"]) {
             [qllist addObject:@"Addendum C"];
@@ -1693,6 +1696,7 @@
         [service xAddUserLog:self action:@selector(xAddUserLogHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] logscreen: @"Project File" keyname: str filename: escapedUrlString EquipmentType: @"3"];
         
         NSURL *url = [NSURL URLWithString:url1];
+        turl = url;
         [self downloadFile: url];
         
         //                NSData *data = [NSData dataWithContentsOfURL:url];
@@ -2074,7 +2078,7 @@
 
         
     }
-	NSLog(@"xAddUserLog returned the value: %@", [NSNumber numberWithBool:value]);
+//	NSLog(@"xAddUserLog returned the value: %@", [NSNumber numberWithBool:value]);
     
      
 }
@@ -2098,9 +2102,10 @@
                                                                          @"Your %@ doesn't seem to have any other Apps installed that can open this document. Would you like to use safari to open it?"), deviceType];
         
         // Display alert
+//        turl = fileURL;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No suitable Apps installed", @"No suitable App installed")
                                                         message:message
-                                                       delegate:nil
+                                                       delegate:self
                                               cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:@"Continue", nil];
         alert.delegate=self;

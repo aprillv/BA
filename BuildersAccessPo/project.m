@@ -1043,20 +1043,40 @@
         pmEmailLs=[[NSMutableArray alloc]init];
         if (result.PM1) {
             [pmLs addObject:result.PM1];
+            if (result.PM1Email) {
             [pmEmailLs addObject:result.PM1Email];
+            }else{
+            [pmEmailLs addObject:@""];
+            }
+            
         }
         if (result.PM2) {
             [pmLs addObject:result.PM2];
-            [pmEmailLs addObject:result.PM2Email];
+//            [pmEmailLs addObject:result.PM2Email];
+            if (result.PM2Email) {
+                [pmEmailLs addObject:result.PM2Email];
+            }else{
+                [pmEmailLs addObject:@""];
+            }
         }
 //        NSLog(@"%@ %@ %@ %@", result.PM3, result.PM4, result.PM3Email, result.PM4Email);
         if (result.PM3) {
             [pmLs addObject:result.PM3];
-            [pmEmailLs addObject:result.PM3Email];
+//            [pmEmailLs addObject:result.PM3Email];
+            if (result.PM3Email) {
+                [pmEmailLs addObject:result.PM3Email];
+            }else{
+                [pmEmailLs addObject:@""];
+            }
         }
         if (result.PM4) {
             [pmLs addObject:result.PM4];
-            [pmEmailLs addObject:result.PM4Email];
+            if (result.PM4Email) {
+                [pmEmailLs addObject:result.PM4Email];
+            }else{
+                [pmEmailLs addObject:@""];
+            }
+//            [pmEmailLs addObject:result.PM4Email];
         }
         
         rtn=[pmLs count];

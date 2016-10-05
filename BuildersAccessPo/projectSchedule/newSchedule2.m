@@ -533,6 +533,7 @@ tbview.separatorColor = [UIColor clearColor];
         
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         [service xisupdate_iphone:self action:@selector(xisupdate_iphoneHandler:) version:version];
+//        [service xisupdate_iphone:self action:@selector(xisupdate_iphoneHandler:) version:version];
     }
     
 }

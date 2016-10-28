@@ -22,11 +22,30 @@
     //    NSLog(@"%d", [result1 count]);
     int i=0;
     while ([result1 count]>0 ) {
-        i=i-1;
+        i=i+1;
         kv =[result1 objectAtIndex:0];
         
-        steve = [NSEntityDescription insertNewObjectForEntityForName:@"DatProject" inManagedObjectContext:[self managedObjectContext]];
-        [steve setValue:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] forKey:@"idcia"];
+//        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"DatProject"inManagedObjectContext:self.managedObjectContext];
+//        [request setEntity:entity];
+//        
+//        
+//        NSString *str;
+//        str=[NSString stringWithFormat:@"idcia ='%d' and idnumber='%@'", [userInfo getCiaId], kv.IDNumber];
+//        NSPredicate *predicate = [NSPredicate predicateWithFormat: str];
+//        [request setPredicate:predicate];
+//        
+//        NSError *error = nil;
+//        NSMutableArray *mutableFetchResult = [[self.managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+//        if (mutableFetchResult != nil && [mutableFetchResult count] > 0 ) {
+//            steve = [mutableFetchResult firstObject];
+//        }else{
+            steve = [NSEntityDescription insertNewObjectForEntityForName:@"DatProject" inManagedObjectContext:[self managedObjectContext]];
+            [steve setValue:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] forKey:@"idcia"];
+//        }
+        
+        
+        
         [steve setValue:kv.IDNumber forKey:@"idnumber"];
         [steve setValue:kv.ProjectName forKey:@"name"];
         [steve setValue:kv.PlanName forKey:@"planname"];
@@ -50,6 +69,9 @@
         if ([[kv.IDNumber substringFromIndex:[kv.IDNumber length]-3]isEqualToString:@"000"]) {
             [steve setValue:@"-1" forKey:@"isactive"];
         }
+//        if (mutableFetchResult != nil) {
+//        [self.managedObjectContext save:&error];
+//        }
         
         [result1 removeObjectAtIndex:0];
         if (i==1000) {
@@ -89,7 +111,7 @@
         i=0;
     }
     
-    NSLog(@"%d", [result1 count]);
+//    NSLog(@"%d", [result1 count]);
     return YES;
 }
 

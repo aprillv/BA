@@ -380,6 +380,10 @@
     [HUD show:YES];
     iii=0;
     
+    cl_project *mp=[[cl_project alloc]init];
+    mp.managedObjectContext=self.managedObjectContext;
+    [mp deletaAll:xatype];
+    
     NSOperationQueue*  _queue=[[NSOperationQueue alloc] init];
     dowloadproject *operation=[[dowloadproject alloc] initDownloadWithPageNo:1  andxtype:xatype];
     operation.managedObjectContext=self.managedObjectContext;
@@ -427,6 +431,7 @@
     
     cl_project *mp=[[cl_project alloc]init];
     mp.managedObjectContext=self.managedObjectContext;
+//    [mp addToProject:tn andscheleyn:scheduleyn];
     
     if (pageno<5) {
         HUD.progress = 1;
@@ -434,6 +439,8 @@
             [HUD hide:YES];
             cl_sync *ms =[[cl_sync alloc]init];
             ms.managedObjectContext=self.managedObjectContext;
+            
+             [mp addToProject:tn andscheleyn:scheduleyn];
             
             [ntabbar setSelectedItem:nil];
             NSString *str;
@@ -489,6 +496,8 @@
             {
                 cl_sync *ms =[[cl_sync alloc]init];
                 ms.managedObjectContext=self.managedObjectContext;
+                
+                 [mp addToProject:tn andscheleyn:scheduleyn];
                 
                 [ntabbar setSelectedItem:nil];
                 NSString *str;

@@ -8,6 +8,7 @@
 #import "wcfArrayOfOrderDetail.h"
 @implementation wcfPODetail
 	@synthesize ApprovePayment = _ApprovePayment;
+@synthesize canApprovePayment = _canApprovePayment;
 	@synthesize AssignVendor = _AssignVendor;
 	@synthesize BudgetComparison = _BudgetComparison;
 	@synthesize CanEmail = _CanEmail;
@@ -50,6 +51,7 @@
 		if(self = [super init])
 		{
 			self.ApprovePayment = nil;
+            self.canApprovePayment = nil;
 			self.AssignVendor = nil;
 			self.BudgetComparison = nil;
 			self.Ciaid = nil;
@@ -95,6 +97,7 @@
 		if(self = [super initWithNode: node])
 		{
 			self.ApprovePayment = [Soap getNodeValue: node withName: @"ApprovePayment"];
+            self.canApprovePayment = [Soap getNodeValue: node withName: @"canApprovePayment"];
 			self.AssignVendor = [Soap getNodeValue: node withName: @"AssignVendor"];
 			self.BudgetComparison = [Soap getNodeValue: node withName: @"BudgetComparison"];
 			self.CanEmail = [[Soap getNodeValue: node withName: @"CanEmail"] boolValue];
@@ -155,6 +158,7 @@
 	{
 		NSMutableString* s = [super serializeElements];
 		if (self.ApprovePayment != nil) [s appendFormat: @"<ApprovePayment>%@</ApprovePayment>", [[self.ApprovePayment stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
+        if (self.canApprovePayment != nil) [s appendFormat: @"<canApprovePayment>%@</canApprovePayment>", [[self.canApprovePayment stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
 		if (self.AssignVendor != nil) [s appendFormat: @"<AssignVendor>%@</AssignVendor>", [[self.AssignVendor stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
 		if (self.BudgetComparison != nil) [s appendFormat: @"<BudgetComparison>%@</BudgetComparison>", [[self.BudgetComparison stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
 		[s appendFormat: @"<CanEmail>%@</CanEmail>", (self.CanEmail)?@"true":@"false"];
@@ -221,6 +225,7 @@
 	- (void) dealloc
 	{
 		if(self.ApprovePayment != nil) { [self.ApprovePayment release]; }
+        if(self.canApprovePayment != nil) { [self.canApprovePayment release]; }
 		if(self.AssignVendor != nil) { [self.AssignVendor release]; }
 		if(self.BudgetComparison != nil) { [self.BudgetComparison release]; }
 		if(self.Ciaid != nil) { [self.Ciaid release]; }

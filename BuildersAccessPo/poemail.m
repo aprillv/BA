@@ -654,8 +654,16 @@
         if(isfromassign){
             [service xUpdateUserPurchaseOrder:self action:@selector(xUpdateUserPurchaseOrderHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xtype: [[NSNumber numberWithInt:xtype]stringValue] update: @"1" vendorid: idvendor delivery: dl xlgsel:@"" xcode: xmcode EquipmentType: @"3"];
         }else{
-    
-    [service xUpdateUserPurchaseOrder:self action:@selector(xUpdateUserPurchaseOrderHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid:idpo1 xtype: [[NSNumber numberWithInt:xtype]stringValue] update: @"" vendorid: [[NSNumber numberWithInt:pd.Idvendor] stringValue] delivery: dl xlgsel:@"" xcode: xmcode EquipmentType: @"3"];
+//    NSLog(@"%@\n%@\n%@\n%@\n%@\n%@\n%@\n%@\n"
+//          , [userInfo getUserName]
+//          , [userInfo getUserPwd]
+//          , [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue]
+//          , idpo1, [[NSNumber numberWithInt:xtype]stringValue]
+//          , [[NSNumber numberWithLong:pd.Idvendor] stringValue]
+//          , dl
+//          , xmcode);
+//            return;
+    [service xUpdateUserPurchaseOrder:self action:@selector(xUpdateUserPurchaseOrderHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid:idpo1 xtype: [[NSNumber numberWithInt:xtype]stringValue] update: @"" vendorid: [[NSNumber numberWithLong:pd.Idvendor] stringValue] delivery: dl xlgsel:@"" xcode: xmcode EquipmentType: @"3"];
     
        }
 }

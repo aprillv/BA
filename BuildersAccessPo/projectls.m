@@ -366,8 +366,193 @@
 }
 
 
+//-(void)refreshProjectList:(int)xpageNo {
+//    
+//    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+//    HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
+//    [self.navigationController.view addSubview:HUD];
+//    HUD.labelText=[NSString stringWithFormat:@"Synchronizing %@...",self.title ];
+//    
+//    HUD.progress=0;
+//    [HUD layoutSubviews];
+//    HUD.dimBackground = YES;
+//    HUD.delegate = self;
+//    [HUD show:YES];
+//    iii=0;
+//    
+//    cl_project *mp=[[cl_project alloc]init];
+//    mp.managedObjectContext=self.managedObjectContext;
+//    [mp deletaAll:xatype];
+//    
+//    NSOperationQueue*  _queue=[[NSOperationQueue alloc] init];
+//    dowloadproject *operation=[[dowloadproject alloc] initDownloadWithPageNo:1  andxtype:xatype];
+//    operation.managedObjectContext=self.managedObjectContext;
+//    operation.delegate=self;
+//    [_queue addOperation:operation];
+//    operation=[[dowloadproject alloc] initDownloadWithPageNo:2 andxtype:xatype];
+//    operation.managedObjectContext=self.managedObjectContext;
+//    operation.delegate=self;
+//    [_queue addOperation:operation];
+//    operation=[[dowloadproject alloc] initDownloadWithPageNo:3 andxtype:xatype];
+//    operation.managedObjectContext=self.managedObjectContext;
+//    operation.delegate=self;
+//    [_queue addOperation:operation];
+//    operation=[[dowloadproject alloc] initDownloadWithPageNo:4 andxtype:xatype];
+//    operation.managedObjectContext=self.managedObjectContext;
+//    operation.delegate=self;
+//    [_queue addOperation:operation];
+//    operation=[[dowloadproject alloc] initDownloadWithPageNo:5 andxtype:xatype];
+//    operation.managedObjectContext=self.managedObjectContext;
+//    operation.delegate=self;
+//    [_queue addOperation:operation];
+//}
+//-(void)doexception{
+//    [HUD hide:YES];
+//    UIAlertView *alert=[self getErrorAlert:@"Synchronize error, please try again later. Thanks for your patience."];
+//    [alert show];
+//}
+//-(void)finishone:(NSMutableArray *)result andPageNo:(int)pagen{
+//    NSLog(@"=== %d", pagen);
+//    if (iii==0) {
+//        tn =[[NSMutableArray alloc]init];
+//    }
+//    iii+=1;
+//    wcfProjectListItem *kv;
+//    kv = (wcfProjectListItem *)[result objectAtIndex:0];
+//    pageno=kv.TotalPage;
+//    [result removeObjectAtIndex:0];
+//    if (!scheduleyn) {
+//        kv= (wcfProjectListItem *)[result objectAtIndex:0];
+//        scheduleyn=kv.IDNumber;
+//    }
+//    [result removeObjectAtIndex:0];
+//    
+//    if (pagen < pageno + 1  ) {
+//        [tn addObjectsFromArray:[result copy]];
+//    }
+//    
+//    
+//    cl_project *mp=[[cl_project alloc]init];
+//    mp.managedObjectContext=self.managedObjectContext;
+////    [mp addToProject:tn andscheleyn:scheduleyn];
+//    
+//    if (pageno<5) {
+//        HUD.progress = 1;
+//        if (iii==5) {
+//            [HUD hide:YES];
+//            cl_sync *ms =[[cl_sync alloc]init];
+//            ms.managedObjectContext=self.managedObjectContext;
+//            
+//             [mp addToProject:tn andscheleyn:scheduleyn];
+//            
+//            [ntabbar setSelectedItem:nil];
+//            NSString *str;
+//            switch (xatype) {
+//                case 1:
+//                    [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"1" :[[NSDate alloc] init]];
+//                    str=[NSString stringWithFormat:@"idcia ='%d' and status='Development'", [userInfo getCiaId]];
+//                    break;
+//                case 2:
+//                    [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"2" :[[NSDate alloc] init]];
+//                    str=[NSString stringWithFormat:@"idcia ='%d' and status<>'Development' and status<>'Closed' and isactive='1'", [userInfo getCiaId]];
+//                    break;
+//                case 3:
+//                    [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"3" :[[NSDate alloc] init]];
+//                    str=[NSString stringWithFormat:@"idcia ='%d' and status<>'Development' and status<>'Closed'  and isactive='0' ", [userInfo getCiaId]];
+//                    break;
+//                    
+//                default:
+//                    [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"4" :[[NSDate alloc] init]];
+//                    str=[NSString stringWithFormat:@"idcia ='%d' and status='Closed'", [userInfo getCiaId]];
+//                    break;
+//            }
+//            UILabel *lbl =(UILabel *)[ntabbar viewWithTag:14];
+//            lbl.text=[NSString stringWithFormat:@"Last Sync\n%@", [Mysql stringFromDate:[[NSDate alloc]init]]];
+//            
+//            
+//            self.rtnlist=[mp getProjectList:str];
+//            self.rtnlist1=self.rtnlist;
+////            [tbview reloadData];
+//            
+////            if (self.islocked==2) {
+////                if (![[self unlockPasscode] isEqualToString:@"0"] && ![[self unlockPasscode] isEqualToString:@"1"]) {
+////                    
+////                    [self.navigationItem setHidesBackButton:NO];
+////                    
+////                    [self enterPasscode:nil];
+////                }else{
+////                   
+////                }
+////                
+////            }else{
+////                rtnlist=[mp getProjectList:str];
+////                rtnlist1=rtnlist;
+////                [tbview reloadData];
+////            }
+//
+//        }
+//    }else{
+//        HUD.progress=iii*0.7/pageno;
+//        if (pageno==iii) {
+//            //            NSLog(@"%@", tn);
+//            
+//            {
+//                cl_sync *ms =[[cl_sync alloc]init];
+//                ms.managedObjectContext=self.managedObjectContext;
+//                
+//                 [mp addToProject:tn andscheleyn:scheduleyn];
+//                
+//                [ntabbar setSelectedItem:nil];
+//                NSString *str;
+//                switch (xatype) {
+//                    case 1:
+//                        [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"1" :[[NSDate alloc] init]];
+//                        str=[NSString stringWithFormat:@"idcia ='%d' and status='Development'", [userInfo getCiaId]];
+//                        break;
+//                    case 2:
+//                        [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"2" :[[NSDate alloc] init]];
+//                        str=[NSString stringWithFormat:@"idcia ='%d' and status<>'Development' and status<>'Closed' and isactive='1'", [userInfo getCiaId]];
+//                        break;
+//                    case 3:
+//                        [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"3" :[[NSDate alloc] init]];
+//                        str=[NSString stringWithFormat:@"idcia ='%d' and status<>'Development' and status<>'Closed'  and isactive='0' ", [userInfo getCiaId]];
+//                        break;
+//                        
+//                    default:
+//                        [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"4" :[[NSDate alloc] init]];
+//                        str=[NSString stringWithFormat:@"idcia ='%d' and status='Closed'", [userInfo getCiaId]];
+//                        break;
+//                }
+//                UILabel *lbl =(UILabel *)[ntabbar viewWithTag:14];
+//                lbl.text=[NSString stringWithFormat:@"Last Sync\n%@", [Mysql stringFromDate:[[NSDate alloc]init]]];
+//                
+//                if (self.islocked==2) {
+//                    if (![[self unlockPasscode] isEqualToString:@"0"] && ![[self unlockPasscode] isEqualToString:@"1"]) {
+//                        
+//                        [self.navigationItem setHidesBackButton:NO];
+//                        
+//                        [self enterPasscode:nil];
+//                    }else{
+//                        self.rtnlist=[mp getProjectList:str];
+//                        self.rtnlist1=self.rtnlist;
+////                        [tbview reloadData];
+//                    }
+//                    
+//                }else{
+//                    self.rtnlist=[mp getProjectList:str];
+//                    self.rtnlist1=self.rtnlist;
+////                    [tbview reloadData];
+//                }
+//
+//                HUD.progress=1;
+//            }
+//            [HUD hide:YES];
+//            
+//        }
+//    }
+//}
+
 -(void)refreshProjectList:(int)xpageNo {
-    
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
     [self.navigationController.view addSubview:HUD];
@@ -381,126 +566,149 @@
     iii=0;
     
     cl_project *mp=[[cl_project alloc]init];
-    mp.managedObjectContext=self.managedObjectContext;
-    [mp deletaAll:xatype];
+        mp.managedObjectContext=self.managedObjectContext;
+        [mp deletaAll:xatype];
     
     NSOperationQueue*  _queue=[[NSOperationQueue alloc] init];
-    dowloadproject *operation=[[dowloadproject alloc] initDownloadWithPageNo:1  andxtype:xatype];
+    dowloadproject *operation=[[dowloadproject alloc] initDownloadWithPageNo:1 andxtype: xatype];
     operation.managedObjectContext=self.managedObjectContext;
     operation.delegate=self;
     [_queue addOperation:operation];
-    operation=[[dowloadproject alloc] initDownloadWithPageNo:2 andxtype:xatype];
+    operation=[[dowloadproject alloc] initDownloadWithPageNo:2 andxtype: xatype];
     operation.managedObjectContext=self.managedObjectContext;
     operation.delegate=self;
     [_queue addOperation:operation];
-    operation=[[dowloadproject alloc] initDownloadWithPageNo:3 andxtype:xatype];
+    operation=[[dowloadproject alloc] initDownloadWithPageNo:3 andxtype: xatype];
     operation.managedObjectContext=self.managedObjectContext;
     operation.delegate=self;
     [_queue addOperation:operation];
-    operation=[[dowloadproject alloc] initDownloadWithPageNo:4 andxtype:xatype];
+    operation=[[dowloadproject alloc] initDownloadWithPageNo:4 andxtype: xatype];
     operation.managedObjectContext=self.managedObjectContext;
     operation.delegate=self;
     [_queue addOperation:operation];
-    operation=[[dowloadproject alloc] initDownloadWithPageNo:5 andxtype:xatype];
+    operation=[[dowloadproject alloc] initDownloadWithPageNo:5 andxtype: xatype];
     operation.managedObjectContext=self.managedObjectContext;
     operation.delegate=self;
     [_queue addOperation:operation];
+    
 }
+
 -(void)doexception{
-    [HUD hide:YES];
-    UIAlertView *alert=[self getErrorAlert:@"Synchronize error, please try again later. Thanks for your patience."];
-    [alert show];
+    
+    
+    if (![HUD isHidden]) {
+        HUD.hidden=YES;
+        [HUD hide];
+        UIAlertView *alert=[self getErrorAlert:@"We are temporarily unable to connect to BuildersAccess, please check your internet connection and try again. Thanks for your patience."];
+        
+        [alert show];
+    }
+    
 }
 -(void)finishone:(NSMutableArray *)result andPageNo:(int)pagen{
+    
     
     if (iii==0) {
         tn =[[NSMutableArray alloc]init];
     }
-    iii+=1;
+    
+    //    NSLog(@"%d -- %d", iii, result.count);
+    //
+    //    NSLog(@"%@", [result objectAtIndex:2]);
     wcfProjectListItem *kv;
-    kv = (wcfProjectListItem *)[result objectAtIndex:0];
-    pageno=kv.TotalPage;
-    [result removeObjectAtIndex:0];
-    if (!scheduleyn) {
-        kv= (wcfProjectListItem *)[result objectAtIndex:0];
-        scheduleyn=kv.IDNumber;
-    }
-    [result removeObjectAtIndex:0];
-    
-    [tn addObjectsFromArray:[result copy]];
-    
-    cl_project *mp=[[cl_project alloc]init];
-    mp.managedObjectContext=self.managedObjectContext;
-//    [mp addToProject:tn andscheleyn:scheduleyn];
-    
-    if (pageno<5) {
-        HUD.progress = 1;
-        if (iii==5) {
-            [HUD hide:YES];
-            cl_sync *ms =[[cl_sync alloc]init];
-            ms.managedObjectContext=self.managedObjectContext;
-            
-             [mp addToProject:tn andscheleyn:scheduleyn];
-            
-            [ntabbar setSelectedItem:nil];
-            NSString *str;
-            switch (xatype) {
-                case 1:
-                    [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"1" :[[NSDate alloc] init]];
-                    str=[NSString stringWithFormat:@"idcia ='%d' and status='Development'", [userInfo getCiaId]];
-                    break;
-                case 2:
-                    [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"2" :[[NSDate alloc] init]];
-                    str=[NSString stringWithFormat:@"idcia ='%d' and status<>'Development' and status<>'Closed' and isactive='1'", [userInfo getCiaId]];
-                    break;
-                case 3:
-                    [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"3" :[[NSDate alloc] init]];
-                    str=[NSString stringWithFormat:@"idcia ='%d' and status<>'Development' and status<>'Closed'  and isactive='0' ", [userInfo getCiaId]];
-                    break;
-                    
-                default:
-                    [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"4" :[[NSDate alloc] init]];
-                    str=[NSString stringWithFormat:@"idcia ='%d' and status='Closed'", [userInfo getCiaId]];
-                    break;
-            }
-            UILabel *lbl =(UILabel *)[ntabbar viewWithTag:14];
-            lbl.text=[NSString stringWithFormat:@"Last Sync\n%@", [Mysql stringFromDate:[[NSDate alloc]init]]];
-            
-            
-            self.rtnlist=[mp getProjectList:str];
-            self.rtnlist1=self.rtnlist;
-//            [tbview reloadData];
-            
-//            if (self.islocked==2) {
-//                if (![[self unlockPasscode] isEqualToString:@"0"] && ![[self unlockPasscode] isEqualToString:@"1"]) {
-//                    
-//                    [self.navigationItem setHidesBackButton:NO];
-//                    
-//                    [self enterPasscode:nil];
-//                }else{
-//                   
-//                }
-//                
-//            }else{
-//                rtnlist=[mp getProjectList:str];
-//                rtnlist1=rtnlist;
-//                [tbview reloadData];
-//            }
-
+    if (result.count>2) {
+        
+        kv = (wcfProjectListItem *)[result objectAtIndex:0];
+        pageno=kv.TotalPage;
+        //        NSLog(@"af %d", pageno);
+        [result removeObjectAtIndex:0];
+        if (!scheduleyn) {
+            kv= (wcfProjectListItem *)[result objectAtIndex:0];
+            scheduleyn=kv.IDNumber;
         }
-    }else{
-        HUD.progress=iii*0.7/pageno;
-        if (pageno==iii) {
-            //            NSLog(@"%@", tn);
+        [result removeObjectAtIndex:0];
+        
+        
+        if (pageno<5 ) {
+            if (pagen<=pageno) {
+                iii+=1;
+                //                NSLog(@"%d ppp %d ", iii, pagen);
+                [tn addObjectsFromArray:[result copy]];
+                
+                if (iii==pageno) {
+                    cl_project *mp=[[cl_project alloc]init];
+                    mp.managedObjectContext=self.managedObjectContext;
+                    [mp addToProject:tn andscheleyn:scheduleyn];
+                    HUD.progress=0.9;
+                    cl_sync *ms =[[cl_sync alloc]init];
+                    ms.managedObjectContext=self.managedObjectContext;
+                    [ms addToSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"1" :[[NSDate alloc] init]];
+                    [ms addToSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"2" :[[NSDate alloc] init]];
+                    [ms addToSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"3" :[[NSDate alloc] init]];
+                    [ms addToSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"4" :[[NSDate alloc] init]];
+                    
+                    
+                    HUD.progress = 1;
+                    [HUD hide:YES];
+                    
+                    NSString * str = @"";
+                    switch (xatype) {
+                        case 1:
+                            [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"1" :[[NSDate alloc] init]];
+                            str=[NSString stringWithFormat:@"idcia ='%d' and status='Development'", [userInfo getCiaId]];
+                            break;
+                        case 2:
+                            [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"2" :[[NSDate alloc] init]];
+                            str=[NSString stringWithFormat:@"idcia ='%d' and status<>'Development' and status<>'Closed' and isactive='1'", [userInfo getCiaId]];
+                            break;
+                        case 3:
+                            [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"3" :[[NSDate alloc] init]];
+                            str=[NSString stringWithFormat:@"idcia ='%d' and status<>'Development' and status<>'Closed'  and isactive='0' ", [userInfo getCiaId]];
+                            break;
+                            
+                        default:
+                            [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"4" :[[NSDate alloc] init]];
+                            str=[NSString stringWithFormat:@"idcia ='%d' and status='Closed'", [userInfo getCiaId]];
+                            break;
+                    }
+                    
+                    self.rtnlist=[mp getProjectList:str];
+                   self.rtnlist1=self.rtnlist;
+                    
+                }
+                
+            }else{
+                return;
+            }
             
-            {
+            
+        }else{
+            //             NSLog(@"%d", iii);
+            iii+=1;
+            [tn addObjectsFromArray:[result copy]];
+            
+            HUD.progress=iii*0.7/pageno;
+            if (pageno==iii) {
+                
+                
+                {
+                    cl_project *mp=[[cl_project alloc]init];
+                    mp.managedObjectContext=self.managedObjectContext;
+                    [mp addToProject:tn andscheleyn:scheduleyn];
+                    HUD.progress=0.9;
+                    cl_sync *ms =[[cl_sync alloc]init];
+                    ms.managedObjectContext=self.managedObjectContext;
+                    [ms addToSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"1" :[[NSDate alloc] init]];
+                    [ms addToSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"2" :[[NSDate alloc] init]];
+                    [ms addToSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"3" :[[NSDate alloc] init]];
+                    [ms addToSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"4" :[[NSDate alloc] init]];
+                    HUD.progress=1;
+                }
+                [HUD hide:YES];
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                
                 cl_sync *ms =[[cl_sync alloc]init];
-                ms.managedObjectContext=self.managedObjectContext;
-                
-                 [mp addToProject:tn andscheleyn:scheduleyn];
-                
-                [ntabbar setSelectedItem:nil];
-                NSString *str;
+                NSString * str = @"";
                 switch (xatype) {
                     case 1:
                         [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"1" :[[NSDate alloc] init]];
@@ -520,34 +728,56 @@
                         str=[NSString stringWithFormat:@"idcia ='%d' and status='Closed'", [userInfo getCiaId]];
                         break;
                 }
-                UILabel *lbl =(UILabel *)[ntabbar viewWithTag:14];
-                lbl.text=[NSString stringWithFormat:@"Last Sync\n%@", [Mysql stringFromDate:[[NSDate alloc]init]]];
-                
-                if (self.islocked==2) {
-                    if (![[self unlockPasscode] isEqualToString:@"0"] && ![[self unlockPasscode] isEqualToString:@"1"]) {
-                        
-                        [self.navigationItem setHidesBackButton:NO];
-                        
-                        [self enterPasscode:nil];
-                    }else{
-                        self.rtnlist=[mp getProjectList:str];
-                        self.rtnlist1=self.rtnlist;
-//                        [tbview reloadData];
-                    }
-                    
-                }else{
-                    self.rtnlist=[mp getProjectList:str];
-                    self.rtnlist1=self.rtnlist;
-//                    [tbview reloadData];
-                }
-
-                HUD.progress=1;
+                cl_project *mp=[[cl_project alloc]init];
+                self.rtnlist=[mp getProjectList:str];
+                self.rtnlist1=self.rtnlist;
             }
+        }
+    }else{
+        if (!HUD.isHidden) {
+            HUD.hidden=YES;
+            HUD.progress=0.9;
+            //            NSLog(@"cc %d", [userInfo getCiaId]);
+            cl_sync *ms =[[cl_sync alloc]init];
+            ms.managedObjectContext=self.managedObjectContext;
+            [ms addToSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"1" :[[NSDate alloc] init]];
+            [ms addToSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"2" :[[NSDate alloc] init]];
+            [ms addToSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"3" :[[NSDate alloc] init]];
+            [ms addToSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"4" :[[NSDate alloc] init]];
+            HUD.progress=1;
             [HUD hide:YES];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+//            cl_sync *ms =[[cl_sync alloc]init];
+            NSString * str = @"";
+            switch (xatype) {
+                case 1:
+                    [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"1" :[[NSDate alloc] init]];
+                    str=[NSString stringWithFormat:@"idcia ='%d' and status='Development'", [userInfo getCiaId]];
+                    break;
+                case 2:
+                    [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"2" :[[NSDate alloc] init]];
+                    str=[NSString stringWithFormat:@"idcia ='%d' and status<>'Development' and status<>'Closed' and isactive='1'", [userInfo getCiaId]];
+                    break;
+                case 3:
+                    [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"3" :[[NSDate alloc] init]];
+                    str=[NSString stringWithFormat:@"idcia ='%d' and status<>'Development' and status<>'Closed'  and isactive='0' ", [userInfo getCiaId]];
+                    break;
+                    
+                default:
+                    [ms updSync:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] :@"4" :[[NSDate alloc] init]];
+                    str=[NSString stringWithFormat:@"idcia ='%d' and status='Closed'", [userInfo getCiaId]];
+                    break;
+            }
+            cl_project *mp=[[cl_project alloc]init];
+            self.rtnlist=[mp getProjectList:str];
+            self.rtnlist1=self.rtnlist;
             
         }
+        
     }
+    
 }
+
 
 
 - (void) xSearchProjectSyncHandler: (id) value {

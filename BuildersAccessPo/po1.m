@@ -56,6 +56,7 @@
     }else{
         wcfService *service =[wcfService service];
         [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
+//        NSLog(@"%@\n%@\n%@\n%@\n%@\n", [userInfo getUserName], [userInfo getUserPwd], [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue], idpo1, xcode);
         [service xGetPODetail:self action:@selector(xGetPODetailHandler:) xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] xidcia:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid:idpo1 xcode:xcode EquipmentType:@"3"];
     }
     
@@ -877,6 +878,12 @@
 //@"Email Vendor"
 
 -(IBAction)doupdate1:(UIButton *)sender {
+//    NSLog(@"%@ \n %@", sender.currentTitle, pd.canApprovePayment);
+    if ([sender.currentTitle isEqualToString:@"Approve For Payment"] && [pd.canApprovePayment isEqualToString:@"0"]) {
+        UIAlertView *alert=[self getErrorAlert:@"Related task has not been finished."];
+        [alert show];
+        return;
+    }
     kv= sender.titleLabel.text;
     Reachability* curReach  = [Reachability reachabilityWithHostName: @"ws.buildersaccess.com"];
     NetworkStatus netStatus = [curReach currentReachabilityStatus];

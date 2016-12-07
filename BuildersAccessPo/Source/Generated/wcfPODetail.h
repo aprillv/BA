@@ -11,6 +11,7 @@
 @interface wcfPODetail : SoapObject
 {
 	NSString* _ApprovePayment;
+    NSString* _canApprovePayment;
 	NSString* _AssignVendor;
 	NSString* _BudgetComparison;
 	BOOL _CanEmail;
@@ -51,6 +52,7 @@
 }
 		
 	@property (retain, nonatomic) NSString* ApprovePayment;
+    @property (retain, nonatomic) NSString* canApprovePayment;
 	@property (retain, nonatomic) NSString* AssignVendor;
 	@property (retain, nonatomic) NSString* BudgetComparison;
 	@property BOOL CanEmail;

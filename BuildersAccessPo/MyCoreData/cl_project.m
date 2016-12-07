@@ -44,7 +44,9 @@
             [steve setValue:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] forKey:@"idcia"];
 //        }
         
-        
+//        if ([kv.IDNumber isEqualToString: @"110011"]) {
+//            NSLog(@"dfdsafsdfasdfasdf======");
+//        }
         
         [steve setValue:kv.IDNumber forKey:@"idnumber"];
         [steve setValue:kv.ProjectName forKey:@"name"];

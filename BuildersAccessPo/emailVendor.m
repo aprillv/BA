@@ -331,7 +331,7 @@
     }
 }
 
-- (void) xSendEmailHandler: (BOOL) value {
+- (void) xSendEmailHandler: (NSString *) value {
 //    [HUD hide:YES];
     
 	if (!value) {

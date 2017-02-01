@@ -2934,12 +2934,12 @@
 	}
 
 	/* Returns int.  */
-	- (SoapRequest*) xUpdateUserPurchaseOrder: (id <SoapDelegate>) handler xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia xpoid: (NSString*) xpoid xtype: (NSString*) xtype update: (NSString*) update vendorid: (NSString*) vendorid delivery: (NSString*) delivery xlgsel: (NSString*) xlgsel xcode: (NSString*) xcode EquipmentType: (NSString*) EquipmentType
+	- (SoapRequest*) xUpdateUserPurchaseOrder: (id <SoapDelegate>) handler xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia xpoid: (NSString*) xpoid xtype: (NSString*) xtype update: (NSString*) update vendorid: (NSString*) vendorid delivery: (NSString*) delivery xlgsel: (NSString*) xlgsel xcode: (NSString*) xcode EquipmentType: (NSString*) EquipmentType continueyn: (NSString*) continueyn
 	{
-		return [self xUpdateUserPurchaseOrder: handler action: nil xemail: xemail xpassword: xpassword xidcia: xidcia xpoid: xpoid xtype: xtype update: update vendorid: vendorid delivery: delivery xlgsel: xlgsel xcode: xcode EquipmentType: EquipmentType];
+        return [self xUpdateUserPurchaseOrder: handler action: nil xemail: xemail xpassword: xpassword xidcia: xidcia xpoid: xpoid xtype: xtype update: update vendorid: vendorid delivery: delivery xlgsel: xlgsel xcode: xcode EquipmentType: EquipmentType continueyn: continueyn];
 	}
 
-	- (SoapRequest*) xUpdateUserPurchaseOrder: (id) _target action: (SEL) _action xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia xpoid: (NSString*) xpoid xtype: (NSString*) xtype update: (NSString*) update vendorid: (NSString*) vendorid delivery: (NSString*) delivery xlgsel: (NSString*) xlgsel xcode: (NSString*) xcode EquipmentType: (NSString*) EquipmentType
+- (SoapRequest*) xUpdateUserPurchaseOrder: (id) _target action: (SEL) _action xemail: (NSString*) xemail xpassword: (NSString*) xpassword xidcia: (NSString*) xidcia xpoid: (NSString*) xpoid xtype: (NSString*) xtype update: (NSString*) update vendorid: (NSString*) vendorid delivery: (NSString*) delivery xlgsel: (NSString*) xlgsel xcode: (NSString*) xcode EquipmentType: (NSString*) EquipmentType continueyn: (NSString*) continueyn
 		{
 		NSMutableArray* _params = [NSMutableArray array];
 		
@@ -2954,8 +2954,9 @@
 		[_params addObject: [[[SoapParameter alloc] initWithValue: xlgsel forName: @"xlgsel"] autorelease]];
 		[_params addObject: [[[SoapParameter alloc] initWithValue: xcode forName: @"xcode"] autorelease]];
 		[_params addObject: [[[SoapParameter alloc] initWithValue: EquipmentType forName: @"EquipmentType"] autorelease]];
+        [_params addObject: [[[SoapParameter alloc] initWithValue: continueyn forName: @"continueyn"] autorelease]];
 		NSString* _envelope = [Soap createEnvelope: @"xUpdateUserPurchaseOrder" forNamespace: self.namespace withParameters: _params withHeaders: self.headers];
-		SoapRequest* _request = [SoapRequest create: _target action: _action service: self soapAction: @"http://tempuri.org/IService/xUpdateUserPurchaseOrder" postData: _envelope deserializeTo: @"int"];
+		SoapRequest* _request = [SoapRequest create: _target action: _action service: self soapAction: @"http://tempuri.org/IService/xUpdateUserPurchaseOrder" postData: _envelope deserializeTo: @"NSString"];
 		[_request send];
 		return _request;
 	}
@@ -2980,7 +2981,7 @@
 		[_params addObject: [[[SoapParameter alloc] initWithValue: EquipmentType forName: @"EquipmentType"] autorelease]];
 		[_params addObject: [[[SoapParameter alloc] initWithValue: xtype forName: @"xtype"] autorelease]];
 		NSString* _envelope = [Soap createEnvelope: @"xSendEmail" forNamespace: self.namespace withParameters: _params withHeaders: self.headers];
-		SoapRequest* _request = [SoapRequest create: _target action: _action service: self soapAction: @"http://tempuri.org/IService/xSendEmail" postData: _envelope deserializeTo: @"BOOL"];
+		SoapRequest* _request = [SoapRequest create: _target action: _action service: self soapAction: @"http://tempuri.org/IService/xSendEmail" postData: _envelope deserializeTo: @"NSString"];
 		[_request send];
 		return _request;
 	}
@@ -3004,7 +3005,7 @@
 		[_params addObject: [[[SoapParameter alloc] initWithValue: EquipmentType forName: @"EquipmentType"] autorelease]];
 		[_params addObject: [[[SoapParameter alloc] initWithValue: xtype forName: @"xtype"] autorelease]];
 		NSString* _envelope = [Soap createEnvelope: @"xSendMessage" forNamespace: self.namespace withParameters: _params withHeaders: self.headers];
-		SoapRequest* _request = [SoapRequest create: _target action: _action service: self soapAction: @"http://tempuri.org/IService/xSendMessage" postData: _envelope deserializeTo: @"BOOL"];
+		SoapRequest* _request = [SoapRequest create: _target action: _action service: self soapAction: @"http://tempuri.org/IService/xSendMessage" postData: _envelope deserializeTo: @"NSString"];
 		[_request send];
 		return _request;
 	}

@@ -389,7 +389,7 @@
 	[service xUpdateUserProfileWithoutPhoto:self action:@selector(xUpdateUserProfileWithoutPhotoHandler:) xemail: @"" xpassword: @"" title: @"" name: @"" fax: @"" mobile: @"" phone: @"" EquipmentType: @""];
 
 	// Returns int. 
-	[service xUpdateUserPurchaseOrder:self action:@selector(xUpdateUserPurchaseOrderHandler:) xemail: @"" xpassword: @"" xidcia: @"" xpoid: @"" xtype: @"" update: @"" vendorid: @"" delivery: @"" xlgsel: @"" xcode: @"" EquipmentType: @""];
+    [service xUpdateUserPurchaseOrder:self action:@selector(xUpdateUserPurchaseOrderHandler:) xemail: @"" xpassword: @"" xidcia: @"" xpoid: @"" xtype: @"" update: @"" vendorid: @"" delivery: @"" xlgsel: @"" xcode: @"" EquipmentType: @"" continueyn: @""];
 
 	// Returns NSString*. 
 	[service xUpdateVPO:self action:@selector(xUpdateVPOHandler:) xemail: @"" xpassword: @"" xidcia: @"" xidproject: @"" xidnumber: @"" toemail: @"" delivery: @"" notes: @"" total: @"" EquipmentType: @""];

@@ -768,11 +768,41 @@
             break;
         case 5:
             [self.navigationController popViewControllerAnimated:YES];
+            break;
+        case 6:
+            switch (buttonIndex) {
+                case 0:
+                    break;
+                default:
+                    [self todo2ndApproveForPayment];
+            }
+            break;
         default:
             break;
     }
 }
 
+-(void)todo2ndApproveForPayment{
+    Reachability* curReach  = [Reachability reachabilityWithHostName: @"ws.buildersaccess.com"];
+    NetworkStatus netStatus = [curReach currentReachabilityStatus];
+    if (netStatus ==NotReachable) {
+        [HUD hide:YES];
+        UIAlertView *alert=[self getErrorAlert:@"We are temporarily unable to connect to BuildersAccess, please check your internet connection and try again. Thanks for your patience."];
+        [alert show];
+    }else{
+        HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        [self.navigationController.view addSubview:HUD];
+        HUD.labelText=@"Updating...";
+        HUD.dimBackground = YES;
+        HUD.delegate = self;
+        [HUD show:YES];
+        
+        wcfService *service = [wcfService service];
+        
+        [service xUpdateUserPurchaseOrder:self action:@selector(doapprovea:) xemail:[userInfo getUserName]  xpassword:[userInfo getUserPwd] xidcia:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid:idpo1 xtype:@"1" update:@"" vendorid:@"" delivery:pd.Delivery xlgsel:@"" xcode:xcode EquipmentType:@"3" continueyn:@"1"];
+        NSLog(@"%@ %@", idpo1, xcode);
+    }
+}
 -(void)updpostatus: (NSString *)xtype2 andpartail:(NSString *)partail{
     Reachability* curReach  = [Reachability reachabilityWithHostName: @"ws.buildersaccess.com"];
     NetworkStatus netStatus = [curReach currentReachabilityStatus];
@@ -783,20 +813,44 @@
     }else{
         wcfService *service = [wcfService service];
         
-        [service xUpdateUserPurchaseOrder:self action:@selector(doapprovea:) xemail:[userInfo getUserName]  xpassword:[userInfo getUserPwd] xidcia:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid:idpo1 xtype:xtype2 update:@"" vendorid:@"" delivery:pd.Delivery xlgsel:partail xcode:xcode EquipmentType:@"3"];
+        [service xUpdateUserPurchaseOrder:self action:@selector(doapprovea:) xemail:[userInfo getUserName]  xpassword:[userInfo getUserPwd] xidcia:[[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid:idpo1 xtype:xtype2 update:@"" vendorid:@"" delivery:pd.Delivery xlgsel:partail xcode:xcode EquipmentType:@"3" continueyn:@"0"];
+        
+        NSLog(@"%@\n%@\n%@\n%@\n%@\n%@\n%@\n", [userInfo getUserName], [userInfo getUserPwd], [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue], idpo1, xtype2, pd.Delivery, xcode);
+        NSLog(@"fasdfasdf");
     }
-
-    
 }
--(IBAction)doapprovea: (BOOL) value {
+
+
+-(IBAction)doapprovea: (NSString*) value {
+    NSString* rtn = value;
+    //NSLog(@"%@", rtn);
     [HUD hide:YES];
 	if(!value){
         UIAlertView *alert =[self getErrorAlert:@"Update failed, please try it again later"];
         alert.tag=5;
         [alert show];
     }else{
+        if ([rtn isEqualToString:@"4"]) {
+            UIAlertView *alert = nil;
+            alert = [[UIAlertView alloc]
+                     initWithTitle:@"BuildersAccess"
+                     message:@"Related task has not been finished.\nDo you want to continue?"
+                     delegate:self
+                     cancelButtonTitle:@"Cancel"
+                     otherButtonTitles:@"Continue", nil];
+            alert.tag = 6;
+            [alert show];
+            
+        //
+        }else if ([rtn isEqualToString:@"5"]) {
+            [HUD hide:YES];
+            UIAlertView *alert =[self getErrorAlert:@"Related task has not been finished."];
+            alert.tag=5;
+            [alert show];
+        }else{
+            [self.navigationController popViewControllerAnimated:YES];
+        }
         
-        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
@@ -879,11 +933,11 @@
 
 -(IBAction)doupdate1:(UIButton *)sender {
 //    NSLog(@"%@ \n %@", sender.currentTitle, pd.canApprovePayment);
-    if ([sender.currentTitle isEqualToString:@"Approve For Payment"] && [pd.canApprovePayment isEqualToString:@"0"]) {
-        UIAlertView *alert=[self getErrorAlert:@"Related task has not been finished."];
-        [alert show];
-        return;
-    }
+    //if ([sender.currentTitle isEqualToString:@"Approve For Payment"] && [pd.canApprovePayment isEqualToString:@"0"]) {
+     //   UIAlertView *alert=[self getErrorAlert:@"Related task has not been finished."];
+     //   [alert show];
+     //   return;
+    //}
     kv= sender.titleLabel.text;
     Reachability* curReach  = [Reachability reachabilityWithHostName: @"ws.buildersaccess.com"];
     NetworkStatus netStatus = [curReach currentReachabilityStatus];

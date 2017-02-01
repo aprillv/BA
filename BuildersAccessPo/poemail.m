@@ -652,7 +652,7 @@
     
     wcfService *service=[wcfService service];
         if(isfromassign){
-            [service xUpdateUserPurchaseOrder:self action:@selector(xUpdateUserPurchaseOrderHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xtype: [[NSNumber numberWithInt:xtype]stringValue] update: @"1" vendorid: idvendor delivery: dl xlgsel:@"" xcode: xmcode EquipmentType: @"3"];
+            [service xUpdateUserPurchaseOrder:self action:@selector(xUpdateUserPurchaseOrderHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xtype: [[NSNumber numberWithInt:xtype]stringValue] update: @"1" vendorid: idvendor delivery: dl xlgsel:@"" xcode: xmcode EquipmentType: @"3" continueyn:@"0"];
         }else{
 //    NSLog(@"%@\n%@\n%@\n%@\n%@\n%@\n%@\n%@\n"
 //          , [userInfo getUserName]
@@ -663,7 +663,7 @@
 //          , dl
 //          , xmcode);
 //            return;
-    [service xUpdateUserPurchaseOrder:self action:@selector(xUpdateUserPurchaseOrderHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid:idpo1 xtype: [[NSNumber numberWithInt:xtype]stringValue] update: @"" vendorid: [[NSNumber numberWithLong:pd.Idvendor] stringValue] delivery: dl xlgsel:@"" xcode: xmcode EquipmentType: @"3"];
+    [service xUpdateUserPurchaseOrder:self action:@selector(xUpdateUserPurchaseOrderHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid:idpo1 xtype: [[NSNumber numberWithInt:xtype]stringValue] update: @"" vendorid: [[NSNumber numberWithLong:pd.Idvendor] stringValue] delivery: dl xlgsel:@"" xcode: xmcode EquipmentType: @"3" continueyn:@"0"];
     
        }
 }
@@ -729,15 +729,16 @@
 
             
             HUD.progress=0.01;
-            [service xSendEmail:self action:@selector(xSendEmailHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xto: dd1.titleLabel.text oldvendoremail: @"" xmsg: nmsg EquipmentType: @"3" xtype: [[NSNumber numberWithInt:xtype] stringValue]];
+              [service xSendEmail:self action:@selector(xSendEmailHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xto: @"april@buildersaccess.com" oldvendoremail: @"" xmsg: nmsg EquipmentType: @"3" xtype: [[NSNumber numberWithInt:xtype] stringValue]];
+//            [service xSendEmail:self action:@selector(xSendEmailHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xto: dd1.titleLabel.text oldvendoremail: @"" xmsg: nmsg EquipmentType: @"3" xtype: [[NSNumber numberWithInt:xtype] stringValue]];
 
-//             [service xSendEmail:self action:@selector(xSendEmailHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xto: @"xiujun_85@163.com" oldvendoremail: @"" xmsg: nmsg EquipmentType: @"3" xtype: [[NSNumber numberWithInt:xtype] stringValue]];
+//             [service xSendEmail:self action:@selector(xSendEmailHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xto: @"april@buildersaccess.com" oldvendoremail: @"" xmsg: nmsg EquipmentType: @"3" xtype: [[NSNumber numberWithInt:xtype] stringValue]];
         
         }
     }
 }
 
-- (void) xSendMessageHandler: (BOOL) value {
+- (void) xSendMessageHandler: (NSString*) value {
      [HUD hide:YES];
 	if (!value) {
         UIAlertView *alert=[self getErrorAlert:@"Send email unsuccessfully, please try it again later."];
@@ -760,7 +761,7 @@
     
 }
 
-- (void) xSendEmailHandler: (BOOL) value {
+- (void) xSendEmailHandler: (NSString*) value {
     
 	if (!value) {
         self.view.userInteractionEnabled=YES;

@@ -218,6 +218,7 @@ tbview.separatorColor = [UIColor clearColor];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
     // Return YES if you want the specified item to be editable.
     if (indexPath.row == [wi count]) {
         return NO;
@@ -290,18 +291,21 @@ tbview.separatorColor = [UIColor clearColor];
     
 //    NSLog(@"%@", event);
     if (!(![xidstep isEqualToString:@"-1"] && indexPath.row==0 && !event.DcompleteYN ) && event.canEdit) {
-        UIImageView *imageView;
-        if (event.DcompleteYN||event.DcompleteYN2) {
-            
-            imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checked.png"]];
-        }else {
-            event. DcompleteYN2=NO;
-            imageView=  [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"uncheck.png"]];
-        }
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleChecking:)];
-        [imageView addGestureRecognizer:tap];
-        imageView.userInteractionEnabled = YES; //added based on @John 's comment
-        cell.accessoryView = imageView;
+//        UIImageView *imageView;
+//        if (event.DcompleteYN||event.DcompleteYN2) {
+//            
+//            imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checked.png"]];
+//        }else {
+//            event. DcompleteYN2=NO;
+//            imageView=  [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"uncheck.png"]];
+//        }
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleChecking:)];
+//        [imageView addGestureRecognizer:tap];
+//        imageView.userInteractionEnabled = YES; //added based on @John 's comment
+//        cell.accessoryView = imageView;
+        cell.accessoryView = nil;
+        cell.accessoryType=UITableViewCellAccessoryNone;
+        [cell .imageView setImage:nil];
     }else{
         cell.accessoryView = nil;
         cell.accessoryType=UITableViewCellAccessoryNone;
@@ -510,7 +514,7 @@ tbview.separatorColor = [UIColor clearColor];
    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  
+    return;
 //    [self dochangeCheck:indexPath];
     
     selIndex=indexPath;

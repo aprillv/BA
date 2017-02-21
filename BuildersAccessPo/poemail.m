@@ -729,8 +729,8 @@
 
             
             HUD.progress=0.01;
-              [service xSendEmail:self action:@selector(xSendEmailHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xto: @"april@buildersaccess.com" oldvendoremail: @"" xmsg: nmsg EquipmentType: @"3" xtype: [[NSNumber numberWithInt:xtype] stringValue]];
-//            [service xSendEmail:self action:@selector(xSendEmailHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xto: dd1.titleLabel.text oldvendoremail: @"" xmsg: nmsg EquipmentType: @"3" xtype: [[NSNumber numberWithInt:xtype] stringValue]];
+//              [service xSendEmail:self action:@selector(xSendEmailHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xto: @"april@buildersaccess.com" oldvendoremail: @"" xmsg: nmsg EquipmentType: @"3" xtype: [[NSNumber numberWithInt:xtype] stringValue]];
+            [service xSendEmail:self action:@selector(xSendEmailHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xto: dd1.titleLabel.text oldvendoremail: @"" xmsg: nmsg EquipmentType: @"3" xtype: [[NSNumber numberWithInt:xtype] stringValue]];
 
 //             [service xSendEmail:self action:@selector(xSendEmailHandler:) xemail: [userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] xpoid: idpo1 xto: @"april@buildersaccess.com" oldvendoremail: @"" xmsg: nmsg EquipmentType: @"3" xtype: [[NSNumber numberWithInt:xtype] stringValue]];
         

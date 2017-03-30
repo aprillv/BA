@@ -66,6 +66,9 @@
     NSString* _requestvpo;
     NSString* _sqft;
     
+    BOOL _newinterior;
+    BOOL _newexterior;
+    
 }
 
 @property int ActiveUnits;
@@ -124,6 +127,8 @@
 @property BOOL poyn;
 @property (retain, nonatomic) NSString* requestvpo;
 @property (retain, nonatomic) NSString* sqft;
+@property BOOL newinterior;
+@property BOOL newexterior;
 
 + (wcfProjectItem*) newWithNode: (CXMLNode*) node;
 - (id) initWithNode: (CXMLNode*) node;

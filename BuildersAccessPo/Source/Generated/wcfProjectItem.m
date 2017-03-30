@@ -62,6 +62,8 @@
 @synthesize poyn = _poyn;
 @synthesize requestvpo = _requestvpo;
 @synthesize sqft = _sqft;
+@synthesize newexterior = _newexterior;
+@synthesize newinterior = _newinterior;
 
 - (id) init
 {
@@ -172,6 +174,8 @@
         self.coyn = [[Soap getNodeValue: node withName: @"coyn"] boolValue];
         self.mastercia = [Soap getNodeValue: node withName: @"mastercia"];
         self.poyn = [[Soap getNodeValue: node withName: @"poyn"] boolValue];
+        self.newinterior = [[Soap getNodeValue: node withName: @"newinterior"] boolValue];
+        self.newexterior = [[Soap getNodeValue: node withName: @"newexterior"] boolValue];
         self.requestvpo = [Soap getNodeValue: node withName: @"requestvpo"];
         self.sqft = [Soap getNodeValue: node withName: @"sqft"];
     }
@@ -251,6 +255,8 @@
     [s appendFormat: @"<coyn>%@</coyn>", (self.coyn)?@"true":@"false"];
     if (self.mastercia != nil) [s appendFormat: @"<mastercia>%@</mastercia>", [[self.mastercia stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
     [s appendFormat: @"<poyn>%@</poyn>", (self.poyn)?@"true":@"false"];
+     [s appendFormat: @"<newinterior>%@</newinterior>", (self.newinterior)?@"true":@"false"];
+     [s appendFormat: @"<newexterior>%@</newexterior>", (self.newexterior)?@"true":@"false"];
     if (self.requestvpo != nil) [s appendFormat: @"<requestvpo>%@</requestvpo>", [[self.requestvpo stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
     if (self.sqft != nil) [s appendFormat: @"<sqft>%@</sqft>", [[self.sqft stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
     

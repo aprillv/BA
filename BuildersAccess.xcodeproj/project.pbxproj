@@ -296,6 +296,19 @@
 		B1FBAFC717F032B9004D2B42 /* multiSearchRslt.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FBAFC617F032B9004D2B42 /* multiSearchRslt.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		42346E5A1EEF91CA00A2E911 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		110D4D6D1BE304FA00542FEA /* taskDueSelProViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taskDueSelProViewController.h; sourceTree = "<group>"; };
 		110D4D6E1BE304FA00542FEA /* taskDueSelProViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = taskDueSelProViewController.m; sourceTree = "<group>"; };
@@ -313,6 +326,9 @@
 		11CD93061CBB6F3E008FB0D0 /* BuildersAccess-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BuildersAccess-Bridging-Header.h"; sourceTree = "<group>"; };
 		11CD93071CBB6F3F008FB0D0 /* BAUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAUITableViewCell.swift; sourceTree = "<group>"; };
 		11E937311C6C234F00AD1801 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		42346E4E1EEF91CA00A2E911 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		42346E511EEF91CA00A2E911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		42346E531EEF91CA00A2E911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E0C7790179FBF7B00FB9A17 /* requestpoemail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = requestpoemail.h; sourceTree = "<group>"; };
 		9E0C7791179FBF7B00FB9A17 /* requestpoemail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = requestpoemail.m; sourceTree = "<group>"; };
 		9E14BEFA16E0AE5A00490EA5 /* projectls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = projectls.m; sourceTree = "<group>"; };
@@ -840,11 +856,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42346E4D1EEF91CA00A2E911 /* SendToBA */ = {
+			isa = PBXGroup;
+			children = (
+				42346E4E1EEF91CA00A2E911 /* ShareViewController.swift */,
+				42346E501EEF91CA00A2E911 /* MainInterface.storyboard */,
+				42346E531EEF91CA00A2E911 /* Info.plist */,
+			);
+			path = SendToBA;
+			sourceTree = "<group>";
+		};
 		9E1C81D816E06F5B0011998B = {
 			isa = PBXGroup;
 			children = (
 				11E937311C6C234F00AD1801 /* Launch Screen.xib */,
 				9E1C81EC16E06F5B0011998B /* BuildersAccess */,
+				42346E4D1EEF91CA00A2E911 /* SendToBA */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1621,6 +1648,7 @@
 				9E1C81DD16E06F5B0011998B /* Sources */,
 				9E1C81DE16E06F5B0011998B /* Frameworks */,
 				9E1C81DF16E06F5B0011998B /* Resources */,
+				42346E5A1EEF91CA00A2E911 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -1637,7 +1665,7 @@
 		9E1C81D916E06F5B0011998B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = eloveit;
 				TargetAttributes = {
@@ -1653,6 +1681,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 9E1C81D816E06F5B0011998B;
 			productRefGroup = 9E1C81E216E06F5B0011998B /* Products */;
@@ -1965,6 +1994,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		42346E501EEF91CA00A2E911 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42346E511EEF91CA00A2E911 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		9E1C81EF16E06F5B0011998B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2053,6 +2090,7 @@
 		9E1C820D16E06F5C0011998B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2080,6 +2118,7 @@
 		9E1C820E16E06F5C0011998B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

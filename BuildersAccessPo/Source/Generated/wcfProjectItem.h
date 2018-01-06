@@ -68,6 +68,8 @@
     
     BOOL _newinterior;
     BOOL _newexterior;
+    NSString* _newinteriorURL;
+    NSString* _newexteriorURL;
     
 }
 
@@ -129,6 +131,8 @@
 @property (retain, nonatomic) NSString* sqft;
 @property BOOL newinterior;
 @property BOOL newexterior;
+@property (retain, nonatomic) NSString* newinteriorURL;
+@property (retain, nonatomic) NSString* newexteriorURL;
 
 + (wcfProjectItem*) newWithNode: (CXMLNode*) node;
 - (id) initWithNode: (CXMLNode*) node;

@@ -64,7 +64,8 @@
 @synthesize sqft = _sqft;
 @synthesize newexterior = _newexterior;
 @synthesize newinterior = _newinterior;
-
+@synthesize newinteriorURL = _newinteriorURL;
+@synthesize newexteriorURL = _newexteriorURL;
 - (id) init
 {
     if(self = [super init])
@@ -176,6 +177,8 @@
         self.poyn = [[Soap getNodeValue: node withName: @"poyn"] boolValue];
         self.newinterior = [[Soap getNodeValue: node withName: @"newinterior"] boolValue];
         self.newexterior = [[Soap getNodeValue: node withName: @"newexterior"] boolValue];
+        self.newinteriorURL = [Soap getNodeValue: node withName: @"newinteriorURL"];
+        self.newexteriorURL = [Soap getNodeValue: node withName: @"newexteriorURL"];
         self.requestvpo = [Soap getNodeValue: node withName: @"requestvpo"];
         self.sqft = [Soap getNodeValue: node withName: @"sqft"];
     }
@@ -257,6 +260,9 @@
     [s appendFormat: @"<poyn>%@</poyn>", (self.poyn)?@"true":@"false"];
      [s appendFormat: @"<newinterior>%@</newinterior>", (self.newinterior)?@"true":@"false"];
      [s appendFormat: @"<newexterior>%@</newexterior>", (self.newexterior)?@"true":@"false"];
+     if (self.newinteriorURL != nil) [s appendFormat: @"<newinteriorURL>%@</newinteriorURL>", [[self.newinteriorURL stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
+    if (self.newexteriorURL != nil) [s appendFormat: @"<newexteriorURL>%@</newexteriorURL>", [[self.newexteriorURL stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
+    
     if (self.requestvpo != nil) [s appendFormat: @"<requestvpo>%@</requestvpo>", [[self.requestvpo stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
     if (self.sqft != nil) [s appendFormat: @"<sqft>%@</sqft>", [[self.sqft stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
     

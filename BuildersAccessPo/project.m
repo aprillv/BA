@@ -449,7 +449,7 @@
     }else{
         wcfService* service = [wcfService service];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-//        NSLog(@"[userInfo getUserPwd] %@ %@", [userInfo getUserPwd], self.idproject);
+        NSLog(@"[userInfo getUserPwd] %@ %@", [userInfo getUserPwd], self.idproject);
         [service xGetProject:self action:@selector(xGetProjectHandler:) xemail:[userInfo getUserName] xpassword: [userInfo getUserPwd] xidcia: [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] projectid: self.idproject xtype: 0 EquipmentType: @"3"];
         
     }
@@ -1591,7 +1591,12 @@
                         }
                         
                     }else if([str isEqualToString:@"Interior Selection Pictures"]){
-                        surl=[NSString stringWithFormat:@"http://www.buildersaccess.com/Intranet/net/viewselection.aspx?xidcia=%@&xidproject=%@&xtype=1", result.Elovecia, idproject];
+                        if ([result.newexteriorURL isEqualToString:@""]) {
+                            surl=[NSString stringWithFormat:@"http://www.buildersaccess.com/Intranet/net/viewselection.aspx?xidcia=%@&xidproject=%@&xtype=1", result.Elovecia, idproject];
+                        }else{
+                            surl= result.newinteriorURL;
+                        }
+                        
                     }else if([str isEqualToString:@"Exterior Selection List"]){
                         if (result.newexterior) {
                         surl=[NSString stringWithFormat:@"http://ws.buildersaccess.com/ExteriorSelectionList.aspx?email=%@&password=%@&idcia=%@&idproject=%@&mastercia=%@&EquipmentType=3&idfloorplan=%@",[userInfo getUserName],[userInfo getUserPwd], [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] , idproject, result.mastercia, result.IDFloorplan];

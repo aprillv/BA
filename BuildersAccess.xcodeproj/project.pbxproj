@@ -2130,7 +2130,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = BuildersAccess;
-				PROVISIONING_PROFILE = "80cc7fed-0df2-40c5-ac0e-5e13ab88f5c4";
+				PROVISIONING_PROFILE = "9e296c84-37d6-4076-9247-d3030cb77446";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2bb3faba-abcb-40c6-ac29-62116378344b";
 				PROVISIONING_PROFILE_SPECIFIER = BuildersAccess;
 				RUN_CLANG_STATIC_ANALYZER = NO;

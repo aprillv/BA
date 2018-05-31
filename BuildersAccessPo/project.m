@@ -1586,12 +1586,13 @@
                     if ([str isEqualToString:@"Interior Selection List"]) {
                         if (result.newinterior ) {
                             surl=[NSString stringWithFormat:@"http://ws.buildersaccess.com/interiorSelectionList.aspx?email=%@&password=%@&idcia=%@&idproject=%@&mastercia=%@&EquipmentType=3&idfloorplan=%@",[userInfo getUserName],[userInfo getUserPwd], [[NSNumber numberWithInt:[userInfo getCiaId]] stringValue] , idproject, result.mastercia, result.IDFloorplan];
+//                            NSLog(@"%@", surl);
                         }else{
                             surl=[NSString stringWithFormat:@"http://www.buildersaccess.com/Intranet/net/viewlist.aspx?xidcia=%@&xidproject=%@&xtype=1", result.Elovecia, idproject];
                         }
                         
                     }else if([str isEqualToString:@"Interior Selection Pictures"]){
-                        if ([result.newexteriorURL isEqualToString:@""]) {
+                        if (!result.newinterior) {
                             surl=[NSString stringWithFormat:@"http://www.buildersaccess.com/Intranet/net/viewselection.aspx?xidcia=%@&xidproject=%@&xtype=1", result.Elovecia, idproject];
                         }else{
                             surl= result.newinteriorURL;
@@ -1604,9 +1605,15 @@
                             surl=[NSString stringWithFormat:@"http://www.buildersaccess.com/Intranet/net/viewlist.aspx?xidcia=%@&xidproject=%@&xtype=2", result.Elovecia, idproject];
                         }
                     }else{
-                        surl=[NSString stringWithFormat:@"http://www.buildersaccess.com/Intranet/net/viewselection.aspx?xidcia=%@&xidproject=%@&xtype=2", result.Elovecia, idproject];
+                        if (!result.newexterior) {
+                            surl=[NSString stringWithFormat:@"http://www.buildersaccess.com/Intranet/net/viewselection.aspx?xidcia=%@&xidproject=%@&xtype=2", result.Elovecia, idproject];
+                        }else{
+                            surl= result.newexteriorURL;
+                        }
+                        
+                        
                     }
-                    NSLog(@"%@", surl);
+//                    NSLog(@"%@", surl);
                     website *LoginS=[self.storyboard instantiateViewControllerWithIdentifier:@"website"];
                     LoginS.managedObjectContext=self.managedObjectContext;
                     LoginS.title=ccell.textLabel.text;
